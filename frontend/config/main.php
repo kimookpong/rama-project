@@ -12,6 +12,12 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'encryptUrl' => [
+            'class' => 'common\components\EncryptUrl',
+        ],
+        'helpers' => [
+            'class' => 'common\components\Helpers',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
@@ -44,6 +50,22 @@ return [
             ],
         ],
         */
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                [
+                    'class' => 'common\components\EncryptUrl',
+                    'pattern' => '',
+                    'route' => 'site/index',
+                    'skey' => '1398E0BD96B3A75FA01A28C4B5E31549709B372DB5881832CA286C78D6633A5D'
+                ],
+            ],
+
+        ],
+
     ],
     'params' => $params,
 ];

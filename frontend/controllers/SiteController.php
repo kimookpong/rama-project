@@ -141,8 +141,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAbout()
+    public function actionAbout($id = null)
     {
+        echo $id;
         return $this->render('about');
     }
 
