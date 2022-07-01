@@ -1,78 +1,43 @@
-'use strict'
-
-let log = console.log.bind(console),
-  id = val => document.getElementById(val),
-  ul = id('ul'),
-  gUMbtn = id('gUMbtn'),
-  start = id('start'),
-  stop = id('stop'),
-  stream,
-  recorder,
-  counter=1,
-  chunks,
-  media;
-
-
-gUMbtn.onclick = e => {
-  let mv = id('mediaVideo'),
-      mediaOptions = {
-        video: {
-          tag: 'video',
-          type: 'video/webm',
-          ext: '.mp4',
-          gUM: {video: true, audio: true}
-        },
-        audio: {
-          tag: 'audio',
-          type: 'audio/ogg',
-          ext: '.ogg',
-          gUM: {audio: true}
-        }
-      };
-  media = mv.checked ? mediaOptions.video : mediaOptions.audio;
-  navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
-    stream = _stream;
-    id('gUMArea').style.display = 'none';
-    id('btns').style.display = 'inherit';
-    start.removeAttribute('disabled');
-    recorder = new MediaRecorder(stream);
-    recorder.ondataavailable = e => {
-      chunks.push(e.data);
-      if(recorder.state == 'inactive')  makeLink();
-    };
-    log('got media successfully');
-  }).catch(log);
-}
-
-start.onclick = e => {
-  start.disabled = true;
-  stop.removeAttribute('disabled');
-  chunks=[];
+const recordAudio = () =>
+  new Promise(async resolve => {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const mediaRecorder = new MediaRecorder(stream);
+    const audioChunks = [];
+    mediaRecorder.addEventListener("dataavailable", event => {
+      audioChunks.push(event.data);
+    });
+    const start = () => mediaRecorder.start();
+    const stop = () =>
+      new Promise(resolve => {
+        mediaRecorder.addEventListener("stop", () => {
+          const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+          const play = () => audio.play();
+          resolve({ audioBlob, audioUrl, play });
+        });
+        mediaRecorder.stop();
+      });
+    resolve({ start, stop });
+  });
+const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+const handleAction = async (timeRecord,inputFile,inputText,formName) => {
+  const recorder = await recordAudio();
   recorder.start();
-}
 
+  StartTextToSpeech(timeRecord,inputText);
 
-stop.onclick = e => {
-  stop.disabled = true;
-  recorder.stop();
-  start.removeAttribute('disabled');
-}
+  console.log('start record voice');
+  await sleep(timeRecord*1000);
+  const audio = await recorder.stop();
+  console.log('stop record voice');
+  createDownloadLink(audio.audioBlob,inputFile);
 
-
-
-function makeLink(){
-  let blob = new Blob(chunks, {type: media.type })
-    , url = URL.createObjectURL(blob)
-    , li = document.createElement('li')
-    , mt = document.createElement(media.tag)
-    , hf = document.createElement('a')
-  ;
-  mt.controls = true;
-  mt.src = url;
-  hf.href = url;
-  hf.download = `${counter++}${media.ext}`;
-  hf.innerHTML = `donwload ${hf.download}`;
-  li.appendChild(mt);
-  li.appendChild(hf);
-  ul.appendChild(li);
+  document.getElementById(formName).submit();
+};
+function createDownloadLink(audio_blob,inputFile) {
+  let file = new File([audio_blob], "filename");
+  let container = new DataTransfer();
+  container.items.add(file);
+  document.getElementById(inputFile).files = container.files;
 }

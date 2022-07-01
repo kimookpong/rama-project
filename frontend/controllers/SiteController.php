@@ -15,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use \yii\web\UploadedFile;
 
 /**
  * Site controller
@@ -143,8 +144,46 @@ class SiteController extends Controller
      */
     public function actionAbout($id = null)
     {
-        echo $id;
+        $path = Yii::getAlias('@webroot') . '/records' . '/';
+        if (Yii::$app->request->post()) {
+            $file = UploadedFile::getInstanceByName('file_audio');
+            $file_audio = '';
+            if ($file) {
+                $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.wav';
+                if ($file->saveAs($path . $fileName)) {
+                    $file_audio = $fileName;
+                }
+            }
+            $text = '';
+            if (!empty(Yii::$app->request->post('speech_text'))) {
+                $text = Yii::$app->request->post('speech_text');
+            }
+            return $this->render('result', [
+                'text' => trim($text),
+                'file_audio' => $file_audio,
+            ]);
+        }
         return $this->render('about');
+    }
+
+    public function actionSaveAudio()
+    {
+        if (isset($_FILES['audio_data'])) {
+
+            $fileName = "audio";
+
+            if (empty($_SESSION['foldername'])) {
+                $_SESSION['foldername']  = $_SERVER['DOCUMENT_ROOT'] . "/data/" . $_SESSION['username'];
+            }
+
+            $uploadDirectory = $_SESSION['foldername'] . '/' . $fileName;
+
+            if (!move_uploaded_file($_FILES['audio_data']["tmp_name"], $uploadDirectory)) {
+                echo (" problem moving uploaded file");
+            }
+
+            echo ($uploadDirectory);
+        }
     }
 
     /**

@@ -3,17 +3,24 @@
 /** @var yii\web\View $this */
 
 use yii\helpers\Html;
+use yii\bootstrap4\ActiveForm;
 
-$this->title = 'About';
+$this->title = 'ระบบทดสอบการบันทึกเสียงและตรวจจับข้อความ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-index">
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
+    <div class="jumbotron text-center bg-transparent">
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Yii::$app->helpers->decodeUrl('id') ?>
-    </p>
-    <code><?= __FILE__ ?></code>
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
+        <input type="file" accept="audio/*" name="file_audio" id="file_audio" style="display:none" />
+        <input type="hidden" id="speech_text" name="speech_text" />
+        <?php ActiveForm::end(); ?>
+
+
+        <p id="instructions"></p>
+
+        <p><button class="btn btn-lg btn-success" onclick="startAction(10);" id="counter">Click to speak in 10 sec.</button></p>
+    </div>
 </div>
