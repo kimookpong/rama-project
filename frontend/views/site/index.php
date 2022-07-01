@@ -4,12 +4,17 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron text-center bg-transparent">
+<div class="row">
+    <div class="col-md-10 p-lg-3 mx-auto text-center">
+        <h1 class="display-4 font-inter-bold">Brain.Test</h1>
+        <p class="title3">เครื่องมือทดสอบสมรรถนะสมองสำหรับประชาชน</p>
 
-        <p class="lead">ระบบทดสอบการบันทึกเสียงและตรวจจับข้อความ</p>
+        <div class="col-6 mx-auto py-3 mb-3">
+            <img src="images/logo.svg" class="img-fluid">
+        </div>
 
-        <p><a class="btn btn-lg btn-success" href="<?= Yii::getAlias('@web') ?>/site/about">ทดสอบฟังก์ชั่น</a></p>
+        <p class="">เครื่องมือทดสอบสมรรถนะสมองสำหรับประชาชน</p>
+        <a class="btn btn-lg rounded-pill btn-brain" href="<?= Yii::getAlias('@web') ?>/site/about">เริ่มการทดสอบ</a>
     </div>
 </div>

@@ -24,43 +24,50 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-braintest area">
     <?php $this->beginBody() ?>
-
     <header>
         <?php
         NavBar::begin([
-            'brandLabel' => 'Rama-Project',
+            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/logo.svg" height="40" class="bi me-2">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+                'class' => 'navbar navbar-expand-md fixed-top px-2 bg-braintest',
             ],
         ]);
         $menuItems = [
-            ['label' => 'ทดสอบฟังก์ชั่น', 'url' => ['/site/about', 'id' => 1, 'detail' => 'hakim']],
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'About', 'url' => ['/site/about', 'id' => 1, 'detail' => 'hakim']],
         ];
         echo Nav::widget([
-            'options' => ['class' => 'navbar-nav ml-auto'],
+            'options' => ['class' => 'navbar-nav ml-auto px-2'],
             'items' => $menuItems,
         ]);
         NavBar::end();
         ?>
     </header>
-
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
             <?= $content ?>
         </div>
     </main>
-
-    <footer class="footer mt-auto py-3 text-muted">
+    <!--
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    -->
+    <footer class="footer mt-auto text-muted">
         <div class="container">
-            <p class="float-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-            <p class="float-right"><?= Yii::powered() ?></p>
+            <p class="text-center my-1">&copy; 2022 Faculty of Medicine Ramathibadi Hospital, All rights reserved.</p>
         </div>
     </footer>
 

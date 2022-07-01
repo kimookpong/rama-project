@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
         <input type="file" accept="audio/*" name="file_audio" id="file_audio" style="display:none" />
-        <input type="hidden" id="speech_text" name="speech_text" />
+        <input class="form-control" type="text" id="speech_text" name="speech_text" />
         <?php ActiveForm::end(); ?>
 
 
