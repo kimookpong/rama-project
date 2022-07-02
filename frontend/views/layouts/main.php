@@ -36,7 +36,10 @@ AppAsset::register($this);
             ],
         ]);
         $menuItems = [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'หน้าแรก', 'url' => ['/site/index']],
+            ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
+            ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
+            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
             ['label' => 'About', 'url' => ['/site/about', 'id' => 1, 'detail' => 'hakim']],
         ];
         echo Nav::widget([
