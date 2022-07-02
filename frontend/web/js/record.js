@@ -25,7 +25,7 @@ const handleAction = async (timeRecord,inputFile,inputText,formName) => {
   const recorder = await recordAudio();
   recorder.start();
 
-  StartTextToSpeech(timeRecord,inputText);
+  //StartTextToSpeech(timeRecord,inputText);
 
   console.log('start record voice');
   await sleep(timeRecord*1000);

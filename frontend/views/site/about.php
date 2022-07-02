@@ -8,7 +8,7 @@ use yii\bootstrap4\ActiveForm;
 $this->title = 'ระบบทดสอบการบันทึกเสียงและตรวจจับข้อความ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="row">
 
     <div class="jumbotron text-center bg-transparent">
         <h1><?= Html::encode($this->title) ?></h1>
@@ -21,6 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p id="instructions"></p>
 
-        <p><button class="btn btn-lg btn-success" onclick="startAction(10);" id="counter">Click to speak in 10 sec.</button></p>
+        <p><button class="btn btn-lg btn-success" onclick="startAction(15);" id="counter">Click to speak in 15 sec.</button></p>
     </div>
 </div>

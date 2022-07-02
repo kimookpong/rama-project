@@ -2,19 +2,20 @@ var final_transcript = '';  // ตัวแปร สำหรับเก็บ
 var recognizing = false;  // กำหนดค่าเริ่มต้นการจดจำเสียง เริ่มต้น ให้เป็น false ไม่ทำงาน
 var language = 'th-TH';  // กำหนดภาษา th-TH,
 
-const StartTextToSpeech = async (timeRecord,inputText) => {
+const StartTextToSpeech = async (timeRecord,inputFile,inputText,formName) => {
     if (!('webkitSpeechRecognition' in window)) {
         alert("Your Browser does not support the Speech API");
     }else{
-
         var recognition = new webkitSpeechRecognition(); // สร้าง recognition object 
         recognition.continuous = true;         // กำหนด true ให้รับค่า จากเสียงไปเรื่อยๆ จนกว่าจะกดปุ่มหยุด
         recognition.interimResults = true;     // แสดงข้อความช่วงจังหวะหรือไม่ กรณีพูดยาวๆ
         recognition.lang = language;           // กำหนดภาษา จากตัวแปรด้านบน
+        //document.getElementById(inputText).value = 'ตรงนี้แล้ว';
+        recognition.start();
 
         recognition.onstart = function() {
             // เมื่อเกิดการเริ่มทำงานของการจดจำเสียง มาจากคำสั่ง recognition.start();
-            recognizing = true;  // เปลี่ยนค่าให้เริ่มทำการจดสับเสียงเป็น true เริ่มทำงาน
+            //recognizing = true;  // เปลี่ยนค่าให้เริ่มทำการจดสับเสียงเป็น true เริ่มทำงาน
             $('#instructions').html('Speak slowly and clearly'); // แสดงคำแนะนำ 
         };
 
@@ -26,7 +27,7 @@ const StartTextToSpeech = async (timeRecord,inputText) => {
         recognition.onend = function() {
             // ถ้าจบการทำงาน เช่นหยุดด้วยคำสั่ง recognition.stop();
             // หรือไม่ได้พูดเพื่อใช้งาน การจดจำเสียงนาน ก็จะหยุดการทำงานเอง
-            recognizing = false;  // กำหนดให้การจดจำเสียงอยูในสถานะหยุดการทำงาน
+            //recognizing = false;  // กำหนดให้การจดจำเสียงอยูในสถานะหยุดการทำงาน
             $('#instructions').html('Done'); // แสดงสถานะว่าเสร็จสิ้นแล้ว Done
         };
 
@@ -50,14 +51,17 @@ const StartTextToSpeech = async (timeRecord,inputText) => {
 
             if(final_transcript.length > 0) { // นับความยาวข้อความ ถ้ามากกว่า 0 แสดงว่ามีค่า
                 // ตัวแปร final_transcript คือค่าข้อความที่ได้ เอาไปใช้งานต่อได้
-                document.getElementById(inputText).value = final_transcript; // แสดงค่าใน textarea 
+                var input = document.getElementById(inputText);
+                input.value = final_transcript; // แสดงค่าใน textarea 
             }
         };
 
-        recognition.start();
-        console.log('start speech detect');
-        await sleep(timeRecord*1000);
-        recognition.stop();
-        console.log('stop speech detect');
+        
+        //console.log('start speech detect');
+        //await sleep(timeRecord*1000);
+        //recognition.stop();
+        //console.log('stop speech detect');
+
+        //document.getElementById(formName).submit();
     }
   };
