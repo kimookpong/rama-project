@@ -142,11 +142,17 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionTest()
+    public function actionPage1($id = null)
     {
-        echo '55555';
-
-        return $this->render('test');
+        return $this->render('page1');
+    }
+    public function actionPage2($id = null)
+    {
+        return $this->render('page2');
+    }
+    public function actionPage3($id = null)
+    {
+        return $this->render('page3');
     }
     public function actionAbout($id = null)
     {
