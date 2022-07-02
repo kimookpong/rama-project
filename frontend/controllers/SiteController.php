@@ -142,6 +142,12 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public function actionTest()
+    {
+        echo '55555';
+
+        return $this->render('test');
+    }
     public function actionAbout($id = null)
     {
         $path = Yii::getAlias('@webroot') . '/records' . '/';

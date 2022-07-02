@@ -11,7 +11,7 @@ $this->title = 'My Yii Application';
         <p class="font-inter">เครื่องมือทดสอบสมรรถนะสมองสำหรับประชาชน</p>
 
         <div class="col-6 mx-auto py-3 mb-3">
-            <img src="images/logo.svg" class="img-fluid">
+            <img src="<?= Yii::getAlias('@web') ?>/images/logo.svg" class="img-fluid">
         </div>
 
         <p class="">เครื่องมือทดสอบสมรรถนะสมองสำหรับประชาชน</p>
