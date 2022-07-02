@@ -11,7 +11,7 @@ $this->title = 'My Yii Application';
         <p class="font-inter">แบบคัดกรองสมองด้านการรู้คิดสำหรับประชาชน</p>
 
         <div class="col-6 mx-auto py-3 mb-3">
-            <img src="images/logo.svg" class="img-fluid">
+            <img src="<?= Yii::getAlias('@web') ?>/images/logo.svg" class="img-fluid">
         </div>
 
         <p class="">เครื่องมือนี้มีเป้าหมายเพื่อให้ประชาชนประเมินระดับความรู้คิดได้ด้วยตนเอง ถ้าผิดปกติแนะนำให้เข้าสู่ระบบสุขภาพเพื่อวินิจฉัย ตั้งแต่ระยะเริ่มต้นของโรคและชะลอการดำเนินโรค รวมถึงภาวะพึ่งพิง ในอนาคตได้</p>
