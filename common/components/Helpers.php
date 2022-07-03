@@ -4,6 +4,10 @@ namespace common\components;
 
 use yii;
 use yii\base\Component;
+use Google\Cloud\Speech\V1\SpeechClient;
+use Google\Cloud\Speech\V1\RecognitionAudio;
+use Google\Cloud\Speech\V1\RecognitionConfig;
+use Google\Cloud\Speech\V1\RecognitionConfig\AudioEncoding;
 
 class Helpers extends Component
 {
@@ -62,5 +66,61 @@ class Helpers extends Component
         } else {
             return json_decode($response, true);
         }
+    }
+
+    public function googleSpeechToText($audioFile)
+    {
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-speech-5a141959e0d6.json');
+
+        // change these variables if necessary
+        $encoding = AudioEncoding::WEBM_OPUS;
+        $sampleRateHertz = 48000;
+        $languageCode = 'th-TH';
+
+        // get contents of a file into a string
+        //$file_headers = get_headers($audioFile);
+        //if (strpos($file_headers[0], '404') == false) {
+
+
+        $content = file_get_contents($audioFile);
+
+        // set string as audio content
+        $audio = (new RecognitionAudio())
+            ->setContent($content);
+
+        // set config
+        $config = (new RecognitionConfig())
+            ->setEncoding($encoding)
+            ->setSampleRateHertz($sampleRateHertz)
+            ->setLanguageCode($languageCode);
+
+        // create the speech client
+        $client = new SpeechClient();
+
+        // create the asyncronous recognize operation
+        $operation = $client->longRunningRecognize($config, $audio);
+        $operation->pollUntilComplete();
+
+        if ($operation->operationSucceeded()) {
+            $response = $operation->getResult();
+            // each result is for a consecutive portion of the audio. iterate
+            // through them to get the transcripts for the entire audio file.
+            foreach ($response->getResults() as $result) {
+                $alternatives = $result->getAlternatives();
+                $mostLikely = $alternatives[0];
+                $transcript = $mostLikely->getTranscript();
+                $confidence = $mostLikely->getConfidence();
+                return $transcript;
+                //printf('Confidence: %s' . PHP_EOL, $confidence);
+            }
+        } else {
+            //print_r('error');
+            return print_r($operation->getError());
+        }
+
+        $client->close();
+        //} else {
+        //    return "File not Exists!";
+        //}
     }
 }
