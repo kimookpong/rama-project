@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php ActiveForm::end(); ?>
 
         <div class=" text-center my-4 " style="height: 64px;">
-            <div class="boxContainer mx-auto">
+            <div class="boxContainer mx-auto" id="boxContainer" style="display:none;">
                 <div class="box box1"></div>
                 <div class="box box2"></div>
                 <div class="box box3"></div>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p id="instructions"></p>
 
-        <p><button class="btn btn-lg btn-success" onclick="startAction(15);" id="start_button">Click to speak in 15 sec.</button></p>
+        <p><button class="btn btn-lg btn-success" onclick="document.getElementById('boxContainer').style.display = 'flex';startAction(15);" id="start_button">Click to speak in 15 sec.</button></p>
 
         <!--
         <div class="container">

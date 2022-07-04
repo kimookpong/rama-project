@@ -144,14 +144,13 @@ class SiteController extends Controller
      */
     public function actionGoogleSpeech()
     {
-        // $this->layout = false;
-
-        if (Yii::$app->request->post()) {
-            echo '<pre>';
-            print_r(Yii::$app->request->post('transcript'));
-            exit();
-        }
         return $this->render('google-speech');
+    }
+
+    public function actionJsonGoogleSpeech()
+    {
+        $this->layout = false;
+        return $this->render('json_google');
     }
     public function actionPage1($id = null)
     {

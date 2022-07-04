@@ -1,3 +1,15 @@
+function googleSpeech(audioUrl,returnID) {
+    document.getElementById(returnID).innerHTML = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>';
+    $.ajax({
+        url: "json-google-speech?url=" + audioUrl,
+        method: "GET",
+        success: function(data) {
+            document.getElementById(returnID).innerHTML = data;
+        }
+    });
+
+}
+
 var counter = 0;
 const startAction = async (timeRecord) => {
     handleAction(timeRecord,'file_audio','speech_text','form_voice');
@@ -11,3 +23,7 @@ const startAction = async (timeRecord) => {
     }
     setInterval(refreshTime, 1000);
 };
+
+
+
+
