@@ -14,17 +14,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p class="lead"><?= Html::encode($this->title) ?></p>
 
-        <p> ข้อความ: <span class="text-success">"<?= $text ?>"</span></p>
+        <p> ข้อความจาก Web Speech API: <span class="text-success">"<?= $text ?>"</span></p>
+        <p> ข้อความจาก Google Speech-to-text API: <?php //= Yii::$app->helpers->googleSpeechToText('https://waijaipos.com/rama-project/frontend/web/records/' . $file_audio) 
+                                                    ?></p>
 
         <p>
 
             แยกคำ: <span class="text-success">
                 <?php
-                $text_seperate = Yii::$app->helpers->wordcut($text);
-                if ($text_seperate) {
-                    foreach ($text_seperate['tokens'] as $word) {
-                        if ($word != ' ') {
-                            echo $word . ', ';
+                if ($text != '') {
+                    $text_seperate = Yii::$app->helpers->wordcut($text);
+                    if ($text_seperate) {
+                        foreach ($text_seperate['tokens'] as $word) {
+                            if ($word != ' ') {
+                                echo $word . ', ';
+                            }
                         }
                     }
                 }

@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'js/record.js',
         'js/text_to_speech.js',
         'js/modified.js',
+        //'js/test.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

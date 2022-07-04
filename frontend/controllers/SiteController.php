@@ -142,6 +142,16 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public function actionGoogleSpeech()
+    {
+        return $this->render('google-speech');
+    }
+
+    public function actionJsonGoogleSpeech()
+    {
+        $this->layout = false;
+        return $this->render('json_google');
+    }
     public function actionPage1($id = null)
     {
         return $this->render('page1');

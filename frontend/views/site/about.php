@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
         <input type="file" accept="audio/*" name="file_audio" id="file_audio" style="display:none" />
-        <input class="form-control" type="text" id="speech_text" name="speech_text" />
+        <input class="form-control" type="hidden" id="speech_text" name="speech_text" />
 
         <input type="hidden" id="status_voice" name="status_voice" value="0">
         <input type="hidden" id="status_recognition" name="status_voice" value="0">
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php ActiveForm::end(); ?>
 
         <div class=" text-center my-4 " style="height: 64px;">
-            <div class="boxContainer mx-auto">
+            <div class="boxContainer mx-auto" id="boxContainer" style="display:none;">
                 <div class="box box1"></div>
                 <div class="box box2"></div>
                 <div class="box box3"></div>
@@ -34,6 +34,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p id="instructions"></p>
 
-        <p><button class="btn btn-lg btn-success" onclick="startAction(15);" id="start_button">Click to speak in 15 sec.</button></p>
+        <p><button class="btn btn-lg btn-success" onclick="document.getElementById('boxContainer').style.display = 'flex';startAction(15);" id="start_button">Click to speak in 15 sec.</button></p>
+
+        <!--
+        <div class="container">
+
+            <button type="button" id="btn-transcribe" class="btn btn-primary btn-lg my-3">ทดสอบแปลงเสียงเป็นข้อความ</button>
+
+            <span id="instructions"></span>
+
+            <blockquote class="blockquote">
+                <div id="results">
+                    <span class="final" id="final_span"></span>
+                    <span class="interim" id="interim_span"></span>
+                </div>
+            </blockquote>
+
+        </div>
+-->
     </div>
 </div>
