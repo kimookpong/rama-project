@@ -2,37 +2,38 @@ body {
     font-family: "Sarabun", sans-serif;
     font-weight: 400;
     font-size: 17px;
-    line-height: 20.57px;
+    line-height: 22px;
 }
 
 .font-inter {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-weight: 500;
 }
 .font-inter-bold {
-  font-family: 'Noto Sans Thai', sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-weight: 700;
 }
 .font-30 {
   font-size: 30px;
 }
 
+.text-sky {
+  color: #2969e5
+}
+
 .title1 {
-  font-family: "Sarabun", sans-serif;
   font-weight: 500;
   font-size: 28px;
   line-height: 36.4px;
 }
 
 .title2 {
-  font-family: "Sarabun", sans-serif;
   font-weight: 600;
   font-size: 22px;
   line-height: 28.6px;
 }
 
 .title3 {
-  font-family: "Sarabun", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 26px;

@@ -68,7 +68,7 @@ AppAsset::register($this);
         <li></li>
     </ul>
     -->
-    <footer class="footer mt-auto text-muted">
+    <footer class="footer fixed-bottom text-muted">
         <div class="container">
             <p class="text-center my-1">&copy; 2022 Faculty of Medicine Ramathibadi Hospital, All rights reserved.</p>
         </div>

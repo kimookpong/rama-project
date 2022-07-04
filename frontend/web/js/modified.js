@@ -1,3 +1,9 @@
+function TestVolume() {
+    var audio = new Audio();
+    audio.src = 'demo/demo.mp3';
+    audio.play();
+}
+
 function googleSpeech(audioUrl,returnID) {
     document.getElementById(returnID).innerHTML = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>';
     $.ajax({
