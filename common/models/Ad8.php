@@ -41,7 +41,7 @@ class Ad8 extends \yii\db\ActiveRecord
     {
         return [
             [['register_id', 'create_at', 'update_at'], 'required'],
-            [['register_id', 'respondent', 'question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'score', 'flagdel', 'success'], 'integer'],
+            [['register_id', 'respondent', 'question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'score', 'flagdel', 'success','step'], 'integer'],
             [['create_at', 'update_at'], 'safe'],
         ];
     }

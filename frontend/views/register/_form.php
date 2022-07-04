@@ -8,50 +8,61 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="register-form">
+<div class="row">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'case_id')->textInput() ?>
 
-    <?= $form->field($model, 'casecode')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'disease')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'age')->textInput() ?>
-
-    <?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'provinces_id')->textInput() ?>
-
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'tel')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'datetest')->textInput() ?>
-
-    <?= $form->field($model, 'month')->textInput() ?>
-
-    <?= $form->field($model, 'year')->textInput() ?>
-
-    <?= $form->field($model, 'user_id')->textInput() ?>
-
-    <?= $form->field($model, 'source')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'create_at')->textInput() ?>
-
-    <?= $form->field($model, 'update_at')->textInput() ?>
-
-    <?= $form->field($model, 'flagdel')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    <div class="row g-3">
+        <div class="col-2 col-form-label">ชื่อ <font class="text-danger">*</font></div>
+        <div class="col-10"><?= $form->field($model, 'name')->textInput(['maxlength' => true,'placeholder'=>'ชื่อ'])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-2 col-form-label">นามสกุล <font class="text-danger">*</font></div>
+        <div class="col-10"><?= $form->field($model, 'surname')->textInput(['maxlength' => true,'placeholder'=>'สกุล'])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-2 col-form-label">เพศ </div>
+        <div class="col-10"><?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
+</div>
+    </div>
+    <div class="row g-3">
+        <div class="col-2 col-form-label">อายุ</div>
+        <div class="col-10"><?= $form->field($model, 'age')->textInput(['maxlength' => true,'placeholder'=>'อายุ'])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-2 col-form-label">โทรศัพท์</div>
+        <div class="col-10"><?= $form->field($model, 'tel')->textInput(['maxlength' => true,'placeholder'=>'XXX-XXX-XXXX'])->label(false) ?></div>
     </div>
 
+    <div class="row g-3">
+        <div class="col-2 col-form-label">จังหวัด <font class="text-danger">*</font></div>
+        <div class="col-10"><?= $form->field($model, 'tel')->textInput(['maxlength' => true,'placeholder'=>'XXX-XXX-XXXX'])->label(false) ?></div>
+    </div> 
+    <div class="row g-3">
+        <div class="col-2 col-form-label">แพทย์ <font class="text-danger">*</font></div>
+        <div class="col-10"><?= $form->field($model, 'tel')->textInput(['maxlength' => true,'placeholder'=>'แพทย์'])->label(false) ?></div>
+    </div>  
+    <div class="row g-3">
+        <div class="col-2 col-form-label">รหัสระบุโรค <font class="text-danger">*</font></div>
+        <div class="col-10"><?= $form->field($model, 'tel')->textInput(['maxlength' => true,'placeholder'=>'รหัสระบุโรค'])->label(false) ?></div>
+    </div> 
+    <div class="row g-3">
+        <div class="col-2 col-form-label">อีเมล์</div>
+        <div class="col-10"><?= $form->field($model, 'tel')->textInput(['maxlength' => true,'placeholder'=>'อีเมล์'])->label(false) ?></div>
+    </div>     
+
+
+    <?= $form->field($model, 'datetest')->hiddenInput(['value'=>date('Y-m-d')])->label(false) ?>
+
+    <?= $form->field($model, 'month')->hiddenInput(['value'=>date('m')])->label(false) ?>
+
+    <?= $form->field($model, 'year')->hiddenInput(['value'=>date('Y')])->label(false) ?>
+
+    <div class=" text-center">
+    <button type="submit" class="btn btn-lg rounded-pill btn-brain">หน้าถัดไป  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+</button>
+</div>
     <?php ActiveForm::end(); ?>
 
 </div>

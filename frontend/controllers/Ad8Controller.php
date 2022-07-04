@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\helpers\Url;
 /**
  * Ad8Controller implements the CRUD actions for Ad8 model.
  */
@@ -78,10 +78,10 @@ class Ad8Controller extends Controller
     public function actionCreate()
     {
         $model = new Ad8();
-
+        $this->layout = 'ad8';
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'ad8_id' => $model->ad8_id]);
+                return $this->redirect(['view', 'ad8_id' => $model->ad8_id,'q'=>"1"]);
             }
         } else {
             $model->loadDefaultValues();
@@ -101,8 +101,9 @@ class Ad8Controller extends Controller
      */
     public function actionUpdate($ad8_id)
     {
+        $this->layout = 'ad8';
         $model = $this->findModel($ad8_id);
-
+        //$q = Yii::$app->helpers->decodeUrl('q');
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'ad8_id' => $model->ad8_id]);
         }

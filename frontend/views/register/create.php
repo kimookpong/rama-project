@@ -11,8 +11,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="register-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <h1>ลงทะเบียน</h1>
+    <p>กรุณากรอกข้อมูลของผู้สูงอายุที่ทำแบบทดสอบต่อไปนี้</p>
+   
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

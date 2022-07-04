@@ -29,7 +29,7 @@ AppAsset::register($this);
     <header>
         <?php
         NavBar::begin([
-            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/logo.svg" height="40" class="bi me-2">',
+            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="40" class="bi me-2">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar navbar-expand-md fixed-top px-2 bg-braintest',
