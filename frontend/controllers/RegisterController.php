@@ -78,10 +78,10 @@ class RegisterController extends Controller
     public function actionCreate()
     {
         $model = new register();
-
+        $this->layout = 'reg';
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'register_id' => $model->register_id]);
+                return $this->redirect(['ad8/create', 'reg_id' => $model->register_id]);
             }
         } else {
             $model->loadDefaultValues();

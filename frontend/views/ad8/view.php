@@ -13,16 +13,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="ad8-view">
-<?php echo $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id,'q'=>'1']);?>
+<?php  $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id,'q'=>'1']);?>
 
 
+<br><br><br><br>
 
-<div id="counter" /></div>  <!-- text box แสดงการนับถอยหลัง   -->
-
+<div id="counter" class="number-ad8 font-inter-bold text-center" /></div>  <!-- text box แสดงการนับถอยหลัง   -->
 <script>
 
- var seconds=3;// กำหนดค่าเริ่มต้น 10 วินาที
- document.getElementById("counter").innerHTML='3';//แสดงค่าเริ่มต้นใน 10 วินาที ใน text box
+ var seconds=4;// กำหนดค่าเริ่มต้น 10 วินาที
+ document.getElementById("counter").innerHTML='4';//แสดงค่าเริ่มต้นใน 10 วินาที ใน text box
 
 function display(){ //function ใช้ในการ นับถอยหลัง
 

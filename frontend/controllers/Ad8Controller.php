@@ -65,6 +65,7 @@ class Ad8Controller extends Controller
      */
     public function actionView($ad8_id)
     {
+        $this->layout = 'ad8';
         return $this->render('view', [
             'model' => $this->findModel($ad8_id),
         ]);
