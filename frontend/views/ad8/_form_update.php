@@ -7,14 +7,15 @@ use yii\helpers\Url;
 /* @var $model common\models\Ad8 */
 /* @var $form yii\widgets\ActiveForm */
 $q = Yii::$app->helpers->decodeUrl('q')?>
-?>
+
 
 
     <?php $form = ActiveForm::begin(); ?>
     <?php $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id,'q'=>'1']);?>
+    <?= $form->field($model, 'update_at')->hiddenInput(['value'=>date('Y-m-d h:i:s')])->label(false) ?>
 
-    <input type="text" name="Ad8[question<?=$q?>]" id="question"></input>
-    <input type="text" name="Ad8[step]" value="<?=$q+1?>"></input>
+    <input type="hidden" name="Ad8[question<?=$q?>]" id="question"></input>
+    <input type="hidden" name="Ad8[step]" value="<?=$q+1?>"></input>
   
     <div class="container fixed-bottom">
 			<div class="row">
@@ -32,6 +33,7 @@ $q = Yii::$app->helpers->decodeUrl('q')?>
     <script>
 function myFunction($v) {
   document.getElementById("question").value = $v;
+  document.getElementById("w0").submit();
 }
 </script>
 

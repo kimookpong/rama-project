@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use common\models\Ad8master;
 /* @var $this yii\web\View */
 /* @var $model common\models\Ad8 */
-$masters = Ad8master::find(Yii::$app->helpers->decodeUrl('q'))->one();
+$masters = Ad8master::findOne(Yii::$app->helpers->decodeUrl('q'));
 
 $this->title = 'Update Ad 8: ' . $model->ad8_id;
 $this->params['breadcrumbs'][] = ['label' => 'Ad 8s', 'url' => ['index']];

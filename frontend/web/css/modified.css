@@ -102,6 +102,46 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.circlefalse {
+  margin-left: auto;
+  margin-right: auto;
+  position:center;
+  width:80%;
+  padding-bottom:80%;
+  background: rgba(255, 0, 0, 0.401);;
+  border-radius:80%;
+}
+.circlefalse h3{
+  text-align: center;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36.4px;
+  position:absolute;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  margin:0;
+}
+.circlesuccess {
+  margin-left: auto;
+  margin-right: auto;
+  position:center;
+  width:80%;
+  padding-bottom:80%;
+  background: #D3B20060;
+  border-radius:80%;
+}
+.circlesuccess h3{
+  text-align: center;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36.4px;
+  position:absolute;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  margin:0;
+}
 
 
 /**/

@@ -69,7 +69,20 @@ class Ad8Controller extends Controller
             'model' => $this->findModel($ad8_id),
         ]);
     }
-
+    public function actionFalse($ad8_id)
+    {
+        $this->layout = 'ad8';
+        return $this->render('false', [
+            'model' => $this->findModel($ad8_id),
+        ]);
+    }
+    public function actionSuccess($ad8_id)
+    {
+        $this->layout = 'ad8';
+        return $this->render('success', [
+            'model' => $this->findModel($ad8_id),
+        ]);
+    }
     /**
      * Creates a new Ad8 model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -104,8 +117,27 @@ class Ad8Controller extends Controller
         $this->layout = 'ad8';
         $model = $this->findModel($ad8_id);
         //$q = Yii::$app->helpers->decodeUrl('q');
+        $a = 0;
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'ad8_id' => $model->ad8_id]);
+            if($model->step=='9'){
+                $model->question1==1?$a = $a+1:'';
+                $model->question2==1?$a = $a+1:'';
+                $model->question3==1?$a = $a+1:'';
+                $model->question4==1?$a = $a+1:'';
+                $model->question5==1?$a = $a+1:'';
+                $model->question6==1?$a = $a+1:'';
+                $model->question7==1?$a = $a+1:'';
+                $model->question8==1?$a = $a+1:'';
+                $model->score = $a;
+                $model->success = '1';
+                $model->save();
+                if($model->score <=2){ 
+                    return $this->redirect(['success', 'ad8_id' => $model->ad8_id]);
+                }else{
+                    return $this->redirect(['false', 'ad8_id' => $model->ad8_id]); 
+                }
+            }
+            return $this->redirect(['update', 'ad8_id' => $model->ad8_id,'q'=>$model->step]);
         }
 
         return $this->render('update', [
