@@ -21,6 +21,6 @@ $this->title = 'My Yii Application';
         <a class="btn btn-lg rounded-pill btn-brain" href="<?= Yii::getAlias('@web') ?>/site/about">เริ่มการทดสอบ</a>
         <br />
 -->
-        <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>">ทดสอบ test to limit</a>
+        <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/start']); ?>">เริ่มการทดสอบ</a>
     </div>
 </div>
