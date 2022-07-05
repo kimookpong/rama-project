@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -50,7 +51,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-2 mx-auto">
-            <a href="<?= Url::toRoute(['test-the-limit/test', 'id' => $id, 'question' => 1]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</a>
+            <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
+            <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</button>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
