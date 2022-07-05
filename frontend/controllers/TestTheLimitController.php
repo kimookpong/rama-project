@@ -59,6 +59,14 @@ class TestTheLimitController extends Controller
     {
         $id = Yii::$app->helpers->decodeUrl('id');
         $this->layout = 'testthelimit';
+        if ($this->request->isPost) {
+            $model = Testandlimit::find()->where(['register_id' => $id])->one();
+            $model->score = 0;
+            $model->save(false);
+            return $this->render('counter', [
+                'id' => $id
+            ]);
+        }
         return $this->render('start', [
             'id' => $id
         ]);
@@ -79,6 +87,9 @@ class TestTheLimitController extends Controller
                 if ($file->saveAs($path . $fileName)) {
                     $file_audio = $fileName;
                 }
+            }
+            if (!empty($answer)) {
+                $model->score = $model->score + 1;
             }
             if ($question == 1) {
                 $model->qustion1 =  $answer;
