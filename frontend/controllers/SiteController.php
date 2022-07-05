@@ -154,14 +154,25 @@ class SiteController extends Controller
     }
     public function actionPage1($id = null)
     {
+        $this->layout = 'homepage';
+
         return $this->render('page1');
+    }
+    public function actionStart($id = null)
+    {
+        $this->layout = 'homepage';
+        return $this->render('start');
     }
     public function actionPage2($id = null)
     {
+        $this->layout = 'homepage';
+
         return $this->render('page2');
     }
     public function actionPage3($id = null)
     {
+        $this->layout = 'homepage';
+
         return $this->render('page3');
     }
     public function actionAbout($id = null)

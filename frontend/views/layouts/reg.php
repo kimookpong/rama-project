@@ -24,7 +24,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 
-<body class="d-flex flex-column h-100 bg-braintest area">
+<body class="d-flex flex-column h-100 bg-reg">
     <?php $this->beginBody() ?>
     <header>
         <?php
@@ -32,7 +32,7 @@ AppAsset::register($this);
             'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="40" class="bi me-2">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md fixed-top px-2 bg-braintest',
+                'class' => 'navbar navbar-expand-md fixed-top px-2 ',
             ],
         ]);
         $menuItems = [
@@ -68,7 +68,7 @@ AppAsset::register($this);
         <li></li>
     </ul>
     -->
-    <footer class="footer fixed-bottom text-muted">
+    <footer class="footer mt-auto text-muted">
         <div class="container">
             <p class="text-center my-1">&copy; 2022 Faculty of Medicine Ramathibadi Hospital, All rights reserved.</p>
         </div>

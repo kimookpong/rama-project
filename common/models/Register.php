@@ -44,13 +44,13 @@ class Register extends \yii\db\ActiveRecord
     {
         return [
             [['case_id', 'age', 'provinces_id', 'month', 'year', 'user_id', 'flagdel'], 'integer'],
-            [['casecode', 'provinces_id', 'datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
+            [['provinces_id', 'datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
             [['datetest', 'create_at', 'update_at'], 'safe'],
             [['casecode', 'source'], 'string', 'max' => 50],
             [['name', 'surname'], 'string', 'max' => 100],
             [['disease', 'tel'], 'string', 'max' => 20],
             [['gender'], 'string', 'max' => 3],
-            [['email'], 'string', 'max' => 11],
+            [['email'], 'string', 'max' => 80],
         ];
     }
 

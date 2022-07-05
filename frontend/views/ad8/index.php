@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Ad 8', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Ad 8', ['create','reg_id'=>'1'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'success',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Ad8 $model, $key, $index, $column) {
+                'urlCreator' => function ($action, $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'ad8_id' => $model->ad8_id]);
                  }
             ],

@@ -12,39 +12,32 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'register_id')->textInput() ?>
+<p class="title3"> ผู้ทำแบบสอบถาม </p>
+    <?= $form->field($model, 'register_id')->hiddenInput(['value'=>$_REQUEST['reg_id']])->label(false) ?>
+    <div class="radio">
+  <label>
+    <input type="radio" id="ad8-respondent1"  name="Ad8[respondent]" value="1" checked>
+    ทำด้วยตนเอง
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" id="ad8-respondent2"  name="Ad8[respondent]" value="2">
+    ผู้ดูแล/ญาติช่วยทำ
+  </label>
+</div>
 
-    <?= $form->field($model, 'respondent')->textInput() ?>
+<?= $form->field($model, 'create_at')->hiddenInput(['value'=>date('Y-m-d h:i:s')])->label(false) ?>
+<?= $form->field($model, 'update_at')->hiddenInput(['value'=>date('Y-m-d h:i:s')])->label(false) ?>
 
-    <?= $form->field($model, 'question1')->textInput() ?>
 
-    <?= $form->field($model, 'question2')->textInput() ?>
-
-    <?= $form->field($model, 'question3')->textInput() ?>
-
-    <?= $form->field($model, 'question4')->textInput() ?>
-
-    <?= $form->field($model, 'question5')->textInput() ?>
-
-    <?= $form->field($model, 'question6')->textInput() ?>
-
-    <?= $form->field($model, 'question7')->textInput() ?>
-
-    <?= $form->field($model, 'question8')->textInput() ?>
-
-    <?= $form->field($model, 'score')->textInput() ?>
-
-    <?= $form->field($model, 'create_at')->textInput() ?>
-
-    <?= $form->field($model, 'update_at')->textInput() ?>
-
-    <?= $form->field($model, 'flagdel')->textInput() ?>
-
-    <?= $form->field($model, 'success')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
+    <div class="container fixed-bottom">
+			<div class="row">
+			  <div class="col py-4 mx-auto">
+				<button class=" w-100 btn btn-lg rounded-pill btn-brain" type="submit">เริ่มการทดสอบ</button>
+			  </div>
+			</div>
+		  </div>
 
     <?php ActiveForm::end(); ?>
 
