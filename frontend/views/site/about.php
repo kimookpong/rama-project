@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'ระบบทดสอบการบันทึกเสียงและตรวจจับข้อความ';
 $this->params['breadcrumbs'][] = $this->title;
@@ -35,6 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <p id="instructions"></p>
 
         <p><button class="btn btn-lg btn-success" onclick="document.getElementById('boxContainer').style.display = 'flex';startAction(15);" id="start_button">Click to speak in 15 sec.</button></p>
+
+        <p><a href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>" class="btn btn-lg btn-success">Test the limit</a></p>
 
         <!--
         <div class="container">

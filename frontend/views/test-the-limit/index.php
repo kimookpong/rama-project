@@ -24,20 +24,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-6 mx-auto">
             <div class="text-muted pt-3 text-center fs-3">
                 <i class="fa-solid fa-volume-high my-auto" style="width:50px;"></i>
-                <button onclick="TestVolume();" class="font-inter fw-bold btn rounded-pill btn-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
+                <button onclick="TestVolume();" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
             </div>
             <div class="text-muted pt-3 text-center fs-3">
                 <i class="fa-solid fa-microphone my-auto" style="width:50px;"></i>
-                <button class="font-inter fw-bold btn rounded-pill btn-brain" style="width: 40%;">ทดสอบ<br />ไมโครโฟน</button>
+                <button onclick="testMicrophone(5,'testMicro');" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;" id="testMicro">ทดสอบ<br />ไมโครโฟน</button>
             </div>
         </div>
-
     </div>
 </div>
 <div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-2 mx-auto">
-            <a href="test-the-limit.html" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa-solid fa-angle-right float-end py-1"></i></a>
+            <a href="<?= Url::toRoute(['test-the-limit/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa-solid fa-angle-right float-end py-1"></i></a>
         </div>
     </div>
 </div>

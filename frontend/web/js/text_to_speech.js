@@ -13,16 +13,16 @@ const StartTextToSpeech = async (timeRecord,inputFile,inputText,formName) => {
 
 
         recognition.onstart = function() {
-            $('#instructions').html('Speak slowly and clearly'); // แสดงคำแนะนำ 
+           // $('#instructions').html('กรุณาพูดช้าๆและชัดเจน'); // แสดงคำแนะนำ 
         };
 
         recognition.onerror = function(event) {
             // ถ้าเกิดข้อผิดพลาด ทำงานส่วนนี้
-            $('#instructions').html("There was a recognition error..."); // แจ้งสถานะถ้าเกิดข้อผิดพลาด
+           // $('#instructions').html("There was a recognition error..."); // แจ้งสถานะถ้าเกิดข้อผิดพลาด
         };
 
         recognition.onend = function() {
-            $('#instructions').html('Done'); // แสดงสถานะว่าเสร็จสิ้นแล้ว Done
+           //$('#instructions').html('เรียบร้อย'); // แสดงสถานะว่าเสร็จสิ้นแล้ว Done
         };
 
         recognition.onresult = function(event) {
@@ -37,3 +37,5 @@ const StartTextToSpeech = async (timeRecord,inputFile,inputText,formName) => {
         recognition.start();
     }
   };
+
+  

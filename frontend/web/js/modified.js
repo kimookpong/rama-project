@@ -1,6 +1,7 @@
+
 function TestVolume() {
     var audio = new Audio();
-    audio.src = 'demo/demo.mp3';
+    audio.src = '../sounds/test_speaker.mp3';
     audio.play();
 }
 
@@ -22,13 +23,16 @@ const startAction = async (timeRecord) => {
     StartTextToSpeech(timeRecord,'file_audio','speech_text','form_voice');
 
     // counter time
+    /*
     var timeDisplay = document.getElementById("start_button");
     function refreshTime() {
        counter = counter + 1 ;
        timeDisplay.innerHTML = 'countdown in '+(timeRecord-counter)+' sec.';
     }
     setInterval(refreshTime, 1000);
+    */
 };
+
 
 
 

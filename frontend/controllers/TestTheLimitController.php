@@ -2,11 +2,13 @@
 
 namespace frontend\controllers;
 
+use Yii;
 use common\models\Testandlimit;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use \yii\web\UploadedFile;
 
 /**
  * TestTheLimitController implements the CRUD actions for Testandlimit model.
@@ -16,6 +18,7 @@ class TestTheLimitController extends Controller
     /**
      * @inheritDoc
      */
+
     public function behaviors()
     {
         return array_merge(
@@ -38,92 +41,75 @@ class TestTheLimitController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Testandlimit::find(),
-            /*
-            'pagination' => [
-                'pageSize' => 50
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'testandlimit_id' => SORT_DESC,
-                ]
-            ],
-            */
-        ]);
+        $id = Yii::$app->helpers->decodeUrl('id');
+        $model = Testandlimit::find()->where(['register_id' => $id])->one();
+        if (empty($model)) {
+            $model = new Testandlimit();
+            $model->register_id = $id;
+        }
+        $model->save(false);
 
+        $this->layout = 'testthelimit';
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'id' => $id
         ]);
     }
 
-    /**
-     * Displays a single Testandlimit model.
-     * @param int $testandlimit_id Testandlimit ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($testandlimit_id)
+    public function actionStart()
     {
-        return $this->render('view', [
-            'model' => $this->findModel($testandlimit_id),
+        $id = Yii::$app->helpers->decodeUrl('id');
+        $this->layout = 'testthelimit';
+        return $this->render('start', [
+            'id' => $id
         ]);
     }
-
-    /**
-     * Creates a new Testandlimit model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
+    public function actionTest()
     {
-        $model = new Testandlimit();
-
+        $path = Yii::getAlias('@webroot') . '/records' . '/';
+        $this->layout = 'testthelimit';
+        $id = Yii::$app->helpers->decodeUrl('id');
+        $question = Yii::$app->helpers->decodeUrl('question');
+        $model = Testandlimit::find()->where(['register_id' => $id])->one();
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'testandlimit_id' => $model->testandlimit_id]);
+            $answer = Yii::$app->request->post('speech_text');
+            $file = UploadedFile::getInstanceByName('file_audio');
+            $file_audio = '';
+            if ($file) {
+                $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.wav';
+                if ($file->saveAs($path . $fileName)) {
+                    $file_audio = $fileName;
+                }
             }
-        } else {
-            $model->loadDefaultValues();
+            if ($question == 1) {
+                $model->qustion1 =  $answer;
+                $model->voicepath1 = $file_audio;
+                $model->save();
+                return $this->redirect(['test', 'id' => $id, 'question' => $question + 1]);
+            } else if ($question == 2) {
+                $model->qustion2 =  $answer;
+                $model->voicepath2 = $file_audio;
+                $model->save();
+                return $this->redirect(['test', 'id' => $id, 'question' => $question + 1]);
+            } else {
+                $model->qustion3 =  $answer;
+                $model->voicepath3 = $file_audio;
+                $model->save();
+                return $this->redirect(['result', 'id' => $id]);
+            }
         }
-
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('test', [
+            'question' => $question,
         ]);
     }
 
-    /**
-     * Updates an existing Testandlimit model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $testandlimit_id Testandlimit ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($testandlimit_id)
+    public function actionResult()
     {
-        $model = $this->findModel($testandlimit_id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'testandlimit_id' => $model->testandlimit_id]);
-        }
-
-        return $this->render('update', [
+        $this->layout = 'testthelimit';
+        $id = Yii::$app->helpers->decodeUrl('id');
+        $model = Testandlimit::find()->where(['register_id' => $id])->one();
+        return $this->render('result', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Deletes an existing Testandlimit model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $testandlimit_id Testandlimit ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($testandlimit_id)
-    {
-        $this->findModel($testandlimit_id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**
