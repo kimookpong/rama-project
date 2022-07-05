@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'keyword:ntext',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, fruit $model, $key, $index, $column) {
+                'urlCreator' => function ($action, $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'fruit_id' => $model->fruit_id]);
                  }
             ],

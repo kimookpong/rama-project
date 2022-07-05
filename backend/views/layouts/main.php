@@ -22,6 +22,9 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="AdminLTE/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
+  <link rel="stylesheet" href="AdminLTE/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
   <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
@@ -139,17 +142,17 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="index.php?r=user" class="nav-link active">
                   <p>user</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="index.php?r=wordregister" class="nav-link">
                   <p>word</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="index.php?r=fruit" class="nav-link">
                   <p>fruit</p>
                 </a>
               </li>
@@ -157,7 +160,7 @@
           </li>
           <li class="nav-header">Shadowing-A</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="index.php?r=register" class="nav-link">
               <p>
               Search & Summary
               </p>
@@ -281,6 +284,10 @@
 <!-- Sparkline -->
 <script src="AdminLTE/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
+  <!-- Select2 -->
+  <script src="AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+
+
 <script src="AdminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
@@ -300,11 +307,17 @@
 <script src="AdminLTE/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="AdminLTE/dist/js/pages/dashboard.js"></script>
+<script src="AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+
 </body>
 </html>
 
 
-
+<script>
+  $(function () {
+    $('.select2').select2()
+  })
+</script>
 
 
 

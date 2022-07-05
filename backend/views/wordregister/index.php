@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'voicepart',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, wordregister $model, $key, $index, $column) {
+                'urlCreator' => function ($action, $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'wordreg_id' => $model->wordreg_id]);
                  }
             ],
