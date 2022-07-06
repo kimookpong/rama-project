@@ -37,7 +37,10 @@ $provinces = Provinces::find()->all();
       </select>
       </div>         
       <div class="col-2">ID <input type="text" class="form-control" placeholder="ใส่ % ตอนท้าย" name="code"></div>    
-      <div class="col-3"><button type="submit" class="btn btn-success btn-block">Search</button></div>         
+      <div class="col-3">
+      <button type="submit" class="btn btn-success btn-block">Search</button>
+    
+    </div>         
      
 </div>
               </div>

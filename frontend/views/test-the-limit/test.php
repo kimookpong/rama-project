@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
         audio.play();
         audio.onended = function() {
             document.getElementById('boxContainer').style.display = 'flex'
-            startAction(10);
+            startAction(5);
         }
     }
     window.onload = function() {
