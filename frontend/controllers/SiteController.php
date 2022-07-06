@@ -78,6 +78,15 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+    public function actionTest()
+    {
+        return $this->render('test');
+    }
+
+    public function actionTest1()
+    {
+        return $this->render('test1');
+    }
 
     /**
      * Logs in a user.

@@ -67,6 +67,41 @@ class Helpers extends Component
             return json_decode($response, true);
         }
     }
+    public function googlev2($audioFile)
+    {
+        $api = 'https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyDywgpBH8GPJTPH-QeO8jgU760nkscqQJ4';
+        $content = file_get_contents($audioFile);
+        $postData = [
+            "config" => [
+                "encoding" => "LINEAR16",
+                "sampleRateHertz" => 16000,
+                "languageCode" => "en-US",
+                //"encoding" => "WEBM_OPUS",
+                //"sampleRateHertz" => 48000,
+                //"languageCode" => "th-TH",
+                //"enableWordTimeOffsets" => true
+            ],
+            "audio" => [
+                "uri" => "gs://cloud-samples-tests/speech/brooklyn.flac", //$content,
+            ]
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $api);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
+        $result     = curl_exec($ch);
+        $err = curl_error($ch);
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($err) {
+            return "cURL Error #:" . $err;
+        } else {
+            return json_decode($result, true);
+        }
+    }
 
     public function googleSpeechToText($audioFile)
     {

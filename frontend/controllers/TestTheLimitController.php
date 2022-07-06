@@ -79,7 +79,12 @@ class TestTheLimitController extends Controller
         $question = Yii::$app->helpers->decodeUrl('question');
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         if ($this->request->isPost) {
-            $answer = Yii::$app->request->post('speech_text');
+            if (!empty(Yii::$app->request->post('speech_text_final'))) {
+                $answer = Yii::$app->request->post('speech_text_final');
+            } else {
+                $answer = Yii::$app->request->post('speech_text');
+            }
+
             $file = UploadedFile::getInstanceByName('file_audio');
             $file_audio = '';
             if ($file) {
