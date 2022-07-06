@@ -43,7 +43,7 @@ class Register extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['case_id', 'age', 'provinces_id', 'month', 'year', 'user_id', 'flagdel'], 'integer'],
+            [['case_id', 'age', 'provinces_id', 'month', 'year', 'docter_id', 'flagdel'], 'integer'],
             [['provinces_id', 'datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
             [['datetest', 'create_at', 'update_at'], 'safe'],
             [['casecode', 'source'], 'string', 'max' => 50],
@@ -74,7 +74,7 @@ class Register extends \yii\db\ActiveRecord
             'datetest' => 'Datetest',
             'month' => 'Month',
             'year' => 'Year',
-            'user_id' => 'User ID',
+            'docter_id' => 'User ID',
             'source' => 'Source',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
