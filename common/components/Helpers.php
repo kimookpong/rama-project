@@ -123,4 +123,44 @@ class Helpers extends Component
         //    return "File not Exists!";
         //}
     }
+
+ public function Partii($audioFile)
+    {
+        $audio_file = $audioFile;
+        $data = array(
+            'wavfile' => new CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)),
+            'outputlevel' => '--uttlevel',
+                'outputformat' => '--txt',
+        );
+         
+        $curl = curl_init();
+         
+        curl_setopt_array($curl, array(
+           CURLOPT_URL => "https://api.aiforthai.in.th/partii-webapi",
+           CURLOPT_RETURNTRANSFER => true,
+           CURLOPT_ENCODING => "",
+           CURLOPT_MAXREDIRS => 10,
+           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+           CURLOPT_CUSTOMREQUEST => "POST",
+           CURLOPT_POSTFIELDS => $data,
+           CURLOPT_HTTPHEADER => array(
+            "Content-Type: multipart/form-data",
+            "Apikey: qeGgXTNUDgDXZyHAZgH8zLrgjq33ioLe"
+            )
+         ));
+         
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+         
+        curl_close($curl);
+         
+        if ($err) {
+            echo "cURL Error #:".$err;
+        } else {
+            echo $response;
+        }
+
+        
+    }
+
 }
