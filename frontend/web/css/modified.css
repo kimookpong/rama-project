@@ -50,7 +50,7 @@ body {
 }
 
 .bg-testthelimit{
-  background-image: url("../images/background-base/desktop-png/Desktop-1.png");
+  background-image: url("../images/background-base/desktop-png/Desktop-3.png");
   background-repeat: no-repeat;
   background-color: #cccccc;
   background-size: cover;
@@ -119,14 +119,8 @@ body {
 }
 /*Reg*/
 .bg-reg{
-
-  /* The image used */
-  background-image: url("http://localhost/rama-project/frontend/web/css/background-base/desktop-png/Desktop-1.png");
-
-  /* Full height */
+  background-image: url("../images/background-base/desktop-png/Desktop-1.png");
   height: 100%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -161,28 +155,9 @@ body {
   --bs-btn-disabled-bg: #a3bcee;
   --bs-btn-disabled-border-color: #a3bcee;
 }
-.bg-ad8{
-
-    /* The image used */
-    background-image: url("http://localhost/rama-project/frontend/web/css/background-base/desktop-png/Desktop-2.png");
-
-    /* Full height */
+.bg-ad8 {
+    background-image: url("../images/background-base/desktop-png/Desktop-2.png");
     height: 100%;
-  
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.bg-ad8{
-
-    /* The image used */
-    background-image: url("http://localhost/rama-project/frontend/web/css/background-base/desktop-png/Desktop-2.png");
-
-    /* Full height */
-    height: 100%;
-  
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

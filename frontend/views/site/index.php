@@ -8,9 +8,8 @@ $this->title = 'My Yii Application';
 ?>
 
 <div class="row">
-    <div class="col-md-10 p-lg-3 mx-auto text-center">
-        <h1 class="display-4 font-inter-bold">brain.Test</h1>
-        <p class="font-inter">แบบคัดกรองสมองด้านการรู้คิดสำหรับประชาชน</p>
+    <div class="col-md-10 p-lg-3 mx-auto ">
+        <h1 class="display-4 font-inter-bold">brain.test <br> แบบคัดกรองสมองด้านการรู้คิดสำหรับประชาชน </h1>
 
         <div class="col-3 col-lg-4 col-md-6 mx-auto py-3 mb-3">
             <img src="<?= Yii::getAlias('@web') ?>/images/logo.svg" class="img-fluid">
@@ -21,6 +20,11 @@ $this->title = 'My Yii Application';
         <a class="btn btn-lg rounded-pill btn-brain" href="<?= Yii::getAlias('@web') ?>/site/about">เริ่มการทดสอบ</a>
         <br />
 -->
-        <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>">ทดสอบ test to limit</a>
+<div class="container fixed-bottom">
+			<div class="row">
+			  <div class="col py-4 mx-auto text-center">
+        <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/start']); ?>">เริ่มการทดสอบ</a>
+        </div>
+        </div>
     </div>
 </div>

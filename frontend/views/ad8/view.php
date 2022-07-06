@@ -16,25 +16,27 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php  $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id,'q'=>'1']);?>
 
 
-<br><br><br><br>
-
-<div id="counter" class="number-ad8 font-inter-bold text-center" /></div>  <!-- text box แสดงการนับถอยหลัง   -->
-<script>
-
- var seconds=4;// กำหนดค่าเริ่มต้น 10 วินาที
- document.getElementById("counter").innerHTML='4';//แสดงค่าเริ่มต้นใน 10 วินาที ใน text box
-
-function display(){ //function ใช้ในการ นับถอยหลัง
-
-    seconds-=1;//ลบเวลาทีละหนึ่งวินาทีทุกครั้งที่ function ทำงาน
- 
- if(seconds==-1){return window.location.replace("<?=$url?>");} //เมื่อหมดเวลาแล้วจะหยุดการทำงานของ function display
-    document.getElementById("counter").innerHTML=seconds; //แสดงเวลาที่เหลือ
-    setTimeout("display()",1000);// สั่งให้ function display() ทำงาน หลังเวลาผ่านไป 1000 milliseconds ( 1000  milliseconds = 1 วินาที )
-}
-display(); //เปิดหน้าเว็บให้ทำงาน function  display()
-
-</script>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mx-auto pt-4">
+            <div class="title2 font-inter mb-4 text-muted text-center">
+                <div class="counter mx-auto" id="countdown">
+                    3
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    var counter = 0;
+    var timeDisplay = document.getElementById("countdown");
+
+    function countdownTime() {
+        counter = counter + 1;
+        if (counter == 3) {
+            window.location = "<?=$url?>";
+        }
+        timeDisplay.innerHTML = 3 - counter;
+    }
+    setInterval(countdownTime, 1000);
+</script>

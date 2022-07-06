@@ -46,6 +46,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/q_<?= $question ?>.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
+<script type="text/javascript">
+    questionAudio.onended = function() {
+        // start beep sounds
+        var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
+        audio.play();
+        audio.onended = function() {
+            document.getElementById('boxContainer').style.display = 'flex'
+            startAction(5);
+        }
+    }
+    window.onload = function() {
+        document.getElementById("questionAudio").autoplay;
+    };
+</script>
 <div class="container fixed-bottom mb-3">
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
     <input type="file" accept="audio/*" name="file_audio" id="file_audio" style="display:none" />

@@ -27,27 +27,11 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100 bg-reg">
     <?php $this->beginBody() ?>
     <header>
-        <?php
-        NavBar::begin([
-            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="40" class="bi me-2">',
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                'class' => 'navbar navbar-expand-md fixed-top px-2 ',
-            ],
-        ]);
-        $menuItems = [
-            ['label' => 'หน้าแรก', 'url' => ['/site/index']],
-            ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
-            ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
-            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
-            ['label' => 'About', 'url' => ['/site/about', 'id' => 1, 'detail' => 'hakim']],
-        ];
-        echo Nav::widget([
-            'options' => ['class' => 'navbar-nav ml-auto px-2'],
-            'items' => $menuItems,
-        ]);
-        NavBar::end();
-        ?>
+    <nav id="w1" class="navbar navbar-expand-md fixed-top px-2  navbar">
+<div class="container">
+<a class="navbar-brand" href="/rama-project/frontend/web/"><img src="/rama-project/frontend/web/images/Braintest-logo.svg" height="40" class="bi me-2"></a>
+</div>
+</nav>
     </header>
     <main role="main" class="flex-shrink-0">
         <div class="container">
