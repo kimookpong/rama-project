@@ -32,7 +32,22 @@
   <link rel="stylesheet" href="AdminLTE/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="AdminLTE/plugins/summernote/summernote-bs4.min.css">
+
+  <link rel="stylesheet" href="AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pridi&family=Sarabun:wght@500&display=swap" rel="stylesheet">
+<style>
+      body {
+        font-family: 'Sarabun', serif;
+        font-size: 18px;
+      }
+    </style>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -50,7 +65,8 @@
       </li>
       
     </ul>
-
+    
+ 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
@@ -80,7 +96,8 @@
        
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
          
-        
+        <li><form class="form-inline" action="/rama-project/backend/web/index.php?r=site%2Flogout" method="post">
+<input type="hidden" name="_csrf-backend" value="scVrEeQpf8m-pmp4VJbuhi_JVbyOPHO5HZVBwUucJ8fbnQBHolw2henlHjE-_Ny-VY4d3cB_PNZ2rHGrBflXqg=="><button type="submit" class="btn btn-link logout">Logout (admin)</button></form></li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -141,9 +158,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="index.php?r=user" class="nav-link active">
-                  <p>user</p>
+                  <p>Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?r=Docters" class="nav-link active">
+                  <p>Docters</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -286,7 +308,19 @@
 <!-- JQVMap -->
   <!-- Select2 -->
   <script src="AdminLTE/plugins/select2/js/select2.full.min.js"></script>
-
+  <script src="AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="AdminLTE/plugins/jszip/jszip.min.js"></script>
+<script src="AdminLTE/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="AdminLTE/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <script src="AdminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -315,7 +349,11 @@
 
 <script>
   $(function () {
-    $('.select2').select2()
+    $('.select2').select2();
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   })
 </script>
 
