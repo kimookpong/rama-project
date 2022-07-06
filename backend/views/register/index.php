@@ -106,13 +106,7 @@ my
                   </thead>
                   <tbody>
                   <?php  
-      $sql = "
-SELECT
-*
-FROM
-register
-
-      ";
+      $sql = " SELECT * FROM register";
       @$Registers = Register::findBySql($sql)->all();  
         
       foreach ($Registers as $data) {?> 

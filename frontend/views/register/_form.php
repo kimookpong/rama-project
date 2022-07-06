@@ -11,7 +11,7 @@ use common\models\Doctor;
 $provinces = Provinces::find()->all();
 $listData = ArrayHelper::map($provinces, 'provinces_id', 'name_th');
 $Docter = Doctor::find()->all();
-$listDataDocter = ArrayHelper::map($Docter, 'docter_id', 'name');
+$listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 
 ?>
 
@@ -59,15 +59,15 @@ $listDataDocter = ArrayHelper::map($Docter, 'docter_id', 'name');
     <div class="col-2 col-form-label">จังหวัด <font class="text-danger">*</font>
     </div>
     <div class="col-10">
-        <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด'])->label(false) ?></div>
+        <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด','class'=>'form-control select2'])->label(false) ?></div>
 </div>
 <div class="row g-3">
     <div class="col-2 col-form-label">แพทย์ <font class="text-danger">*</font>
     </div>
-    <div class="col-10"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ'])->label(false) ?></div>
+    <div class="col-10"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ','class'=>'form-control select2'])->label(false) ?></div>
 </div>
 <div class="row g-3">
-    <div class="col-2 col-form-label">รหัสระบุโรค <font class="text-danger">*</font>
+    <div class="col-2 col-form-label">รหัสสถานะ <font class="text-danger">*</font>
     </div>
     <div class="col-10"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสระบุโรค'])->label(false) ?></div>
 </div>
