@@ -32,9 +32,5 @@ $audioFile2 = 'https://waijaipos.com/rama-project/frontend/web/records/20220702_
     </p>
     <p id="convert2"></p>
 
-
-    <?php //= Yii::$app->helpers->Partii($audioFile) 
-    ?>
-
-
+    <?php echo Yii::$app->helpers->Partii('records/20220706_074854_29e9f5fab5c82a5c75728ab6cf9f853a.wav'); ?>
 </div>

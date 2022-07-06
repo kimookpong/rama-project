@@ -132,14 +132,10 @@ class Helpers extends Component
     public function Partii($audioFile)
     {
         $audio_file = $audioFile;
-        $data = array(
-            'wavfile' => new CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)),
-            'outputlevel' => '--uttlevel',
-            'outputformat' => '--txt',
-        );
-
+        $data = array('wavfile' => new \CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)), 'outputlevel' => '--uttlevel', 'outputformat' => '--txt',);
         $curl = curl_init();
 
+        //  var_dump($data);
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.aiforthai.in.th/partii-webapi",
             CURLOPT_RETURNTRANSFER => true,
