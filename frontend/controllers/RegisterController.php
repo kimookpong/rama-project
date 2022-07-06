@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\register;
+use common\models\Register;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -39,7 +39,7 @@ class RegisterController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => register::find(),
+            'query' => Register::find(),
             /*
             'pagination' => [
                 'pageSize' => 50
@@ -77,7 +77,7 @@ class RegisterController extends Controller
      */
     public function actionCreate()
     {
-        $model = new register();
+        $model = new Register();
         $this->layout = 'reg';
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -135,7 +135,7 @@ class RegisterController extends Controller
      */
     protected function findModel($register_id)
     {
-        if (($model = register::findOne(['register_id' => $register_id])) !== null) {
+        if (($model = Register::findOne(['register_id' => $register_id])) !== null) {
             return $model;
         }
 

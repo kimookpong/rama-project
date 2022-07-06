@@ -67,40 +67,10 @@ class Helpers extends Component
             return json_decode($response, true);
         }
     }
-    public function googlev2($audioFile)
+    public function googleAPI($audioFile)
     {
-        $api = 'https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyDywgpBH8GPJTPH-QeO8jgU760nkscqQJ4';
-        $content = file_get_contents($audioFile);
-        $postData = [
-            "config" => [
-                "encoding" => "LINEAR16",
-                "sampleRateHertz" => 16000,
-                "languageCode" => "en-US",
-                //"encoding" => "WEBM_OPUS",
-                //"sampleRateHertz" => 48000,
-                //"languageCode" => "th-TH",
-                //"enableWordTimeOffsets" => true
-            ],
-            "audio" => [
-                "uri" => "gs://cloud-samples-tests/speech/brooklyn.flac", //$content,
-            ]
-        ];
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $api);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
-        $result     = curl_exec($ch);
-        $err = curl_error($ch);
-        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-        if ($err) {
-            return "cURL Error #:" . $err;
-        } else {
-            return json_decode($result, true);
-        }
+        $content = file_get_contents("https://hrmsuat.wu.ac.th/index.php?r=site/google-speech-to-text&url=" . $audioFile);
+        return $content;
     }
 
     public function googleSpeechToText($audioFile)
@@ -159,43 +129,40 @@ class Helpers extends Component
         //}
     }
 
- public function Partii($audioFile)
+    public function Partii($audioFile)
     {
         $audio_file = $audioFile;
         $data = array(
             'wavfile' => new CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)),
             'outputlevel' => '--uttlevel',
-                'outputformat' => '--txt',
+            'outputformat' => '--txt',
         );
-         
+
         $curl = curl_init();
-         
+
         curl_setopt_array($curl, array(
-           CURLOPT_URL => "https://api.aiforthai.in.th/partii-webapi",
-           CURLOPT_RETURNTRANSFER => true,
-           CURLOPT_ENCODING => "",
-           CURLOPT_MAXREDIRS => 10,
-           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-           CURLOPT_CUSTOMREQUEST => "POST",
-           CURLOPT_POSTFIELDS => $data,
-           CURLOPT_HTTPHEADER => array(
-            "Content-Type: multipart/form-data",
-            "Apikey: qeGgXTNUDgDXZyHAZgH8zLrgjq33ioLe"
+            CURLOPT_URL => "https://api.aiforthai.in.th/partii-webapi",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                "Content-Type: multipart/form-data",
+                "Apikey: qeGgXTNUDgDXZyHAZgH8zLrgjq33ioLe"
             )
-         ));
-         
+        ));
+
         $response = curl_exec($curl);
         $err = curl_error($curl);
-         
+
         curl_close($curl);
-         
+
         if ($err) {
-            echo "cURL Error #:".$err;
+            echo "cURL Error #:" . $err;
         } else {
             echo $response;
         }
-
-        
     }
-
 }

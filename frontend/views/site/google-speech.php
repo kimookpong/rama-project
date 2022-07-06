@@ -31,4 +31,10 @@ $audioFile2 = 'https://waijaipos.com/rama-project/frontend/web/records/20220702_
         <button class="btn rounded-pill btn-brain" onclick="googleSpeech('<?= $audioFile2 ?>','convert2')">ทดสอบใช้ฟังก์ชั่น Google Speech-to-text API</button>
     </p>
     <p id="convert2"></p>
+
+
+    <?php //= Yii::$app->helpers->Partii($audioFile) 
+    ?>
+
+
 </div>

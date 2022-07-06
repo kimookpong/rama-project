@@ -161,6 +161,8 @@ class SiteController extends Controller
         $this->layout = false;
         return $this->render('json_google');
     }
+
+
     public function actionPage1($id = null)
     {
         $this->layout = 'homepage';

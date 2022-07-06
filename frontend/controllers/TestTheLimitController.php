@@ -79,11 +79,7 @@ class TestTheLimitController extends Controller
         $question = Yii::$app->helpers->decodeUrl('question');
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         if ($this->request->isPost) {
-            if (!empty(Yii::$app->request->post('speech_text_final'))) {
-                $answer = Yii::$app->request->post('speech_text_final');
-            } else {
-                $answer = Yii::$app->request->post('speech_text');
-            }
+            $answer = Yii::$app->request->post('speech_text');
 
             $file = UploadedFile::getInstanceByName('file_audio');
             $file_audio = '';
@@ -92,9 +88,6 @@ class TestTheLimitController extends Controller
                 if ($file->saveAs($path . $fileName)) {
                     $file_audio = $fileName;
                 }
-            }
-            if (!empty($answer)) {
-                $model->score = $model->score + 1;
             }
             if ($question == 1) {
                 $model->qustion1 =  $answer;
@@ -110,7 +103,7 @@ class TestTheLimitController extends Controller
                 $model->qustion3 =  $answer;
                 $model->voicepath3 = $file_audio;
                 $model->save();
-                return $this->redirect(['result', 'id' => $id]);
+                return $this->redirect(['inprocess', 'id' => $id]);
             }
         }
         return $this->render('test', [
@@ -125,7 +118,46 @@ class TestTheLimitController extends Controller
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         return $this->render('result', [
             'model' => $model,
+            'id' => $id,
         ]);
+    }
+
+    public function actionInprocess()
+    {
+        $this->layout = 'testthelimit';
+        $id = Yii::$app->helpers->decodeUrl('id');
+        $model = Testandlimit::find()->where(['register_id' => $id])->one();
+        return $this->render('process', [
+            'model' => $model,
+            'id' => $id,
+        ]);
+    }
+
+    public function actionProcess($id)
+    {
+        $this->layout = false;
+        $model = Testandlimit::find()->where(['register_id' => $id])->one();
+        $model->score = 0;
+        $model->qustion1 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath1);
+        $model->qustion2 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath2);
+        $model->qustion3 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath3);
+        if (!empty($model->qustion1)) {
+            $model->score = $model->score + 1;
+        }
+        if (!empty($model->qustion2)) {
+            $model->score = $model->score + 1;
+        }
+        if (!empty($model->qustion3)) {
+            $model->score = $model->score + 1;
+        }
+        $model->save();
+
+        echo  'success';
+        /*
+        return $this->render('json', [
+            'model' => $model,
+        ]);
+        */
     }
 
     /**

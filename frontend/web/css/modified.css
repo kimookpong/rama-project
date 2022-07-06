@@ -20,6 +20,9 @@ body {
 .text-sky {
   color: #2969e5
 }
+.text-yellow {
+  color: #d3b200
+}
 .text-sky-light {
   color: #a3bcee
 }
@@ -51,6 +54,16 @@ body {
 
 .bg-testthelimit{
   background-image: url("../images/background-base/desktop-png/Desktop-3.png");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-size: cover;
+  background-position: center;
+  background-position-y: bottom;
+  background-attachment: fixed;
+}
+
+.bg-toolx{
+  background-image: url("../images/background-base/desktop-png/Desktop-4.png");
   background-repeat: no-repeat;
   background-color: #cccccc;
   background-size: cover;
