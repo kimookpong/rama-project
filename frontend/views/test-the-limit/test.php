@@ -64,7 +64,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container fixed-bottom mb-3">
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
     <input type="file" accept="audio/*" name="file_audio" id="file_audio" style="display:none" />
-    <input class="form-control" type="hidden" id="speech_text" name="speech_text" />
+    <input class="form-control" type="text" id="speech_text" name="speech_text" />
+    <input class="form-control" type="text" id="speech_text_final" name="speech_text_final" />
     <!--
     <div class="row">
         <div class="col py-2 mx-auto">
@@ -74,3 +75,20 @@ $this->params['breadcrumbs'][] = $this->title;
 -->
     <?php ActiveForm::end(); ?>
 </div>
+
+<script type="text/javascript">
+    questionAudio.onended = function() {
+        // start beep sounds
+        var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
+        audio.play();
+        audio.onended = function() {
+            document.getElementById('boxContainer').style.display = 'flex'
+            StartTextToSpeech('speech_text', 'speech_text_final');
+            //handleAction(10, 'file_audio', 'speech_text', 'form_voice');
+        }
+    }
+    window.onload = function() {
+        document.getElementById("questionAudio").autoplay;
+    };
+</script>
