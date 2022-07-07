@@ -73,15 +73,17 @@ class Ad8Controller extends Controller
             'model' => $this->findModel($ad8_id),
         ]);
     }
-    public function actionFalse($ad8_id)
+    public function actionFalse()
     {
+        $ad8_id = Yii::$app->helpers->decodeUrl('ad8_id');
         $this->layout = 'ad8';
         return $this->render('false', [
             'model' => $this->findModel($ad8_id),
         ]);
     }
-    public function actionSuccess($ad8_id)
+    public function actionSuccess()
     {
+        $ad8_id = Yii::$app->helpers->decodeUrl('ad8_id');
         $this->layout = 'ad8';
         return $this->render('success', [
             'model' => $this->findModel($ad8_id),
@@ -98,7 +100,7 @@ class Ad8Controller extends Controller
         $this->layout = 'ad8';
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'ad8_id' => $model->ad8_id, 'q' => "1"]);
+                return $this->redirect(['view', 'ad8_id' => $model->ad8_id, 'q' => 1]);
             }
         } else {
             $model->loadDefaultValues();
@@ -122,6 +124,7 @@ class Ad8Controller extends Controller
         $this->layout = 'ad8';
         $model = $this->findModel($ad8_id);
         //$q = Yii::$app->helpers->decodeUrl('q');
+        $model->step = Yii::$app->helpers->decodeUrl('q') + 1;
         $a = 0;
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             if ($model->step == '9') {

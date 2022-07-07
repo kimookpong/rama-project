@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 /* @var $form yii\widgets\ActiveForm */
 use common\models\Provinces;
 use common\models\Doctor;
+
 $provinces = Provinces::find()->all();
 $listData = ArrayHelper::map($provinces, 'provinces_id', 'name_th');
 $Docter = Doctor::find()->all();
@@ -31,18 +32,17 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         <div class="col-10"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล'])->label(false) ?></div>
     </div>
     <div class="row g-3">
-        <div class="col-2 col-form-label">เพศ </div>
-        <div class="col-2 ">
-            <input class="form-check-input" type="radio" id="register-gender1" class="form-control" name="Register[gender]" value="F">
-            <label class="col-form-label" for="register-gender1">
-                หญิง
-            </label>
+        <div class="col-2 col-form-label">เพศ <font class="text-danger"></font>
         </div>
-        <div class="col-2 ">
-            <input class="form-check-input" type="radio" id="register-gender2" class="form-control" name="Register[gender]" value="M">
-            <label for="register-gender2">
-                ชาย
-            </label>
+        <div class="col-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Register[gender]" id="inlineCheckbox1" value="F">
+                <label class="form-check-label" for="inlineCheckbox1">หญิง</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Register[gender]" id="inlineCheckbox2" value="M">
+                <label class="form-check-label" for="inlineCheckbox2">ชาย</label>
+            </div>
         </div>
     </div>
 </div>
@@ -59,12 +59,12 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     <div class="col-2 col-form-label">จังหวัด <font class="text-danger">*</font>
     </div>
     <div class="col-10">
-        <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด','class'=>'form-control select2'])->label(false) ?></div>
+        <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด', 'class' => 'form-control select2'])->label(false) ?></div>
 </div>
 <div class="row g-3">
     <div class="col-2 col-form-label">แพทย์ <font class="text-danger">*</font>
     </div>
-    <div class="col-10"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ','class'=>'form-control select2'])->label(false) ?></div>
+    <div class="col-10"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ', 'class' => 'form-control select2'])->label(false) ?></div>
 </div>
 <div class="row g-3">
     <div class="col-2 col-form-label">รหัสสถานะ <font class="text-danger">*</font>

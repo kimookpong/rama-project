@@ -25,9 +25,11 @@ $this->title = 'My Yii Application';
                 <div class="col py-4 mx-auto text-center">
                     <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/start']); ?>">เริ่มการทดสอบ</a>
                 </div>
+                <!--
                 <div class="col py-4 mx-auto text-center">
                     <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>">Test the limit</a>
                 </div>
+-->
             </div>
         </div>
     </div>

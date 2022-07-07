@@ -133,10 +133,12 @@ body {
 /*Reg*/
 .bg-reg{
   background-image: url("../images/background-base/desktop-png/Desktop-1.png");
-  height: 100%;
-  background-position: center;
   background-repeat: no-repeat;
+  background-color: #cccccc;
   background-size: cover;
+  background-position: center;
+  background-position-y: bottom;
+  background-attachment: fixed;
 }
 /*****/
 /*Ad8*/
@@ -170,17 +172,18 @@ body {
 }
 .bg-ad8 {
     background-image: url("../images/background-base/desktop-png/Desktop-2.png");
-    height: 100%;
-    background-position: center;
     background-repeat: no-repeat;
+    background-color: #cccccc;
     background-size: cover;
+    background-position: center;
+    background-position-y: bottom;
+    background-attachment: fixed;
 }
 .circlefalse {
   margin-left: auto;
   margin-right: auto;
-  position:center;
-  width:80%;
-  padding-bottom:80%;
+  position: relative;
+  padding-bottom: 100%;
   background: rgba(255, 0, 0, 0.400);;
   border-radius:80%;
 }
@@ -198,9 +201,8 @@ body {
 .circlesuccess {
   margin-left: auto;
   margin-right: auto;
-  position:center;
-  width:80%;
-  padding-bottom:80%;
+  position: relative;
+  padding-bottom: 100%;
   background: #D3B20060;
   border-radius:80%;
 }
