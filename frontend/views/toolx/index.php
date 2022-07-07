@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Toolx;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -20,11 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="title2 font-inter mb-4 text-muted text-center">ผู้สูงอายุต้องทำแบบทดสอบนี้ด้วยตนเองเท่านั้น</p>
         </div>
     </div>
+    <div class="row">
+        <?php
+        $model = Toolx::find()->where(['register_id' => $id])->one();
+        echo '<pre>';
+        print_r($model);
+        echo '</pre>';
+        ?>
+    </div>
 </div>
 <div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-2 mx-auto">
             <a href="<?= Url::toRoute(['toolx/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa-solid fa-angle-right float-end py-1"></i></a>
+
+            <a href="<?= Url::toRoute(['toolx/test-what-day', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">วันนี้วันอะไร <i class="fa-solid fa-angle-right float-end py-1"></i></a>
+
+            <a href="<?= Url::toRoute(['toolx/test-fruit', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">ผลไม้ <i class="fa-solid fa-angle-right float-end py-1"></i></a>
+
+            <a href="<?= Url::toRoute(['toolx/test-recall', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">word recall <i class="fa-solid fa-angle-right float-end py-1"></i></a>
         </div>
     </div>
+
 </div>

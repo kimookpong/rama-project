@@ -10,8 +10,27 @@ use Google\Cloud\Speech\V1\RecognitionConfig;
 use Google\Cloud\Speech\V1\RecognitionConfig\AudioEncoding;
 use Google\Cloud\Speech\V1\StreamingRecognitionConfig;
 
+use \yii\web\UploadedFile;
+
 class Helpers extends Component
 {
+    public function uploadFile($param, $folder)
+    {
+        $path = Yii::getAlias('@webroot') . '/records/' . $folder . '/';
+        $file = UploadedFile::getInstanceByName($param);
+        if ($file) {
+            $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.flac';
+            if ($file->saveAs($path . $fileName)) {
+                return 'records/' . $folder . '/' . $fileName;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+
+
     public function decodeUrl($id = null)
     {
         $codes = Yii::$app->request->get();
@@ -97,6 +116,7 @@ class Helpers extends Component
 
         return $responses;
     }
+
 
     public function googleSpeechToText($audioFile)
     {

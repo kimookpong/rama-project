@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Wordregister;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -32,13 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 <i class="fa-solid fa-circle text-next"></i>
                 <i class="fa-solid fa-circle text-next"></i>
                 <i class="fa-solid fa-circle text-next"></i>
-                <i class="fa-solid fa-circle text-next"></i>
             </p>
         </div>
     </div>
 </div>
-<audio id="questionAudio" autoplay="">
-    <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/q_1.mp3" type="audio/mpeg">
+<audio id="questionAudioIntro" autoplay="">
+    <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/q_1_intro.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="questionAudioStart">
+    <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/q_1_start.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="questionAudio1">
+    <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/<?= Wordregister::find()->where(['word' => $model->regsiter1])->one()->voicepart ?>" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="questionAudio2">
+    <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/<?= Wordregister::find()->where(['word' => $model->regsiter2])->one()->voicepart ?>" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="questionAudio3">
+    <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/<?= Wordregister::find()->where(['word' => $model->regsiter3])->one()->voicepart ?>" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <div class="container fixed-bottom mb-3">
@@ -49,18 +65,37 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script type="text/javascript">
-    questionAudio.onended = function() {
+    questionAudioIntro.onended = function() {
+        setTimeout(function() {
+            document.getElementById("questionAudio1").play();
+        }, 1000);
+    }
+    questionAudio1.onended = function() {
+        document.getElementById("questionAudio2").play();
+        console.log('end_1');
+    }
+    questionAudio2.onended = function() {
+        document.getElementById("questionAudio3").play();
+        console.log('end_2');
+    }
+    questionAudio3.onended = function() {
+        console.log('end_3');
+        setTimeout(function() {
+            document.getElementById("questionAudioStart").play();
+        }, 1000);
+    }
+
+    questionAudioStart.onended = function() {
         // start beep sounds
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
         audio.play();
         audio.onended = function() {
             document.getElementById('boxContainer').style.display = 'flex'
-            //StartTextToSpeech('speech_text', 'speech_text_final');
-            // handleAction(10, 'file_audio', 'speech_text', 'form_voice');
+            handleAction(7, 'file_audio', 'speech_text', 'form_voice');
         }
     }
     window.onload = function() {
-        document.getElementById("questionAudio").autoplay;
+        document.getElementById("questionAudioIntro").autoplay;
     };
 </script>

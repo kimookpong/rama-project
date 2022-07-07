@@ -42,6 +42,9 @@ class TestTheLimitController extends Controller
     public function actionIndex()
     {
         $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         if (empty($model)) {
             $model = new Testandlimit();
@@ -58,6 +61,9 @@ class TestTheLimitController extends Controller
     public function actionStart()
     {
         $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
         $this->layout = 'testthelimit';
         if ($this->request->isPost) {
             $model = Testandlimit::find()->where(['register_id' => $id])->one();
@@ -73,22 +79,19 @@ class TestTheLimitController extends Controller
     }
     public function actionTest()
     {
-        $path = Yii::getAlias('@webroot') . '/records' . '/';
         $this->layout = 'testthelimit';
         $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
         $question = Yii::$app->helpers->decodeUrl('question');
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         if ($this->request->isPost) {
             $answer = Yii::$app->request->post('speech_text');
 
-            $file = UploadedFile::getInstanceByName('file_audio');
-            $file_audio = '';
-            if ($file) {
-                $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.flac';
-                if ($file->saveAs($path . $fileName)) {
-                    $file_audio = $fileName;
-                }
-            }
+            //function Upload File
+            $file_audio = Yii::$app->helpers->uploadFile('file_audio', 'testthelimit');
+
             if ($question == 1) {
                 $model->qustion1 =  $answer;
                 $model->voicepath1 = $file_audio;
@@ -115,6 +118,9 @@ class TestTheLimitController extends Controller
     {
         $this->layout = 'testthelimit';
         $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         return $this->render('result', [
             'model' => $model,
@@ -126,6 +132,9 @@ class TestTheLimitController extends Controller
     {
         $this->layout = 'testthelimit';
         $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         return $this->render('process', [
             'model' => $model,
@@ -138,9 +147,9 @@ class TestTheLimitController extends Controller
         $this->layout = false;
         $model = Testandlimit::find()->where(['register_id' => $id])->one();
         $model->score = 0;
-        $model->qustion1 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath1);
-        $model->qustion2 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath2);
-        $model->qustion3 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/records/' . $model->voicepath3);
+        $model->qustion1 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath1);
+        $model->qustion2 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath2);
+        $model->qustion3 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath3);
         if (!empty($model->qustion1)) {
             $model->score = $model->score + 1;
         }
