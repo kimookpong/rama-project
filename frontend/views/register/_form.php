@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 /* @var $form yii\widgets\ActiveForm */
 use common\models\Provinces;
 use common\models\Doctor;
-
+use yii\helpers\Url;
 $provinces = Provinces::find()->all();
 $listData = ArrayHelper::map($provinces, 'provinces_id', 'name_th');
 $Docter = Doctor::find()->all();
@@ -87,9 +87,22 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 <?= $form->field($model, 'create_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
 <?= $form->field($model, 'update_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
 <div class=" text-center">
-    <button type="submit" class="btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-    </button>
 </div>
+
+<div class="container fixed-bottom">
+            <div class="row">
+                <div class="col py-4 mx-auto text-center">
+                <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    </button>
+                </div>
+                <!--
+                <div class="col py-4 mx-auto text-center">
+                    <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>">Test the limit</a>
+                </div>
+-->
+            </div>
+        </div>
+    </div>
 <?php ActiveForm::end(); ?>
 
 </div>
