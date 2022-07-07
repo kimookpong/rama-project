@@ -49,7 +49,7 @@ const testMicrophone = async (timeRecord,showStatus) => {
   var audioPlay = new Audio();
   audioPlay.src = audio.audioUrl;
   audioPlay.play();
-  $('#'+showStatus).html('ทดสอบ<br/>ไมโครโฟน');
+  $('#'+showStatus).html('ทดสอบ<br/>ไมโครโฟน ');
 };
 function createDownloadLink(audio_blob,inputFile) {
   let file = new File([audio_blob], "filename");
