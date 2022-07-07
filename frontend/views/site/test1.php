@@ -11,6 +11,7 @@
 <script type="text/javascript">
     questionAudio.onended = function() {
         // start beep sounds
+        testMicrophone;
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
         audio.play();
