@@ -11,6 +11,8 @@ use yii\grid\GridView;
 $this->title = 'Testandlimits';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto pt-4">
@@ -19,6 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <hr>
             <p class="title2 font-inter mb-4 text-muted text-center">กรุณาเตรียมอุปกรณ์ให้พร้อมและอยู่ในห้องที่ไม่มีเสียงรบกวน โดยคุณฟังและทำตามคำสั่งจากเสียงที่ได้ยิน</p>
         </div>
+            <audio id="questionAudio" autoplay="">
+                <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/intro1.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
     </div>
     <div class="row ">
         <div class="col-lg-6 mx-auto">
@@ -40,3 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+    window.onload = function() {
+        document.getElementById("questionAudio").autoplay;
+    };
+</script>
