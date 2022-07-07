@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rama-project-v2",
+  "private_key_id": "ed6853bd209261892cfe8b530fca01d7bd43963a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDmi8SE4Xu9G0rb\nJJoYEQwfHji3iBKVMGZcvTRkOv0LT3JfJ4e1Y1Hxpoj8VbdkCUk8z7zVQmW/6t4B\nvzVC3JJRi0XOHg5cixGWE5u+t4iEq3Pko3QsmEh8v97hHIxESjqRoYJeeFVWsssM\nwb/aX+C8x86yvy2lqdzPkJuzRaVL1ikAME0MckPNNM9tM3y8+TrQCfAmqrYJmG9v\nokuPBGLlW+p07bKK+0xc6IFFBZGzoG1sAw9LuJmOK98QaVU+orSU2sNVv8teBdQM\nqq6zWj9VHBCMXj3dPixO7YpjOMYF52x2GuQfuvDuQYev+VqRzEhByMnwYSF0GKSN\nMjWgkVelAgMBAAECggEAbBLlIu2Y1gNvSd+UpOeI6SV/rPmKzIkN0zeW0c2dRaoO\nkXC0e2F9zmwlFzUPbUO1I162xLoFfLwbKnJ6A0fnB3bkWEVasiM3MUUr43Gh+59s\nCqhdE3KnuGMxlhGN541se0xdEvASATx7VxWUXEhJz/VSfhSEz34bVuoRMy7Y1/0/\nAuP2KDpUjZDtT6z+5UFxO6EwwFXtN5Rs6987DBid9sPu4ALjeG1t9iqEzdjyEwgk\n8gyeHWl9NB/1EW8HIlOqcWiiIdJyy28mTMAQOnopdOL4rFAyJkxLODrzIzL6Yf2x\nQtOieBHNoiMNkt/XOmu/ysllyb0Dla4oLHgZEExPWQKBgQD6+wFSVq6poXohw8hg\nO//a0PTn0+XFSeviAK0VSdGc1yOo+e7OxkSBAFXm6PHWy1AusloKUTDrjLuQRskQ\n8ig6zkv/P6CEfTmvXawYaycEygyip+qwQGfRhxXgHnz5NKHJIlNR68hC8eqCVNzO\n5/izwaFgUWx9b6HUzbz/YwxiBwKBgQDrKCPJunFq8QEIe/O/aGO7DFgsyqOhMPx+\nO2Bp/T049AW2SjvwqBd8HsGKtSgc3jIUnBUcbUactcAox0rEgy9S/GDn9q+hBfIL\nBPgc1d730nf+J9b55sdgU26TxMp8ZeDeEbFtrKeNvQFHZvcyd44Q8CMCEXVJt7Ab\n54UICj6d8wKBgQDdidzDyoIId+Hvlfr0f2G7y8CyNgfW2wZdCw29AdkF4Z23lU5n\ntPlZCWvKFIsMd5DCd2olOz+8XBBgLStkSuyZ4+mPWKGe8U6O7ldvgn4Bqzv2A9SU\nWXWKrPvxRdg4vW2ltifn4wF1nkbLXo8+D+MnAN8qvxTNsFEgH68Zm1ud1wKBgQDY\ng0O4OA63TSELY70ATigND4eb7hOMlWLVAux5ie21o5Aiz+SyZsIAyPygLr25Hqfz\nq+YQH1j1bq53nU7s8nA/MxoyWUJJuwSpOrELM6uwd7t9accYnnCR8x+LtJROxyqs\nrJO1jFNVQGGOEXKmp8dJNyC0hch80EC44Iju5yfSGwKBgHYNwGGpaThfkTYOPPy/\n0gsArn9o6b6sGMcIDgbItyiH6xampehtmSS41fVsb40pYUS7bo4e8inuVME0UQcT\nbtGPgxxWTzs1L11kMRSmisyMuqzYzEjjY2B8v1IPU67Z/3XypAA0pr9ijpLaG2EO\nQOm5CMiV1FOeQm5OE7N4Lr3F\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-to-text@rama-project-v2.iam.gserviceaccount.com",
+  "client_id": "104630869402002053779",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-to-text%40rama-project-v2.iam.gserviceaccount.com"
+}

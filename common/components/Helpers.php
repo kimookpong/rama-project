@@ -75,7 +75,7 @@ class Helpers extends Component
 
     public function googleSpeechToText($audioFile)
     {
-        putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-speech-5a141959e0d6.json');
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-project-v2-ed6853bd2092.json');
 
         // change these variables if necessary
         $encoding = AudioEncoding::WEBM_OPUS;
