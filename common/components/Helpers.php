@@ -8,6 +8,7 @@ use Google\Cloud\Speech\V1\SpeechClient;
 use Google\Cloud\Speech\V1\RecognitionAudio;
 use Google\Cloud\Speech\V1\RecognitionConfig;
 use Google\Cloud\Speech\V1\RecognitionConfig\AudioEncoding;
+use Google\Cloud\Speech\V1\StreamingRecognitionConfig;
 
 class Helpers extends Component
 {
@@ -73,12 +74,36 @@ class Helpers extends Component
         return $content;
     }
 
+    public function googleSpeechToTextV2($audioFile)
+    {
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-project-v2-ed6853bd2092.json');
+        // create the speech client
+        $client = new SpeechClient();
+
+        $recognitionConfig = new RecognitionConfig();
+        $recognitionConfig->setEncoding(AudioEncoding::FLAC);
+        $recognitionConfig->setSampleRateHertz(48000);
+        $recognitionConfig->setLanguageCode('th-TH');
+        $config = new StreamingRecognitionConfig();
+        $config->setConfig($recognitionConfig);
+
+        $audioResource = fopen($audioFile, 'r');
+
+        $responses = $client->recognizeAudioStream($config, $audioResource);
+
+        foreach ($responses as $element) {
+            // doSomethingWith($element);
+        }
+
+        return $responses;
+    }
+
     public function googleSpeechToText($audioFile)
     {
         putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-project-v2-ed6853bd2092.json');
 
         // change these variables if necessary
-        $encoding = AudioEncoding::WEBM_OPUS;
+        $encoding = AudioEncoding::FLAC;
         $sampleRateHertz = 48000;
         $languageCode = 'th-TH';
 

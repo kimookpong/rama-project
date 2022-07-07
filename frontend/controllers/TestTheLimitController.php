@@ -84,7 +84,7 @@ class TestTheLimitController extends Controller
             $file = UploadedFile::getInstanceByName('file_audio');
             $file_audio = '';
             if ($file) {
-                $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.wav';
+                $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.flac';
                 if ($file->saveAs($path . $fileName)) {
                     $file_audio = $fileName;
                 }
