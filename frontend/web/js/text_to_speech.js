@@ -28,9 +28,7 @@ const StartTextToSpeech = async (inputText,inputTextFinal) => {
         recognition.onend = function() {
             document.getElementById(inputTextFinal).value = document.getElementById(inputTextFinal).value + text_audio;
             //recognition.start();
-            setTimeout(() => {
-                recognition.start();
-              }, 50);
+  
             
            //$('#instructions').html('เรียบร้อย'); // แสดงสถานะว่าเสร็จสิ้นแล้ว Done
         };
