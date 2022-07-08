@@ -19,7 +19,7 @@ class Helpers extends Component
         $path = Yii::getAlias('@webroot') . '/records/' . $folder . '/';
         $file = UploadedFile::getInstanceByName($param);
         if ($file) {
-            $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.flac';
+            $fileName = date('Ymd_His_') . md5($file->baseName . time()) . '.wav';
             if ($file->saveAs($path . $fileName)) {
                 return 'records/' . $folder . '/' . $fileName;
             } else {
@@ -100,7 +100,7 @@ class Helpers extends Component
         $client = new SpeechClient();
 
         $recognitionConfig = new RecognitionConfig();
-        $recognitionConfig->setEncoding(AudioEncoding::FLAC);
+        $recognitionConfig->setEncoding(AudioEncoding::WEBM_OPUS);
         $recognitionConfig->setSampleRateHertz(48000);
         $recognitionConfig->setLanguageCode('th-TH');
         $config = new StreamingRecognitionConfig();
@@ -123,7 +123,7 @@ class Helpers extends Component
         putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-project-v2-ed6853bd2092.json');
 
         // change these variables if necessary
-        $encoding = AudioEncoding::FLAC;
+        $encoding = AudioEncoding::WEBM_OPUS;
         $sampleRateHertz = 48000;
         $languageCode = 'th-TH';
 
@@ -177,7 +177,7 @@ class Helpers extends Component
     public function Partii($audioFile)
     {
         $audio_file = $audioFile;
-        $data = array('wavfile' => new \CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)), 'outputlevel' => '--uttlevel', 'outputformat' => '--txt',);
+        $data = array('wavfile' => new \CURLFile($audio_file, 'audio/mpeg', basename($audio_file)), 'outputlevel' => '--uttlevel', 'outputformat' => '--txt',);
         $curl = curl_init();
 
         //  var_dump($data);

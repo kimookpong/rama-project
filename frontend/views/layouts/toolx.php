@@ -25,7 +25,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 
-<body class="d-flex flex-column bg-toolx">
+<body class="d-flex flex-column bg-toolx h-100">
     <?php $this->beginBody() ?>
     <header>
         <nav id="w0" class="navbar navbar-expand-md fixed-top px-2 navbar">
@@ -34,8 +34,8 @@ AppAsset::register($this);
             </div>
         </nav>
     </header>
-    <main role="main" class="flex-shrink-0">
-        <div class="container">
+    <main role="main" class="flex-shrink-0 h-100">
+        <div class="container h-100">
             <?= $content ?>
         </div>
     </main>

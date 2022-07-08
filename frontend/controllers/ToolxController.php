@@ -105,6 +105,20 @@ class ToolxController extends Controller
             'id' => $id,
         ]);
     }
+
+    public function actionResult()
+    {
+        $id = Yii::$app->helpers->decodeUrl('id');
+        if (empty($id)) {
+            return $this->redirect(['site/index']);
+        }
+        $this->layout = 'toolx';
+        return $this->render('result', [
+            'id' => $id,
+        ]);
+    }
+
+
     public function actionTestRecall()
     {
         $id = Yii::$app->helpers->decodeUrl('id');
@@ -136,9 +150,10 @@ class ToolxController extends Controller
                     }
                     $model->recallwordseg = implode(',', $text_seperate['tokens']);
                 }
+                $model->wordregsiter_score = $count;
                 $model->save(false);
             }
-            return $this->redirect(['index', 'id' => $id]);
+            return $this->redirect(['result', 'id' => $id]);
         }
 
         return $this->render('test_recall', [
@@ -196,7 +211,7 @@ class ToolxController extends Controller
             $model->orientation = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $file_audio);
             $model->voiceorientationpath = $file_audio;
 
-            if (in_array($model->datenow, $model->orientation)) {
+            if (stristr($model->orientation, $model->datenow)) {
                 $model->orientation_score = 1;
             }
             $model->save();

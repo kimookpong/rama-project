@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Toolx;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -11,38 +12,22 @@ use yii\grid\GridView;
 $this->title = 'Testandlimits';
 $this->params['breadcrumbs'][] = $this->title;
 
-if ($model->score == 3) {
-
 
 ?>
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-lg-12 mx-auto pt-4">
-                <p class="title2 text-center">คุณผ่านขั้นตอนเตรียมความพร้อมแล้ว</p>
+<div class="ad8-create text-center h-100">
+    <div class="row h-100">
+        <div class="circlesuccess"></div>
+        <div class="col-sm-12 col-md-6 mx-auto my-auto">
+            <div>
+                <h3>สิ้นสุดการคัดกรองสมองเรื่องการรู้คิด</h3>
             </div>
         </div>
     </div>
-    <div class="container fixed-bottom mb-3">
+    <div class="container fixed-bottom">
         <div class="row">
-            <div class="col py-2 mx-auto">
-                <a href="<?= Url::toRoute(['toolx/index', 'id' => $model->register_id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป</a>
+            <div class="col py-4 mx-auto">
+                <a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/index']); ?>">ออก <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>
-
-<?php } else { ?>
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-lg-12 mx-auto pt-4">
-                <p class="title2 text-center">เนื่องจากเตรียมความพร้อมไม่สมบูรณ์ ระบบไม่สามารถดำเนินการต่อไปได้</p>
-            </div>
-        </div>
-    </div>
-    <div class="container fixed-bottom mb-3">
-        <div class="row">
-            <div class="col py-2 mx-auto">
-                <a href="<?= Url::toRoute(['site/index']); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">ออก</a>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+</div>
