@@ -69,9 +69,9 @@ class ToolxController extends Controller
         $this->layout = 'toolx';
         if ($this->request->isPost) {
             $model = Toolx::find()->where(['register_id' => $id])->one();
-            $model->regsiter1 = Wordregister::find()->where(['verbtype' => 1])->orderBy(['wordreg_id' => SORT_ASC])->one()->word;
-            $model->regsiter2 = Wordregister::find()->where(['verbtype' => 2])->orderBy(['wordreg_id' => SORT_ASC])->one()->word;
-            $model->regsiter3 = Wordregister::find()->where(['verbtype' => 3])->orderBy(['wordreg_id' => SORT_ASC])->one()->word;
+            $model->regsiter1 = Wordregister::find()->where(['verbtype' => 1])->orderBy(['rand()' => SORT_ASC])->one()->word;
+            $model->regsiter2 = Wordregister::find()->where(['verbtype' => 2])->orderBy(['rand()' => SORT_ASC])->one()->word;
+            $model->regsiter3 = Wordregister::find()->where(['verbtype' => 3])->orderBy(['rand()' => SORT_ASC])->one()->word;
             $model->datenow = $thai_day[date('w')];
             $model->save();
             return $this->render('counter', [
