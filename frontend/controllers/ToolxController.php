@@ -258,11 +258,11 @@ class ToolxController extends Controller
                 $model->regsiter_score = $count;
                 $model->save(false);
 
-                //if ($count == 3) {
-                return $this->redirect(['test-what-day', 'id' => $id]);
-                //} else {
-                //    return $this->redirect(['false', 'id' => $id]);
-                //}
+                if ($count == 3) {
+                    return $this->redirect(['test-what-day', 'id' => $id]);
+                } else {
+                    return $this->redirect(['false', 'id' => $id]);
+                }
             } else {
                 return $this->redirect(['false', 'id' => $id]);
             }

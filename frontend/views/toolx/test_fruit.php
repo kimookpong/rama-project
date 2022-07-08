@@ -10,7 +10,7 @@ use yii\bootstrap4\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Testandlimits';
+$this->title = 'แบบทดสอบการรู้คิด';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
