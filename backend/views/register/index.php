@@ -32,10 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header"><h2>Search & Summary</h2></div>
 <div class="card-body">
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
-<?php @$provinces =  $_POST['provinces'];?>
+<?php @$province_id =  $_POST['provinces']; 
+@$my =  $_POST['my']; 
+@$disease =  $_POST['disease']; 
+?>
     <div class="row">
       <div class="col-3">จังหวัด 
-      <select class="form-control select2" name="provinces">
+      <select class="form-control" name="provinces">
       <option >เลือกจังหวัด</option >
       <?php  
       $sql = 'SELECT
@@ -49,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
       ';
       $provinces = Provinces::findBySql($sql)->all();      
       foreach ($provinces as $data) { $p[$data->provinces_id]=$data->name_th;?> 
-      <option value="<?=$data->provinces_id?>"><?=$data->name_th?></option>
+      <option value="<?=$data->provinces_id?>" <?=$province_id==$data->provinces_id?'selected':''?>> <?=$data->name_th?></option>
       <?php  } ?> 
       </select>
       </div>         
@@ -66,17 +69,17 @@ register
 GROUP BY
 my
       ";
-      @$my = Register::findBySql($sql)->all();  
+      @$mys = Register::findBySql($sql)->all();  
         
-      foreach ($my as $data) {?> 
-      <option value="<?=$data->month?>/<?=$data->year?>"><?=$data->month?>-<?=$data->year?></option>
+      foreach ($mys as $data) { $myss = $data->month.'/'.$data->year;?> 
+      <option value="<?=$data->month?>/<?=$data->year?>" <?=$my==$myss?'selected':''?>><?=$data->month?>/<?=$data->year?></option>
       <?php  }  ?> 
       
       </select></div>         
       <div class="col-2">รหัสสถานะ
       <select class="form-control" name="disease">
-        <option value="control">Control</option>
-        <option value="disease">Disease</option>
+        <option value="control" <?=$disease=='control'?'selected':''?>>Control</option>
+        <option value="disease" <?=$disease=='disease'?'selected':''?>>Disease</option>
       </select>
       </div>         
       <div class="col-2"></div>    

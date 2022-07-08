@@ -70,6 +70,12 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function actionFullpaper($register_id)
+    {
+        return $this->render('fullpaper', [
+            'model' => $this->findModel($register_id),
+        ]);
+    }
     /**
      * Creates a new register model.
      * If creation is successful, the browser will be redirected to the 'view' page.

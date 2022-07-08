@@ -41,7 +41,9 @@ if ($model->score == 3) {
     <div class="container fixed-bottom mb-3">
         <div class="row">
             <div class="col py-2 mx-auto">
-                <a href="<?= Url::toRoute(['site/index']); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">ออก</a>
+            <a href="<?= Url::toRoute(['toolx/index', 'id' => $model->register_id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป</a>
+
+             <!--   <a href="<?= Url::toRoute(['site/index']); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">ออก</a>-->
             </div>
         </div>
     </div>
