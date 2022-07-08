@@ -29,7 +29,7 @@ AppAsset::register($this);
     <header>
     <nav id="w1" class="navbar navbar-expand-md fixed-top px-2  navbar">
 <div class="container">
-<a class="navbar-brand" href="/rama-project/frontend/web/"><img src="/rama-project/frontend/web/images/Braintest-logo.svg" height="40" class="bi me-2"></a>
+<a class="navbar-brand" href="<?=Yii::$app->homeUrl?>"><img src="<?=Yii::getAlias('@web');?>/images/Braintest-logo.svg" height="60" class="bi me-2"></a>
 </div>
 </nav>
     </header>

@@ -69,7 +69,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 <div class="row g-3">
     <div class="col-2 col-form-label">รหัสสถานะ <font class="text-danger">*</font>
     </div>
-    <div class="col-10"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสระบุโรค'])->label(false) ?></div>
+    <div class="col-10"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสสถานะ'])->label(false) ?></div>
 </div>
 <div class="row g-3">
     <div class="col-2 col-form-label">อีเมล์</div>
@@ -92,8 +92,8 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 <div class="container fixed-bottom">
             <div class="row">
                 <div class="col py-4 mx-auto text-center">
-                <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-    </button>
+                <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block"> หน้าถัดไป <i class="py-1 fa fa-arrow-circle-right" aria-hidden="true"></i>
+              </button>
                 </div>
                 <!--
                 <div class="col py-4 mx-auto text-center">
