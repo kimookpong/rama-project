@@ -23,6 +23,16 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+<audio id="questionAudio" autoplay="">
+                <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/intro.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <script type="text/javascript">
+
+    window.onload = function() {
+        document.getElementById("questionAudio").autoplay;
+    };
+</script>
 <div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-2 mx-auto">
