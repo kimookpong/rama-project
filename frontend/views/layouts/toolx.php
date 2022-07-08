@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> | <?= Yii::$app->params['project'] ?></title>
     <?php $this->head() ?>
 </head>
 
@@ -30,7 +30,7 @@ AppAsset::register($this);
     <header>
         <nav id="w0" class="navbar navbar-expand-md fixed-top px-2 navbar">
             <div class="container">
-                <a class="navbar-brand" href="<?= Url::toRoute(['site/index']) ?>"><img src="<?= Yii::getAlias('@web') ?>/images/logo.svg" height="40" class="bi me-2"></a>
+                <a class="navbar-brand" href="<?= Url::toRoute(['site/index']) ?>"><img src="<?= Yii::getAlias('@web') ?>/images/Braintest-logo.svg" height="60" class="bi me-2"></a>
             </div>
         </nav>
     </header>

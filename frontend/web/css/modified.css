@@ -181,11 +181,15 @@ body {
 }
 .circlefalse {
   position: fixed;
-  padding-bottom: 100%;
   background: rgba(255, 0, 0, 0.400);;
   border-radius:50%;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  min-width: 400px;
+  min-height: 400px;
+  max-width: 900px;
+  max-height: 900px;
+  transform: translate(-50%, -50%);
 }
 .circlefalse h3{
   text-align: center;
@@ -194,17 +198,20 @@ body {
   font-size: 28px;
   line-height: 36.4px;
   position:absolute;
-  top:50%; left:50%;
-  transform: translate(-50%, -50%);
-  margin:0;
+  top:50%;
+  transform: translateY(-50%);
 }
 .circlesuccess {
   position: fixed;
-  padding-bottom: 100%;
   background: #D3B20060;
   border-radius:50%;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  min-width: 400px;
+  min-height: 400px;
+  max-width: 900px;
+  max-height: 900px;
+  transform: translate(-50%, -50%);
 }
 .circlesuccess h3{
   text-align: center;
@@ -213,9 +220,8 @@ body {
   font-size: 28px;
   line-height: 36.4px;
   position:absolute;
-  top:50%; left:50%;
-  transform: translate(-50%, -50%);
-  margin:0;
+  top:50%;
+  transform: translateY(-50%);
 }
 
 
@@ -432,4 +438,9 @@ body {
 
 .box7{
   animation-name: quiet;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
 }
