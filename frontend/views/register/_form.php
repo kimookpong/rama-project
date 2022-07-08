@@ -92,8 +92,8 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 <div class="container fixed-bottom">
             <div class="row">
                 <div class="col py-4 mx-auto text-center">
-                <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block"> หน้าถัดไป <i class="py-1 fa fa-arrow-circle-right" aria-hidden="true"></i>
-              </button>
+              <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa-solid fa-angle-right float-end py-1"></i>
+
                 </div>
                 <!--
                 <div class="col py-4 mx-auto text-center">
