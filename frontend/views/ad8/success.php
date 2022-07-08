@@ -2,8 +2,8 @@
 
 use yii\helpers\Url;
 ?>
-<div class="ad8-create text-center">
-	<div class="row">
+<div class="ad8-create text-center h-100">
+	<div class="row h-100">
 		<div class="col-sm-12 col-md-6 mx-auto">
 			<div class="circlesuccess">
 				<h3>คุณทำแบบคัดกรองชุดแรกจบแล้ว</h3>
@@ -17,5 +17,4 @@ use yii\helpers\Url;
 			</div>
 		</div>
 	</div>
-
 </div>
