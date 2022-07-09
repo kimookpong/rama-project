@@ -88,6 +88,8 @@ body {
 /* rtl:end:ignore */
 
 .btn-brain {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 700;
   --bs-btn-bg: #a3bcee;
   --bs-btn-border-color: #a3bcee;
   --bs-btn-hover-bg: #6898f4;
@@ -213,7 +215,29 @@ body {
   max-height: 900px;
   transform: translate(-50%, -50%);
 }
+.circlesuccessttl {
+  position: fixed;
+  background: #87D0D4;
+  border-radius:50%;
+  top: 50%;
+  left: 50%;
+  min-width: 400px;
+  min-height: 400px;
+  max-width: 900px;
+  max-height: 900px;
+  transform: translate(-50%, -50%);
+}
 .circlesuccess h3{
+  text-align: center;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36.4px;
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+.circlesuccessttl h3{
   text-align: center;
   font-family: "Sarabun", sans-serif;
   font-weight: 500;

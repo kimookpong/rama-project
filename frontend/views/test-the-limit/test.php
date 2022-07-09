@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
     <div class="px-4 py-5 text-center">
-        <h1 class="display-1 fw-bold text-sky-light" style="font-size: 10rem;"><?= $question ?></h1>
+        <h1 class="display-1 fw-bold text-sky-light" style="font-size: 10rem;color:#87D0D4;"><?= $question ?></h1>
         <div class="col-lg-6 mx-auto">
             <div class=" text-center my-4 " style="height: 43px;">
                 <div class="boxContainer mx-auto" id="boxContainer" style="display:none;">
