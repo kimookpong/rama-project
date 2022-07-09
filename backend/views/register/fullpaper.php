@@ -2,6 +2,8 @@
 
 use common\models\Ad8;
 use common\models\Testandlimit;
+use common\models\Toolx;
+
 $this->title = 'Registers';
 $this->params['breadcrumbs'][] = $this->title;
 function Ad8code($val)
@@ -113,16 +115,137 @@ function Ad8code($val)
 
 
                 </div>
+                <?php $toolx = Toolx::find()->where(['register_id' => $model->register_id])->one();?>
+
                 <div class="callout callout-warning">
-                  <h5>I am a warning callout!</h5>
-
-                  <p>This is a yellow callout.</p>
+                  <div class="row"> 
+                 <div class="col-3"><h2>ToolX</h2></div>
+                 <div class="col-9"></div>
                 </div>
-                <div class="callout callout-success">
-                  <h5>I am a success callout!</h5>
-
-                  <p>This is a green callout.</p>
+                <div class="row"> 
+                 <div class="col-3"><h2>1.Registeration(จำคำ 3 คำ)</h2></div>
+                 <div class="col-9">จำคำได้: <mark><?=$toolx->regsiter_score?></mark> ข้อ</div>
                 </div>
+
+                  <p></p>
+                  <table width="100%" border="0" class="table">
+                <tr>
+    <td width="15%"></td>
+    <td width="14%">คำที่ 1</td>
+    <td width="18%">คำที่ 2</td>
+    <td width="15%">คำที่ 3</td>
+  </tr>
+  <tr>
+    <td width="15%">คำจากระบบ</td>
+    <td width="14%"><mark> <?=$toolx->regsiter1;?></mark></td>
+    <td width="11%"><mark> <?=$toolx->regsiter2;?></mark></td>
+    <td width="10%"><mark> <?=$toolx->regsiter3;?></mark> </td>
+  </tr>
+  <tr>
+    <td>Transcribe</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ตรวจคำตอบ</td>
+    <td><?=$toolx->regsiterwordseg?></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>ไฟล์เสียง</td>
+    <td colspan="3"><audio controls>
+        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voiceregsiter?>" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+  </td>
+
+  </tr>
+</table>
+<div class="row"> 
+                 <div class="col-3"><h2>2.Orientation(วันนี้วันอะไร)</h2></div>
+                 <div class="col-9">ตอบคำถาม: <mark><?=$toolx->orientation_score=='1'?'ถูก':'ผิด'?></mark></div>
+                 <div class="col-3">วันที่ถูก: <mark><?=$toolx->datenow?></div>
+                 <div class="col-3">คำตอบที่ Transcribe: <mark><?=$toolx->orientation?></div>
+                 <div class="col-3">ตรวจคำตอบ: <audio controls>
+        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voiceorientationpath?>" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio></div>
+
+                </div>
+
+
+                <div class="row"> 
+                 <div class="col-4"><h2>3. Fruit Fluency (พูดชื่อผลไม้)</h2></div>
+                 <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากระบบ): <mark><?=$toolx->fruitfluency_score?></mark>ชื่อ</div>
+                 <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากผู้ตรวจ):: <mark></mark>ชื่อ</div>
+                </div>
+                <div class="row"> 
+                 <div class="col-4">ชื่อผลไม้จากการ Transcibe:</div>
+                 <div class="col-8"> <mark><?=$toolx->fruitfluency?></mark></div>
+                </div>
+                <div class="row"> 
+                 <div class="col-4">ภายหลังการตัดคำ:</div>
+                 <div class="col-8"> <mark><?=$toolx->fruitwordseg?></mark></div>
+                </div>
+                <div class="row"> 
+                 <div class="col-4">ตรวจคำตอบ:</div>
+                 <div class="col-8"></div>
+                </div>
+                <div class="row"> 
+                 <div class="col-4">ไฟล์เสียง:</div>
+                 <div class="col-8">
+                 <audio controls>
+        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voicefruitluency?>" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+
+                 </div>
+                 
+                </div>
+                <div class="row"> 
+                 <div class="col-4"><h2>4. Recall (นึกคำ 3 คำ)</h2></div>
+                 <div class="col-8">นึกคำได้: <mark><?=$toolx->wordregsiter_score?></mark></div>
+                 </div>
+                 <p></p>
+                  <table width="100%" border="0" class="table">
+                <tr>
+    <td width="15%"></td>
+    <td width="14%">คำที่ 1</td>
+    <td width="18%">คำที่ 2</td>
+    <td width="15%">คำที่ 3</td>
+  </tr>
+  <tr>
+    <td width="15%">คำจากระบบ</td>
+    <td width="14%"><mark> <?=$toolx->regsiter1;?></mark></td>
+    <td width="11%"><mark> <?=$toolx->regsiter2;?></mark></td>
+    <td width="10%"><mark> <?=$toolx->regsiter3;?></mark> </td>
+  </tr>
+  <tr>
+    <td>Transcribe</td>
+    <td><?=$toolx->recallwordseg?></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ตรวจคำตอบ</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>ไฟล์เสียง</td>
+    <td colspan="3"><audio controls>
+        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voicerecall?>" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+  </td>
+
+  </tr>
+</table>
+                </div>
+                
               </div>
               <!-- /.card-body -->
             </div>
