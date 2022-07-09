@@ -88,6 +88,8 @@ body {
 /* rtl:end:ignore */
 
 .btn-brain {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 700;
   --bs-btn-bg: #a3bcee;
   --bs-btn-border-color: #a3bcee;
   --bs-btn-hover-bg: #6898f4;
