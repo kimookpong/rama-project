@@ -49,6 +49,15 @@ class Ad8 extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public function GetRespondents()
+    {
+        return $this->respondent==1?'ตอบด้วยตนเอง':'ผู้ดูแล/ญาติช่วยทำ';
+    }
+    public function GetResults()
+    {
+        return $this->score<=2?'<mark class="text-success">ผ่าน</mark>':'<mark class="text-danger">ไม่ผ่าน</mark>';
+    }
+
     public function attributeLabels()
     {
         return [

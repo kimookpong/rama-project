@@ -43,7 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <a href="<?= Url::toRoute(['toolx/test-fruit', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">ผลไม้ <i class="fa-solid fa-angle-right float-end py-1"></i></a>
 
             <a href="<?= Url::toRoute(['toolx/test-recall', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">word recall <i class="fa-solid fa-angle-right float-end py-1"></i></a>
-
 -->
         </div>
     </div>

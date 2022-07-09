@@ -57,6 +57,22 @@ class Register extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public function GetAd8()
+    {
+        return 'success';
+    } 
+    public function GetLlt()
+    {
+        return 'success';
+    }   
+    public function GetToolx()
+    {
+        return 'success';
+    }   
+    public function GetComplete()
+    {
+        return 'success';
+    }     
     public function attributeLabels()
     {
         return [
