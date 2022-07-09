@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\UploadedFile;
 use Yii;
+use yii\db\Expression;
 
 /**
  * ToolxController implements the CRUD actions for Toolx model.
@@ -69,9 +70,9 @@ class ToolxController extends Controller
         $this->layout = 'toolx';
         if ($this->request->isPost) {
             $model = Toolx::find()->where(['register_id' => $id])->one();
-            $model->regsiter1 = Wordregister::find()->where(['verbtype' => 1])->orderBy(['rand()' => SORT_ASC])->one()->word;
-            $model->regsiter2 = Wordregister::find()->where(['verbtype' => 2])->orderBy(['rand()' => SORT_ASC])->one()->word;
-            $model->regsiter3 = Wordregister::find()->where(['verbtype' => 3])->orderBy(['rand()' => SORT_ASC])->one()->word;
+            $model->regsiter1 = Wordregister::find()->where(['verbtype' => 1])->orderBy(new Expression('rand()'))->one()->word;
+            $model->regsiter2 = Wordregister::find()->where(['verbtype' => 2])->orderBy(new Expression('rand()'))->one()->word;
+            $model->regsiter3 = Wordregister::find()->where(['verbtype' => 3])->orderBy(new Expression('rand()'))->one()->word;
             $model->datenow = $thai_day[date('w')];
             $model->save();
             return $this->render('counter', [
@@ -257,11 +258,11 @@ class ToolxController extends Controller
                 $model->regsiter_score = $count;
                 $model->save(false);
 
-                //if ($count == 3) {
-                return $this->redirect(['test-what-day', 'id' => $id]);
-                //} else {
-                //    return $this->redirect(['false', 'id' => $id]);
-                //}
+                if ($count == 3) {
+                    return $this->redirect(['test-what-day', 'id' => $id]);
+                } else {
+                    return $this->redirect(['false', 'id' => $id]);
+                }
             } else {
                 return $this->redirect(['false', 'id' => $id]);
             }

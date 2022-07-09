@@ -18,11 +18,24 @@ $q = Yii::$app->helpers->decodeUrl('q') ?>
 
 <div class="container fixed-bottom">
   <div class="row">
-    <div class="col py-4 mx-auto text-center">
-      <a class="btn btn-lg rounded-pill btn-ad8 col-3 font-inter-bold m-2" id='1' onclick="myFunction(1)">ใช่</a>
-      <a class="btn btn-lg rounded-pill btn-ad8  col-3 font-inter-bold  m-2" id='2' onclick="myFunction(2)">ไม่ทราบ</a>
-      <a class="btn btn-lg rounded-pill btn-ad8  col-3 font-inter-bold  m-2" id='3' onclick="myFunction(3)">ไม่ใช่</a>
-      <a class="btn btn-lg col-9 text-left" onclick="history.back();"> <i class="fa fa-arrow-circle-left  text-left fa-xl p-1" aria-hidden="true"></i></a>
+    <div class="col mx-auto text-center">
+      <div class="row">
+        <div class="col-4 px-1">
+          <a class="btn btn-lg rounded-pill btn-block btn-ad8 font-inter-bold" id='1' onclick="myFunction(1)">ใช่</a>
+        </div>
+        <div class="col-4 px-1">
+          <a class="btn btn-lg rounded-pill btn-block btn-ad8 font-inter-bold text-nowrap" id='2' onclick="myFunction(2)">ไม่ทราบ</a>
+        </div>
+        <div class="col-4 px-1">
+          <a class="btn btn-lg rounded-pill btn-block btn-ad8 font-inter-bold" id='3' onclick="myFunction(3)">ไม่ใช่</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col py-2 mx-auto mb-3">
+      <a class="btn btn-lg rounded-pill" onclick="history.back();"> <i class="fa fa-arrow-circle-left  text-left fa-xl p-1" aria-hidden="true"></i></a>
+      </a>
     </div>
   </div>
 </div>

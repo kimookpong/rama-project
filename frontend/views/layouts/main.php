@@ -20,7 +20,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> | <?= Yii::$app->params['project'] ?></title>
     <?php $this->head() ?>
 </head>
 
@@ -29,7 +29,7 @@ AppAsset::register($this);
     <header>
         <?php
         NavBar::begin([
-            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="50" class="bi me-2">',
+            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="60" class="bi me-2">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar navbar-expand-md fixed-top px-2 bg-braintest',
@@ -40,7 +40,6 @@ AppAsset::register($this);
             ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
             ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
             ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
-            ['label' => 'About', 'url' => ['/site/about', 'id' => 1, 'detail' => 'hakim']],
         ];
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav ml-auto px-2'],
