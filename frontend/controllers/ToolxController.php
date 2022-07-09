@@ -258,7 +258,7 @@ class ToolxController extends Controller
                 $model->regsiter_score = $count;
                 $model->save(false);
 
-                if ($count == 3) {
+                if ($count > 1) {
                     return $this->redirect(['test-what-day', 'id' => $id]);
                 } else {
                     return $this->redirect(['false', 'id' => $id]);
