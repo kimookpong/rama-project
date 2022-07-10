@@ -54,7 +54,10 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         <div class="col-4 col-form-label">โทรศัพท์</div>
         <div class="col-8"><?= $form->field($model, 'tel')->textInput(['maxlength' => true, 'placeholder' => 'XXX-XXX-XXXX'])->label(false) ?></div>
     </div>
-
+    <div class="row g-3">
+        <div class="col-4 col-form-label">อีเมล์</div>
+        <div class="col-8"><?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'อีเมล์'])->label(false) ?></div>
+    </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">จังหวัด <font class="text-danger">*</font>
         </div>
@@ -69,12 +72,9 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     <div class="row g-3">
         <div class="col-4 col-form-label">รหัสสถานะ <font class="text-danger">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสระบุโรค'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสสถานะ'])->label(false) ?></div>
     </div>
-    <div class="row g-3">
-        <div class="col-4 col-form-label">อีเมล์</div>
-        <div class="col-8"><?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'อีเมล์'])->label(false) ?></div>
-    </div>
+
 
     <?= $form->field($model, 'source')->hiddenInput(['value' => 'uat'])->label(false) ?>
 
@@ -86,13 +86,15 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 
     <?= $form->field($model, 'create_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
     <?= $form->field($model, 'update_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
-
-    <<<<<<< HEAD <div class="container fixed-bottom">
-        <div class="row">
-            <div class="col py-4 mx-auto text-center">
-                <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-1" aria-hidden="true"></i>
+    <div class="col px-4 text-center">
+    <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-4 fa-xl" aria-hidden="true"></i>
                 </button>
-            </div>
+                </div>
+   <div class="container fixed-bottom">
+        <div class="row">
+            
+                
+        
 
         </div>
 </div>

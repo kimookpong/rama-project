@@ -28,7 +28,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column bg-testthelimit">
     <?php $this->beginBody() ?>
     <header>
-        <nav id="w0" class="navbar navbar-expand-md fixed-top bg-white px-2">
+        <nav id="w0" class="navbar navbar-expand-md fixed-top bg-white px-4">
             <div class="container">
                 <a class="navbar-brand"><img src="<?= Yii::getAlias('@web') ?>/images/Braintest-logo.svg" height="60" class="bi me-2"></a>
             </div>

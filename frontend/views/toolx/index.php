@@ -14,11 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 mx-auto pt-4">
-            <h3 class="title2 font-inter text-yellow mb-3">แบบทดสอบการรู้คิด</h3>
-            <p class="title2 font-inter mb-4 text-muted text-center">ต่อไปเป็นแบบทดสอบการรู้คิด ประกอบไปด้วยคำถาม 4 ข้อ</p>
-            <hr>
-            <p class="title2 font-inter mb-4 text-muted text-center">ผู้สูงอายุต้องทำแบบทดสอบนี้ด้วยตนเองเท่านั้น</p>
+        <div class="col-lg-12 mb-2">
+        <h3 class="title2 orose font-inter-bold mb-1">แบบทดสอบการรู้คิด</h3><br><br><br>
+            <p class="title2 font-inter-bold   text-center">ต่อไปเป็น<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 4 ข้อ</p><br>
+            <p class="title2 font-inter-bold   text-center">ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น</p>
         </div>
     </div>
 
@@ -35,8 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
 </script>
 <div class="container fixed-bottom mb-3">
     <div class="row">
-        <div class="col py-2 mx-auto">
-            <a href="<?= Url::toRoute(['toolx/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-1"></i></a>
+        <div class="col py-5 mx-5">
+            <a href="<?= Url::toRoute(['toolx/start', 'id' => $id]); ?>" type="submit" class="btn btn-circle float-end"><i class="fa fa-play text-white" aria-hidden="true"></i>
+</i></a>
         </div>
     </div>
 
