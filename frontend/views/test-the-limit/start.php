@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto pt-4">
-            <p class="title2 font-inter-bold mb-4 text-muted text-center">ให้คุณตั้งใจฟัง และทำตามคำสั่งเสียงที่ได้ยิน โดยเมื่อเริ่มการทดสอบแล้ว จะมีเพียงคำสั่งเสียงเท่านั้น</p>
-           <br> <br>  <p class="title2 font-inter-bold mb-4 text-muted text-center">ให้คุณตอบคำถามแต่ละข้อหลังจากได้ยินเสียงสัญญาณนี้</p>
+            <p class="title2 font-inter-bold mb-4 text-muted text-center">ให้คุณตั้งใจฟัง และ<br>ทำตามคำสั่งเสียงที่<br>ได้ยิน โดยเมื่อเริ่ม<br>การทดสอบแล้ว <br>จะมีเพียงคำสั่งเสียง<br>เท่านั้น</p>
+           <br> <br>  <p class="title2 font-inter-bold mb-4 text-muted text-center">ให้คุณตอบคำถาม<br>แต่ละข้อหลังจาก<br>ได้ยินเสียงสัญญาณนี้</p>
             <p>
             <div class=" text-center my-4 " style="height: 43px;">
                 <div class="boxContainer mx-auto">

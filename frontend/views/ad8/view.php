@@ -27,6 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
+
+    
     <script>
         var counter = 0;
         var timeDisplay = document.getElementById("countdown");

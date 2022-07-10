@@ -16,27 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container mb-1">
     <div class="row">
         <div class="col-lg-12 mx-1 ">
-            <h3 class="title2 mini-boid font-inter-bold mb-1">เตรียมความพร้อม</h3>
-            <p class=" mb-4 text-muted">ต่อไปเป็นขั้นตอนเตรียมความพร้อมก่อนทำแบบทดสอบการรู้คิด ประกอบคำถาม 3 ข้อผู้สูงอายุต้องทำแบบทดสอบนี้ด้วยตนเองเท่านั้น</p>
-            <hr class="mini-boid">
-            <p class="title2 font-inter-bold mb-4 text-muted text-center">กรุณาทดสอบไมโครโฟน<br>และลำโพงให้พร้อม<br>และอยู่ในห้องที่ไม่มี<br>เสียงรบกวน</p>
+            <h3 class="display-5 mini-boid font-inter-bold mb-1">เตรียมความพร้อม</h3><br><br>
+            <p class="title2 mb-4 font-inter-bold text-center">ต่อไปเป็นขั้นตอนเตรียม<br>ความพร้อมก่อนทำ<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 3 ข้อ<br><br>ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น</p>
         </div>
         <audio id="questionAudio" autoplay="">
             <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/intro1.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
-    </div>
-    <div class="row pb-3">
-        <div class="col-lg-6 mx-auto text-center">
-            <div class="text-muted pt-3 text-center fs-3">
-                <i class="fa-solid fa-volume-high my-auto" style="width:50px;"></i>
-                <button onclick="TestVolume();" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
-            </div>
-            <div class="text-muted pt-3 text-center fs-3">
-                <i class="fa-solid fa-microphone my-auto" style="width:50px;"></i>
-                <button onclick="testMicrophone(5,'testMicro');" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;" id="testMicro">ทดสอบ<br />ไมโครโฟน</button>
-            </div>
-        </div>
     </div>
 </div>
 <div class="container fixed-bottom mb-3">

@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mb-2">
-        <h3 class="title2 orose font-inter-bold mb-1">แบบทดสอบการรู้คิด</h3><br><br><br>
+        <h3 class="display-5 orose font-inter-bold mb-1">แบบทดสอบการรู้คิด</h3><br><br><br>
             <p class="title2 font-inter-bold   text-center">ต่อไปเป็น<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 4 ข้อ</p><br>
             <p class="title2 font-inter-bold   text-center">ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น</p>
         </div>

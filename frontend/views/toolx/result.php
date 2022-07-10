@@ -21,6 +21,16 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3 class="mx-4">สิ้นสุดการคัดกรองสมองเรื่องการรู้คิด</h3>
         </div>
     </div>
+    <audio id="questionAudio" autoplay="">
+            <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/end.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("questionAudio").autoplay;
+    };
+</script>
+
     <div class="container fixed-bottom">
         <div class="row">
             <div class="col py-4 mx-auto">

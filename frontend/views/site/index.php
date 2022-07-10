@@ -8,11 +8,11 @@ $this->title = 'แบบคัดกรองสมองด้านการ�
 ?>
 
 <div class="row">
-    <div class="col-md-10 p-lg-3 mx-auto px-4 ">
+    <div class="col-md-10 p-lg-3 mx-auto px-4 "><br><br><br>
         <h1 class="display-5 font-inter-bold">แบบคัดกรองสมองด้านการรู้คิดสำหรับประชาชน </h1>
         </div>
 
-            <div class="col-12 mb-1 ">
+            <div class="col-12 mb-2 text-center bg-white">
                 <img src="<?= Yii::getAlias('@web') ?>/images/body.jpg" class="img-fluid text-center">
             </div>
 

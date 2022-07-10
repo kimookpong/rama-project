@@ -174,6 +174,11 @@ class SiteController extends Controller
         $this->layout = 'homepage';
         return $this->render('start');
     }
+    public function actionStart2($id = null)
+    {
+        $this->layout = 'homepage';
+        return $this->render('start2');
+    }
     public function actionPage2($id = null)
     {
         $this->layout = 'homepage';
