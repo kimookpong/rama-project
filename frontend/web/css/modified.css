@@ -61,10 +61,8 @@ body {
 .bg-testthelimit{
   background-image: url("../images/background-base/desktop-png/Desktop-3.png");
   background-repeat: no-repeat;
-  background-color: #cccccc;
   background-size: cover;
-  background-position: center;
-  background-position-y: bottom;
+  background-position: 50% 50%;
   background-attachment: fixed;
 }
 .btn-circle {
@@ -91,10 +89,8 @@ body {
 .bg-toolx{
   background-image: url("../images/background-base/desktop-png/Desktop-4.png");
   background-repeat: no-repeat;
-  background-color: #cccccc;
   background-size: cover;
-  background-position: center;
-  background-position-y: bottom;
+  background-position: 50% 50%;
   background-attachment: fixed;
 }
 
@@ -164,10 +160,8 @@ body {
 .bg-reg{
   background-image: url("../images/background-base/desktop-png/Desktop-1.png");
   background-repeat: no-repeat;
-  background-color: #cccccc;
   background-size: cover;
-  background-position: center;
-  background-position-y: bottom;
+  background-position: 50% 50%;
   background-attachment: fixed;
 }
 /*****/
@@ -204,10 +198,8 @@ body {
 .bg-ad8 {
     background-image: url("../images/background-base/desktop-png/Desktop-2.png");
     background-repeat: no-repeat;
-    background-color: #cccccc;
     background-size: cover;
-    background-position: center;
-    background-position-y: bottom;
+    background-position: 50% 50%;
     background-attachment: fixed;
 }
 .circlefalse {
