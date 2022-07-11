@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ad8-create text-center h-100">
     <div class="row h-100">
         <div class="circlesuccess">
-            <h3 class="mx-4">สิ้นสุดการคัดกรองสมองเรื่องการรู้คิด</h3>
+            <h3 class="title1 font-inter-bold">สิ้นสุดการคัดกรองสมองเรื่องการรู้คิด</h3>
         </div>
     </div>
     <audio id="questionAudio" autoplay="">

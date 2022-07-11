@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-5 mx-4">
-            <a href="<?= Url::toRoute(['test-the-limit/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-1"></i></a>
+            <a href="<?= Url::toRoute(['test-the-limit/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i></a>
         </div>
     </div>
 </div>

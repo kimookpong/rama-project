@@ -15,15 +15,15 @@
             Your browser does not support the audio element.
         </audio>
     </div>
-    <div class="row pb-3 bg-braintest">
-        <div class="col-lg-6 mx-auto text-center">
+    <div class="row pb-3 bg-braintest text-center">
+        <div class="col-lg-8 mx-auto text-center ">
             <div class="text-muted pt-3 text-center fs-3">
                 <i class="fa-solid fa-volume-high my-auto" style="width:50px;"></i>
-                <button onclick="TestVolume();" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
+                <button onclick="TestVolume();" class="font-inter font-24 fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
             </div>
             <div class="text-muted pt-3 text-center fs-3">
                 <i class="fa-solid fa-microphone my-auto" style="width:50px;"></i>
-                <button onclick="testMicrophone(5,'testMicro');" class="font-inter fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;" id="testMicro">ทดสอบ<br />ไมโครโฟน</button>
+                <button onclick="testMicrophone(5,'testMicro');" class="font-inter font-24  fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;" id="testMicro">ทดสอบ<br />ไมโครโฟน</button>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
        <div class="container fixed-bottom">
            <div class="row">
-               <div class="col py-5 text-center">
+           <div class="col py-5 mx-4 text-center">
                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block" href="<?= Url::toRoute(['site/start2']); ?>">เริ่มการทดสอบ</a>
 
                </div>

@@ -14,8 +14,18 @@ $this->title = 'คุณผ่านแบบคัดกรอง';
 	<div class="container fixed-bottom">
 		<div class="row">
 			<div class="col py-5 mx-4">
-				<a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => $model->register_id]); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-1" aria-hidden="true"></i></a>
+				<a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => $model->register_id]); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i></a>
 			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+        function noBack()
+         {
+             window.history.forward()
+         }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+        window.onunload = function() { void (0) }
+    </script>

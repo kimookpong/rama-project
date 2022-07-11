@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <br><br>
 
 <p class="number-ad8 font-inter-bold text-center"><?= Yii::$app->helpers->decodeUrl('q') ?></p><br><br>
-<h3 class="font-38 font-inter-bold text-center mx-2"> <?= $masters->head ?></h3><br><br>
+<h3 class="font-38 font-inter-bold text-center mx-2"> <?= $masters->head ?></h3><br>
 <p class="title2 text-center mx-2"> <?= $masters->title ?></p>
 <?= $this->render('_form_update', [
     'model' => $model,

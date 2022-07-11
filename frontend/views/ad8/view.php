@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mx-auto pt-4">
-                <div class="title2 font-inter mb-4 text-muted text-center">
+                <div class="title2 font-inter mb-4 text-muted text-center  align-middle"><br><br><br><br><br><br>
                     <div class="counter mx-auto" id="countdown">
                         3
                     </div>
@@ -29,16 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     
-    <script>
-        var counter = 0;
-        var timeDisplay = document.getElementById("countdown");
-
-        function countdownTime() {
-            counter = counter + 1;
-            if (counter == 3) {
-                window.location = "<?= $url ?>";
-            }
-            timeDisplay.innerHTML = 3 - counter;
-        }
-        setInterval(countdownTime, 1000);
+    <script type="text/javascript">
+        function noBack()
+         {
+             window.history.forward()
+         }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+        window.onunload = function() { void (0) }
     </script>
