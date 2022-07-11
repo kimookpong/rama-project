@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\register */
@@ -21,11 +22,17 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Registers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+if(isset($_REQUEST['del'])){
+$model->flagdel = 1;
+$model->save(false);
+Yii::$app->response->redirect(Url::to(['index'], true));
+
+}
 ?>
 <div class="register-view">
 <div class="card">
         <div class="card-header">
-          <h1 class="card-title">ข้อมูลผู้ลงทะเบียนทดสอบแบบคัดกรองรู้คิด(Toolx)</h1>
+          <h1 class="card-title">ข้อมูลผู้ลงทะเบียนทดสอบแบบคัดกรองรู้คิด (Toolx)</h1>
         </div>
         <div class="card-body">
           <div class="row">
@@ -42,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
   </tr>
   <tr>
     <td><div align="right">จังหวัด:</div></td>
-    <td width="15%"><input value="<?=$model->provinces_id?>"  class="form-control" readonly></td>
+    <td width="15%"><input value="<?=$model->provinces?>"  class="form-control" readonly></td>
     <td><div align="right">เพศ:</div></td>
     <td width="15%"><input value="<?=$model->gender?>"  class="form-control" readonly></td>
     <td><div align="right">อายุ:</div></td>
@@ -50,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
   </tr>
   <tr>
     <td><div align="right">ชื่อแพทย์:</div></td>
-    <td width="15%"><input value="<?=$model->docter_id?>"  class="form-control" readonly></td>
+    <td width="15%"><input value="<?=$model->Doctor?>"  class="form-control" readonly></td>
     <td><div align="right">รหัส:</div></td>
     <td width="15%"><input value="<?=$model->disease?>"  class="form-control" readonly></td>
     <td><div align="right">อีเมล:</div></td>
@@ -82,7 +89,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th><?=$model->llt?></th>
                         <th><?=$model->toolx?></th>
                         <th><?=$model->complete?></th>
-                        <th><a class="btn btn-sm btn-primary" href="index.php?r=register%2Ffullpaper&register_id=<?=$model->register_id?>">ToolX Results</a></th>
+                        <th>
+                        <?php if($model->complete=='false'){?>
+                          <a class="btn btn-sm btn-danger" href="index.php?r=register/view&register_id=<?=$model->register_id?>&del=1">ลบ</a>
+                          <?php } else { ?>
+                          <a class="btn btn-sm btn-primary" href="index.php?r=register/fullpaper&register_id=<?=$model->register_id?>">ToolX Results</a></th>
+                        <?php }?>
+
                       </tr>
 
                     </table>
@@ -90,8 +103,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
               </div>
               <h5 class="mt-5 text-muted">อัพโหลดไฟล์ที่เกี่ยวข้องกับผู้ทดสอบ</h5>
-              <ul class="list-unstyled">
-                <li>
+             <!--  <ul class="list-unstyled">
+               <li>
                   <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
                 </li>
                 <li>
@@ -110,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
               <div class="text-center mt-5 mb-3">
                 <a href="#" class="btn btn-sm btn-primary">Add files</a>
                 <a href="#" class="btn btn-sm btn-warning">Report contact</a>
-              </div>
+              </div>-->
             </div>
            
           </div>

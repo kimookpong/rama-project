@@ -256,6 +256,7 @@ class ToolxController extends Controller
                     $model->regsiterwordseg = implode(',', $text_seperate['tokens']);
                 }
                 $model->regsiter_score = $count;
+                $model->success = 1;
                 $model->save(false);
 
                 //if ($count > 1) {
