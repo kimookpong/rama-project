@@ -30,6 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
     
     <script type="text/javascript">
+                var counter = 0;
+        var timeDisplay = document.getElementById("countdown");
+
+        function countdownTime() {
+            counter = counter + 1;
+            if (counter == 3) {
+                window.location = "<?= $url ?>";
+            }
+            timeDisplay.innerHTML = 3 - counter;
+        }
+        setInterval(countdownTime, 1000);
         function noBack()
          {
              window.history.forward()

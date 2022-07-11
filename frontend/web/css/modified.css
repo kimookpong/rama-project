@@ -111,7 +111,9 @@ body {
   background-position: 50% 50%;
   background-attachment: fixed;
 }
-
+.navbar-toggler {
+border: 0;  
+}
 @media (max-width: 767.98px){
   .bg-toolx {
     background-image: url("../images/background-base/mobile-png/mobile-4.png");
