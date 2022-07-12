@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="card">
     <div class="card-header">
-        <h2>Parameters</h2>
+        <h2>ตั้งค่าพารามิเตอร์</h2>
     </div>
     <div class="card-body">
         <?= $this->render('_form', [

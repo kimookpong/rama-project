@@ -18,6 +18,7 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
         'https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0',
         'css/site.css',
         'css/modified.css'
     ];

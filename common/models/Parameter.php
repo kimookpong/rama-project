@@ -44,14 +44,14 @@ class Parameter extends \yii\db\ActiveRecord
     {
         return [
             'param_id' => 'Param ID',
-            'x' => 'X',
-            'y' => 'Y',
-            'z' => 'Z',
-            'test_the_limit' => 'Test The Limit',
-            'toolx_3word' => 'Toolx  3word',
-            'toolx_fruit' => 'Toolx Fruit',
-            'toolx_recall' => 'Toolx Recall',
-            'toolx_fruit_delay' => 'Toolx Fruit Delay',
+            'x' => 'พารามิเตอร์ X',
+            'y' => 'พารามิเตอร์ Y',
+            'z' => 'พารามิเตอร์ Z',
+            'test_the_limit' => 'ชุดเตรียมความพร้อม',
+            'toolx_3word' => 'จำคำ 3 คำ',
+            'toolx_fruit' => 'พูดชื่อผลไม้',
+            'toolx_recall' => 'ทวนคำ 3 คำ',
+            'toolx_fruit_delay' => 'ระยะเวลารอพูดชื่อผลไม้',
         ];
     }
 }

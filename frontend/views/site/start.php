@@ -16,15 +16,25 @@
                Your browser does not support the audio element.
            </audio>
        </div>
-       <div class="row pb-3 bg-braintest text-center">
-           <div class="col-lg-8 mx-auto text-center ">
+       <div class="row pb-5 bg-braintest text-center">
+           <div class="col-lg-6 col-md-10 mx-auto text-center pb-5">
                <div class="text-muted pt-3 text-center fs-3">
-                   <i class="fa-solid fa-volume-high my-auto" style="width:50px;"></i>
-                   <button onclick="TestVolume();" class="font-inter font-24 fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;">ทดสอบ<br />ลำโพง</button>
+                   <button onclick="TestVolume();" class="font-inter font-24 fw-bold btn rounded-pill btn-outline-brain px-4" style="min-width: 70%;">
+                       <i class="material-symbols-outlined my-auto float-start" style="width:50px;font-size: larger;padding: 17px 0;">
+                           volume_up
+                       </i>
+                       <span class="my-auto">ทดสอบ<br />ลำโพง</span>
+                   </button>
                </div>
                <div class="text-muted pt-3 text-center fs-3">
-                   <i class="fa-solid fa-microphone my-auto" style="width:50px;"></i>
-                   <button onclick="testMicrophone(5,'testMicro');" class="font-inter font-24  fw-bold btn rounded-pill btn-outline-brain" style="width: 40%;" id="testMicro">ทดสอบ<br />ไมโครโฟน</button>
+                   <button onclick="testMicrophone(5,'testMicro');" class="font-inter font-24  fw-bold btn rounded-pill btn-outline-brain px-4" style="min-width: 70%;">
+                       <i class="material-symbols-outlined my-auto float-start" style="width:50px;font-size: larger;padding: 17px 0;">
+                           mic
+                       </i>
+                       <span class="my-auto" id="testMicro">
+                           ทดสอบ<br />ไมโครโฟน
+                       </span>
+                   </button>
                </div>
            </div>
        </div>

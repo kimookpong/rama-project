@@ -38,40 +38,44 @@ AppAsset::register($this);
       <img class="animation__shake" src="<?= Yii::$app->params['backend'] ?>AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
-    <!-- Navbar -->
+
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
+
+      <ul class=" navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-
       </ul>
 
-
-      <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-        <li>
-          <form class="form-inline" action="admin/index.php?r=site/logout" method="post">
-            <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
-            <button type="submit" class="btn btn-link logout">Logout (admin)</button>
-          </form>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-            <i class="fas fa-expand-arrows-alt"></i>
+        <li class="nav-item dropdown user-menu">
+          <a href="javascript:;" class="nav-link dropdown-toggle px-2" data-toggle="dropdown" aria-expanded="true">
+            <i class="far fa-user"></i>
+            <span class="d-none d-md-inline"><?= Yii::$app->user->identity->username ?></span>
           </a>
+          <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+            <!-- User image -->
+            <li class="user-header bg-primary">
+              <img src="<?= Yii::$app->params['backend'] ?>AdminLTE/dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
+
+              <p>
+                <?= Yii::$app->user->identity->username ?><small>ผู้ดูแลระบบ</small>
+              </p>
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <a href="#" class="btn btn-default btn-flat">โปรไฟล์</a>
+              <?= Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline float-right']) ?>
+              <?= Html::submitButton(
+                'ออกจากระบบ',
+                ['class' => 'btn btn-default btn-flat']
+              ) ?>
+              <?= Html::endForm() ?>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
-    <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -83,12 +87,7 @@ AppAsset::register($this);
 
       <!-- Sidebar -->
       <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
-          </div>
-        </div>
+
 
         <!-- SidebarSearch Form -->
 
@@ -97,22 +96,31 @@ AppAsset::register($this);
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
               <a href="<?= Url::toRoute('site/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'site' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-cog"></i>
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Dashboard</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="<?= Url::toRoute('parameter/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'parameter' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-cog"></i>
-                <p>Parameter</p>
-              </a>
-            </li>
-            <li class="nav-header">Shadowing-A</li>
+
+            <!--li class="nav-header">Shadowing-A</!--li-->
             <li class="nav-item">
               <a href="<?= Url::toRoute('register/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'register' ? 'active' : '') ?>">
+                <i class="nav-icon fas fa-chart-bar"></i>
                 <p>
                   Search & Summary
                 </p>
+              </a>
+            </li>
+            <li class="user-panel"></li>
+            <li class="nav-item">
+              <a href="<?= Url::toRoute('parameter/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'parameter' ? 'active' : '') ?>">
+                <i class="nav-icon fas fa-cog"></i>
+                <p>Setting</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
+                <i class="nav-icon far fa-user"></i>
+                <p>User Management</p>
               </a>
             </li>
 
@@ -155,6 +163,9 @@ AppAsset::register($this);
     $(function() {
       $('.select2').select2();
       $("#example1").DataTable({
+        order: [
+          [0, 'desc']
+        ],
         dom: '<"top"if>rt<"bottom"lp><"clear">',
         "language": {
           "decimal": "",

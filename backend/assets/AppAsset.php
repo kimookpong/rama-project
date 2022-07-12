@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+
         'AdminLTE/plugins/fontawesome-free/css/all.min.css',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
         'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css',
         'AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css',
         'https://fonts.googleapis.com/css2?family=Pridi&family=Sarabun:wght@500&display=swap',
+        'css/site.css',
 
     ];
     public $js = [
