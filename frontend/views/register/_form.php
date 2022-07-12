@@ -40,7 +40,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 
 
     <div class="row g-3">
-        <div class="col-4 col-form-label">ชื่อ <font class="text-danger">*</font>
+        <div class="col-4 col-form-label">ชื่อ <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"><?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'ชื่อ', 'required' => ''])->label(false) ?>
             <div class="invalid-feedback">
@@ -49,12 +49,12 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         </div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">นามสกุล <font class="text-danger">*</font>
+        <div class="col-4 col-form-label">นามสกุล <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">เพศ <font class="text-danger"></font>
+        <div class="col-4 col-form-label">เพศ <font class="text-danger" ></font>
         </div>
         <div class="col-8">
             <div class="form-check form-check-inline">
@@ -80,18 +80,18 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         <div class="col-8"><?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'อีเมล์'])->label(false) ?></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">จังหวัด <font class="text-danger">*</font>
+        <div class="col-4 col-form-label">จังหวัด <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8">
             <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด', 'class' => 'form-control select2', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">แพทย์ <font class="text-danger">*</font>
+        <div class="col-4 col-form-label">แพทย์ <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ', 'class' => 'form-control select2', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">รหัสสถานะ <font class="text-danger">*</font>
+        <div class="col-4 col-form-label">รหัสสถานะ <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสสถานะ', 'required' => 'required'])->label(false) ?></div>
     </div>

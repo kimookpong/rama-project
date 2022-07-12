@@ -43,6 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
         audio.play();
+        audio.onended = function() {
+            form_voice.submit();
+        }
     }
     window.onload = function() {
         document.getElementById("questionAudio").autoplay;
@@ -52,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col py-5 mx-4">
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
-            <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</button>
+           <!-- <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</button>-->
             <?php ActiveForm::end(); ?>
         </div>
     </div>

@@ -146,6 +146,7 @@ border: 0;
   font-family: 'Noto Sans Thai', sans-serif;
   font-size: 24px;
   font-weight: 700;
+  vertical-align: baseline;
   --bs-btn-bg: #a3bcee;
   --bs-btn-border-color: #a3bcee;
   --bs-btn-hover-bg: #6898f4;

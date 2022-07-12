@@ -124,18 +124,18 @@ function Ad8code($val)
   <tr>
     <td>ไฟล์เสียง</td>
     <td><audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$ttl->voicepath1?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$ttl->voicepath1?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
   </td>
     <td><audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$ttl->voicepath2?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$ttl->voicepath2?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
   </td>
 
     <td><audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$ttl->voicepath3?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$ttl->voicepath3?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
   </td>
@@ -186,7 +186,7 @@ function Ad8code($val)
   <tr>
     <td>ไฟล์เสียง</td>
     <td colspan="3"><audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voiceregsiter?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$toolx->voiceregsiter?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
   </td>
@@ -199,7 +199,7 @@ function Ad8code($val)
                  <div class="col-3">วันที่ถูก: <mark><?=$toolx->datenow?></div>
                  <div class="col-3">คำตอบที่ Transcribe: <mark><?=$toolx->orientation?></div>
                  <div class="col-3">ตรวจคำตอบ: <audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voiceorientationpath?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$toolx->voiceorientationpath?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio></div>
 
@@ -227,7 +227,7 @@ function Ad8code($val)
                  <div class="col-4">ไฟล์เสียง:</div>
                  <div class="col-8">
                  <audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voicefruitluency?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$toolx->voicefruitluency?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
 
@@ -267,7 +267,7 @@ function Ad8code($val)
   <tr>
     <td>ไฟล์เสียง</td>
     <td colspan="3"><audio controls>
-        <source src="<?=Yii::$app->params['frontend']?>/records/<?=$toolx->voicerecall?>" type="audio/mpeg">
+        <source src="<?=Yii::$app->params['frontend']?><?=$toolx->voicerecall?>" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
   </td>

@@ -25,15 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
         </audio>
     </div>
 </div>
-<div class="container fixed-bottom mb-3">
+<!--<div class="container fixed-bottom mb-3">
     <div class="row">
         <div class="col py-5 mx-4">
             <a href="<?= Url::toRoute(['test-the-limit/start', 'id' => $id]); ?>" type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i></a>
         </div>
     </div>
-</div>
+</div>-->
 <script type="text/javascript">
-    window.onload = function() {
-        document.getElementById("questionAudio").autoplay;
+            var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/intro1.mp3';
+        audio.play();
+        audio.onended = function() {
+            window.location = "<?= Url::toRoute(['test-the-limit/start', 'id' => $id]); ?>";
     };
 </script>
