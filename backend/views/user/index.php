@@ -11,40 +11,45 @@ use yii\grid\GridView;
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index">
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-6">
+                <h2><?= $this->title ?></h2>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            </div>
+            <div class="col-6">
+                <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success float-right']) ?>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>ชื่อ</th>
+                    <th>สิทธิ์การเข้าใช้งาน</th>
+                    <th>สถานะ</th>
+                    <th>#</th>
 
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'fullname',
-            'auth_key',
-            'password_hash',
-            //'password_reset_token',
-            //'email:email',
-            //'role',
-            //'status',
-            //'created_at',
-            //'updated_at',
-            //'verification_token',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action,  $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
-        ],
-    ]); ?>
-
-
+                foreach ($model as $data) { ?>
+                    <tr>
+                        <td><?= $data->username ?></td>
+                        <td><?= $data->fullname ?></td>
+                        <td><?= ($data->role == 10) ? 'แอดมิน' : 'ทั่วไป' ?></td>
+                        <td><?= ($data->status == 10) ? 'ใช้งาน' : 'ไม่ใช้งาน' ?></td>
+                        <td>
+                            <?= Html::a('<i class="fas fa-pencil-alt"></i> แก้ไข', ['update', 'id' => $data->id], ['class' => 'btn btn-info btn-sm']) ?>
+                            <?= Html::a('<i class="fas fa-trash"></i> ลบ', ['delete', 'id' => $data->id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </div>

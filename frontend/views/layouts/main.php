@@ -21,6 +21,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> | <?= Yii::$app->params['project'] ?></title>
+    <link href="<?= Yii::getAlias('@web') ?>/images/logo.svg" rel="shortcut icon">
     <?php $this->head() ?>
 </head>
 
@@ -37,7 +38,7 @@ AppAsset::register($this);
         ]);
         $menuItems = [
             ['label' => 'หน้าแรก', 'url' => ['/site/index']],
-			['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
+            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
             ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
             ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
         ];

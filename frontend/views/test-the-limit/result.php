@@ -10,7 +10,7 @@ use yii\grid\GridView;
 
 $this->title = 'ผลการทดสอบชุดเตรียมความพร้อม';
 $this->params['breadcrumbs'][] = $this->title;
-@$x= '0';
+@$x = Yii::$app->helpers->param('x');
 if ($model->score >= $x) {
 
 
@@ -30,14 +30,14 @@ if ($model->score >= $x) {
         </div>
     </div>
     <audio id="questionAudio" autoplay="">
-            <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/success.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-        <script type="text/javascript">
-    window.onload = function() {
-        document.getElementById("questionAudio").autoplay;
-    };
-</script>
+        <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/success.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("questionAudio").autoplay;
+        };
+    </script>
 <?php } else { ?>
 
     <div class="ad8-create text-center h-100">

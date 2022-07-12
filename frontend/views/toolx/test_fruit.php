@@ -49,17 +49,18 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script type="text/javascript">
+    var delay = <?= Yii::$app->helpers->param('toolx_fruit_delay') ?>;
     questionAudioStart.onended = function() {
         // start beep sounds
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
         setTimeout(function() {
             audio.play();
-        }, 15000);
+        }, delay * 1000);
 
         audio.onended = function() {
             document.getElementById('boxContainer').style.display = 'flex'
-            handleAction(50, 'file_audio', 'speech_text', 'form_voice');
+            handleAction(<?= Yii::$app->helpers->param('toolx_fruit') ?>, 'file_audio', 'speech_text', 'form_voice');
         }
     }
     window.onload = function() {

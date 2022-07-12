@@ -11,8 +11,32 @@ use yii\widgets\ActiveForm;
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-12">
+            <?= $form->field($model, 'username')->textInput() ?>
+        </div>
+        <div class="col-6">
+            <?= $form->field($model, 'fullname')->textInput() ?>
+        </div>
+        <div class="col-6">
+            <?= $form->field($model, 'email')->textInput() ?>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group field-signupform-password required">
+                <label for="signupform-password"><?= $model->username == null ? 'Password' : 'Renew Password' ?></label>
+                <input type="password" id="password" class="form-control" name="password" autocomplete="new-password" aria-required="true">
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <?= $form->field($model, 'role')->dropDownList([10 => 'แอดมิน', 1 => 'ทั่วไป']) ?>
+        </div>
+        <div class="col-6">
+            <?= $form->field($model, 'status')->dropDownList([10 => 'ใช้งาน', 9 => 'ไม่ใช้งาน']) ?>
+        </div>
+    </div>
+    <hr>
 
-    <?= $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

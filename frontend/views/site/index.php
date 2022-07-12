@@ -12,8 +12,8 @@ $this->title = 'แบบคัดกรองสมองด้านการ�
         <h1 class="display-5 font-inter-bold">แบบคัดกรองสมองด้านการรู้คิดสำหรับประชาชน </h1>
     </div>
 
-    <div class="col-12 mb-2 text-center bg-white">
-        <img src="<?= Yii::getAlias('@web') ?>/images/body.jpg" class="img-fluid text-center">
+    <div class="col-12 mb-2 text-center" style="background-color: #9adfe4;">
+        <img src="<?= Yii::getAlias('@web') ?>/images/hero-04.png" class="img-fluid text-center" style="max-height:500px;">
     </div>
 
 

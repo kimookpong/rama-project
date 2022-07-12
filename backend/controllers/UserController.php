@@ -7,6 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * UserController implements the CRUD actions for user model.
@@ -38,22 +39,10 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => user::find(),
-            /*
-            'pagination' => [
-                'pageSize' => 50
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC,
-                ]
-            ],
-            */
-        ]);
+        $model =  user::find()->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ]);
     }
 
@@ -75,13 +64,36 @@ class UserController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
+    protected function sendEmail($user)
+    {
+        return Yii::$app
+            ->mailer
+            ->compose(
+                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['user' => $user]
+            )
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setTo($user->email)
+            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->send();
+    }
     public function actionCreate()
     {
         $model = new user();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->username = $this->request->post('User')['username'];
+                $model->fullname = $this->request->post('User')['fullname'];
+                $model->email = $this->request->post('User')['email'];
+                $model->role = $this->request->post('User')['role'];
+                $model->setPassword(Yii::$app->request->post('password'));
+                $model->generateAuthKey();
+                $model->generateEmailVerificationToken();
+
+
+                $model->save() && $this->sendEmail($model);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -103,8 +115,18 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->username = $this->request->post('User')['username'];
+            $model->fullname = $this->request->post('User')['fullname'];
+            $model->email = $this->request->post('User')['email'];
+            $model->role = $this->request->post('User')['role'];
+
+            if (!empty(Yii::$app->request->post('password'))) {
+                $model->setPassword(Yii::$app->request->post('password'));
+            }
+
+            $model->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

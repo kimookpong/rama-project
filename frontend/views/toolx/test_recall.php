@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
         audio.play();
         audio.onended = function() {
             document.getElementById('boxContainer').style.display = 'flex'
-            handleAction(15, 'file_audio', 'speech_text', 'form_voice');
+            handleAction(<?= Yii::$app->helpers->param('toolx_recall') ?>, 'file_audio', 'speech_text', 'form_voice');
         }
     }
     window.onload = function() {

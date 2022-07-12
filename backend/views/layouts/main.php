@@ -19,6 +19,7 @@ AppAsset::register($this);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
+  <link href="<?= Yii::getAlias('@web') ?>/img/logo.png" rel="shortcut icon">
   <?php $this->head() ?>
   <style>
     body {
@@ -51,7 +52,7 @@ AppAsset::register($this);
         <li class="nav-item dropdown user-menu">
           <a href="javascript:;" class="nav-link dropdown-toggle px-2" data-toggle="dropdown" aria-expanded="true">
             <i class="far fa-user"></i>
-            <span class="d-none d-md-inline"><?= Yii::$app->user->identity->username ?></span>
+            <span class="d-none d-md-inline"><?= Yii::$app->user->identity->fullname ?></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
             <!-- User image -->
@@ -59,7 +60,7 @@ AppAsset::register($this);
               <img src="<?= Yii::$app->params['backend'] ?>AdminLTE/dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
 
               <p>
-                <?= Yii::$app->user->identity->username ?><small>ผู้ดูแลระบบ</small>
+                <?= Yii::$app->user->identity->fullname ?><small>ผู้ดูแลระบบ</small>
               </p>
             </li>
             <!-- Menu Footer-->
@@ -110,19 +111,22 @@ AppAsset::register($this);
                 </p>
               </a>
             </li>
-            <li class="user-panel"></li>
-            <li class="nav-item">
-              <a href="<?= Url::toRoute('parameter/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'parameter' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-cog"></i>
-                <p>Setting</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
-                <i class="nav-icon far fa-user"></i>
-                <p>User Management</p>
-              </a>
-            </li>
+
+            <?php if (Yii::$app->user->identity->role == 10) { ?>
+              <li class="user-panel"></li>
+              <li class="nav-item">
+                <a href="<?= Url::toRoute('parameter/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'parameter' ? 'active' : '') ?>">
+                  <i class="nav-icon fas fa-cog"></i>
+                  <p>Setting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
+                  <i class="nav-icon far fa-user"></i>
+                  <p>User Management</p>
+                </a>
+              </li>
+            <?php } ?>
 
           </ul>
         </nav>

@@ -2,6 +2,7 @@
 
 namespace common\components;
 
+use common\models\Parameter;
 use yii;
 use yii\base\Component;
 use Google\Cloud\Speech\V1\SpeechClient;
@@ -14,6 +15,11 @@ use \yii\web\UploadedFile;
 
 class Helpers extends Component
 {
+    public function param($param)
+    {
+        $model = Parameter::findOne(1);
+        return $model->$param;
+    }
     public function uploadFile($param, $folder)
     {
         $path = Yii::getAlias('@webroot') . '/records/' . $folder . '/';

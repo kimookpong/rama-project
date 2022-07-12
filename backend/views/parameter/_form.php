@@ -12,47 +12,64 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
-        <div class="col-12">
-            <h4>พารามิเตอร์</h4>
-        </div>
-        <div class="col-4">
-            <?= $form->field($model, 'x')->textInput() ?>
-        </div>
-        <div class="col-4">
-            <?= $form->field($model, 'y')->textInput() ?>
-        </div>
-        <div class="col-4">
-            <?= $form->field($model, 'z')->textInput() ?>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <h4>ระยะเวลาบันทึกเสียง (วินาที)</h4>
-        </div>
-        <div class="col">
-            <?= $form->field($model, 'test_the_limit')->textInput() ?>
-        </div>
-        <div class="col">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>พารามิเตอร์</h4>
+                        </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'x')->textInput() ?>
+                        </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'y')->textInput() ?>
+                        </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'z')->textInput() ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <?= $form->field($model, 'toolx_3word')->textInput() ?>
         </div>
-        <div class="col">
-            <?= $form->field($model, 'toolx_fruit')->textInput() ?>
-        </div>
-        <div class="col">
-            <?= $form->field($model, 'toolx_recall')->textInput() ?>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>ระยะเวลาบันทึกเสียง (วินาที)</h4>
+                        </div>
+                        <div class="col-12">
+                            <?= $form->field($model, 'test_the_limit')->textInput() ?>
+                        </div>
+                        <div class="col-12">
+                            <?= $form->field($model, 'toolx_3word')->textInput() ?>
+                        </div>
+                        <div class="col-12">
+                            <?= $form->field($model, 'toolx_whatday')->textInput() ?>
+                        </div>
+                        <div class="col-12">
+                            <?= $form->field($model, 'toolx_fruit')->textInput() ?>
+                        </div>
+                        <div class="col-12">
+                            <?= $form->field($model, 'toolx_recall')->textInput() ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>ระยะเวลารอสัญญาณ (วินาที)</h4>
+                        </div>
+                        <div class="col">
+                            <?= $form->field($model, 'toolx_fruit_delay')->textInput() ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <h4>ระยะเวลารอสัญญาณ (วินาที)</h4>
-        </div>
-        <div class="col">
-            <?= $form->field($model, 'toolx_fruit_delay')->textInput() ?>
-        </div>
-    </div>
+
     <hr>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

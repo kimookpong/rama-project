@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
         audio.onended = function() {
             document.getElementById('boxContainer').style.display = 'flex'
             //StartTextToSpeech('speech_text', 'speech_text_final');
-            handleAction(4, 'file_audio', 'speech_text', 'form_voice');
+            handleAction(<?= Yii::$app->helpers->param('test_the_limit') ?>, 'file_audio', 'speech_text', 'form_voice');
         }
     }
     window.onload = function() {
