@@ -15,14 +15,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="container mb-1">
     <div class="row">
-        <div class="col-lg-12 mx-1 ">
+        <div class="col-lg-12 mx-1 text-center ">
             <h3 class="display-5 mini-boid font-inter-bold mb-1">เตรียมความพร้อม</h3><br><br>
-            <p class="title2 mb-4 font-inter-bold text-center">ต่อไปเป็นขั้นตอนเตรียม<br>ความพร้อมก่อนทำ<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 3 ข้อ<br><br>ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น</p>
+            <p class="title2 mb-4 font-inter-bold text-center">ต่อไปเป็นขั้นตอนเตรียม<br>ความพร้อมก่อนทำ<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 3 ข้อ<br><br>ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น 
+</p>
+<div class="text-center">
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    </div>
+
         </div>
-        <audio id="questionAudio" autoplay="">
-            <source src="<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/intro1.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 </div>
 <!--<div class="container fixed-bottom mb-3">
@@ -33,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>-->
 <script type="text/javascript">
-            var audio = new Audio();
+        var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/intro1.mp3';
         audio.play();
         audio.onended = function() {

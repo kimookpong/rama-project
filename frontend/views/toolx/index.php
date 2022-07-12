@@ -18,14 +18,21 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3 class="display-5 orose font-inter-bold mb-1">แบบทดสอบการรู้คิด</h3><br><br>
             <p class="title2 font-inter-bold text-center">ต่อไปเป็น<br>แบบทดสอบการรู้คิด<br>ประกอบด้วย<br>คำถาม 4 ข้อ</p><br>
             <p class="title2 font-inter-bold text-center">ผู้สูงอายุต้องทำแบบ<br>ทดสอบขั้นตอนนี้<br>ด้วยตนเองเท่านั้น</p>
+            <div class="text-center" >
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    </div>
         </div>
     </div>
 
-</div>
+</div><!--
 <audio id="questionAudio" autoplay="">
     <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/intro.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-</audio>
+</audio>-->
 <script type="text/javascript">
        var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/toolx/intro.mp3';

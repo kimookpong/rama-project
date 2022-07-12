@@ -19,15 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="title2 font-inter-bold mb-4 px-2 text-muted text-center">ให้คุณตอบคำถามแต่ละข้อ หลังจากได้ยินเสียง<br>สัญญาณนี้</p>
             <p>
             <div class=" text-center my-4 " style="height: 43px;">
-                <div class="boxContainer mx-auto">
-                    <div class="box box1"></div>
-                    <div class="box box2"></div>
-                    <div class="box box3"></div>
-                    <div class="box box4"></div>
-                    <div class="box box5"></div>
-                    <div class="box box6"></div>
-                    <div class="box box7"></div>
-                </div>
+            <div class="text-center" >
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    </div>
             </div>
             </p>
             <audio id="questionAudio" autoplay="">
