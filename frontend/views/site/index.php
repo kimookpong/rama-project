@@ -25,7 +25,7 @@ $this->title = 'แบบคัดกรองสมองด้านการ�
     <div class="container fixed-bottom">
         <div class="row">
             <div class="col pb-5 mx-4 text-center">
-                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block " href="<?= Url::toRoute(['site/start']); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i></a>
+                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block left-icon-holder" href="<?= Url::toRoute(['site/start']); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

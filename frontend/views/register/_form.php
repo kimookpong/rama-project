@@ -108,7 +108,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     <?= $form->field($model, 'create_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
     <?= $form->field($model, 'update_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
     <div class="col px-2 text-center">
-        <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i>
+        <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block left-icon-holder">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end"></i>
         </button>
     </div>
     <?php ActiveForm::end(); ?>
