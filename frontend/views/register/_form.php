@@ -17,38 +17,41 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 
 ?>
 <style>
-select:required:invalid {
-  color: gray;
-}
-option[value=""][disabled] {
-  display: none;
-}
-option {
-  color: black;
-}
+    select:required:invalid {
+        color: gray;
+    }
+
+    option[value=""][disabled] {
+        display: none;
+    }
+
+    option {
+        color: black;
+    }
 </style>
 <div class="row">
 
     <?php $form = ActiveForm::begin([
-            'options' => [
-                'class' => 'needs-validation',
-				//'novalidate' => true
-             ]
-        ]); ?>
+        'options' => [
+            'class' => 'needs-validation',
+            //'novalidate' => true
+        ]
+    ]); ?>
 
 
     <div class="row g-3">
         <div class="col-4 col-form-label">ชื่อ <font class="text-danger">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'ชื่อ' ,'required'=>''])->label(false) ?>
-		<div class="invalid-feedback">
-										กรุณากรอกชื่อให้ครบถ้วน
-									  </div></div>
+        <div class="col-8"><?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'ชื่อ', 'required' => ''])->label(false) ?>
+            <div class="invalid-feedback">
+                กรุณากรอกชื่อให้ครบถ้วน
+            </div>
+        </div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">นามสกุล <font class="text-danger">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล','required'=>'required'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">เพศ <font class="text-danger"></font>
@@ -80,17 +83,17 @@ option {
         <div class="col-4 col-form-label">จังหวัด <font class="text-danger">*</font>
         </div>
         <div class="col-8">
-            <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด', 'class' => 'form-control select2','required'=>'required'])->label(false) ?></div>
+            <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => 'เลือกจังหวัด', 'class' => 'form-control select2', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">แพทย์ <font class="text-danger">*</font>
         </div>
-        <div class="col-8"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ', 'class' => 'form-control select2','required'=>'required'])->label(false) ?></div>
+        <div class="col-8"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => 'เลือกแพทย์ที่ส่งตรวจ', 'class' => 'form-control select2', 'required' => 'required'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">รหัสสถานะ <font class="text-danger">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสสถานะ','required'=>'required'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => 'เลือกรหัสสถานะ', 'required' => 'required'])->label(false) ?></div>
     </div>
 
 
@@ -105,9 +108,9 @@ option {
     <?= $form->field($model, 'create_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
     <?= $form->field($model, 'update_at')->hiddenInput(['value' => date('Y-m-d H:i:s')])->label(false) ?>
     <div class="col px-2 text-center">
-    <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป  <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i>
-                </button>
-                </div>
-<?php ActiveForm::end(); ?>
+        <button type="submit" class="btn btn-lg rounded-pill btn-brain btn-block">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i>
+        </button>
+    </div>
+    <?php ActiveForm::end(); ?>
 
 </div>

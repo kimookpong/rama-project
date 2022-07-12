@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-<script>
-          var counter = 0;
+    <script>
+        var counter = 0;
         var timeDisplay = document.getElementById("countdown");
 
         function countdownTime() {
@@ -39,12 +39,16 @@ $this->params['breadcrumbs'][] = $this->title;
             timeDisplay.innerHTML = 3 - counter;
         }
         setInterval(countdownTime, 1000);
-        function noBack()
-         {
-             window.history.forward()
-         }
+
+        function noBack() {
+            window.history.forward()
+        }
         noBack();
         window.onload = noBack;
-        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
-        window.onunload = function() { void (0) }
+        window.onpageshow = function(evt) {
+            if (evt.persisted) noBack()
+        }
+        window.onunload = function() {
+            void(0)
+        }
     </script>

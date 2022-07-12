@@ -1,6 +1,7 @@
 <?php
 
 namespace common\models;
+
 use common\models\Provinces;
 use common\models\Ad8;
 use Yii;
@@ -58,40 +59,40 @@ class Register extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    
+
     public function GetProvinces()
     {
         $Provinces = Provinces::find($this->provinces_id)->one();
         return $Provinces->name_th;
-    } 
+    }
     public function GetDoctor()
     {
         $Doctor = Doctor::find($this->docter_id)->one();
         return $Doctor->fullname;
-    } 
+    }
     public function GetAd8()
     {
-        $AD8 = AD8::find()->where(['register_id'=>$this->register_id])->one();
-        return @$AD8->success==1?'success':'false';
-    } 
+        $AD8 = AD8::find()->where(['register_id' => $this->register_id])->one();
+        return @$AD8->success == 1 ? 'success' : 'false';
+    }
     public function GetLlt()
     {
-        $llt = Testandlimit::find()->where(['register_id'=>$this->register_id])->one();
-        return @$llt->success==1?'success':'false';
-    }   
+        $llt = Testandlimit::find()->where(['register_id' => $this->register_id])->one();
+        return @$llt->success == 1 ? 'success' : 'false';
+    }
     public function GetToolx()
     {
-        $toolx = Toolx::find()->where(['register_id'=>$this->register_id])->one();
-        return @$toolx->success==1?'success':'false';
-    }   
+        $toolx = Toolx::find()->where(['register_id' => $this->register_id])->one();
+        return @$toolx->success == 1 ? 'success' : 'false';
+    }
     public function GetComplete()
     {
-        $AD8 = AD8::find()->where(['register_id'=>$this->register_id])->one();
-        $llt = Testandlimit::find()->where(['register_id'=>$this->register_id])->one();
-        $toolx = Toolx::find()->where(['register_id'=>$this->register_id])->one();
-        @$comple = $AD8->success+$llt->success+$toolx->success+0;
-        return $comple==3?'success':'false';
-    }     
+        $AD8 = AD8::find()->where(['register_id' => $this->register_id])->one();
+        $llt = Testandlimit::find()->where(['register_id' => $this->register_id])->one();
+        $toolx = Toolx::find()->where(['register_id' => $this->register_id])->one();
+        @$comple = $AD8->success + $llt->success + $toolx->success + 0;
+        return $comple == 3 ? 'success' : 'false';
+    }
     public function attributeLabels()
     {
         return [

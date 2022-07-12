@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Url;
 ?>
 
@@ -10,7 +11,7 @@ use yii\helpers\Url;
 	</div>
 	<div class="container fixed-bottom">
 		<div class="row">
-        <div class="col py-5 mx-5">
+			<div class="col py-5 mx-5">
 				<a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/index']); ?>">ออก</a>
 			</div>
 		</div>

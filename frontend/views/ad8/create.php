@@ -15,18 +15,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <p class="pl-4 title3"><b> ผู้สูงอายุสามารถทำแบบทดสอบขั้นตอนนี้ด้วยตนเองหรือมีผู้ดูแลช่วยทำแบบทดสอบ</b></p>
     <hr>
     <div class="pl-4 ">
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-</div>
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    </div>
 </div>
 <script type="text/javascript">
-        function noBack()
-         {
-             window.history.forward()
-         }
-        noBack();
-        window.onload = noBack;
-        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
-        window.onunload = function() { void (0) }
-    </script>
+    function noBack() {
+        window.history.forward()
+    }
+    noBack();
+    window.onload = noBack;
+    window.onpageshow = function(evt) {
+        if (evt.persisted) noBack()
+    }
+    window.onunload = function() {
+        void(0)
+    }
+</script>
