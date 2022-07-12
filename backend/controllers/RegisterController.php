@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use common\models\register;
+use common\models\Register;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -15,11 +15,41 @@ function Ad8code($val)
 <div class="col-md-12">
             <div class="card card-default">
               <div class="card-header">
-                <h3 class="card-title">
+                <h1>
                   <i class="fas fa-bullhorn"></i>
-                  ToolX Results
-                </h3>
+                  ToolX Results (แบบคัดกรองสมองด้านการรู้คิด)
+                </h1>
               </div>
+               <div class="card-body">
+                <div class="callout callout-info " style="border-left-color:#0000FF">
+                <div class="row"> 
+                 <div class="col-12"><h2>Register (แบบลงทะเบียน)</h2></div>
+              <table width="100%" class='table'>
+  <tr>
+    <td width="15%"><div align="right">ชื่อ:</div></td>
+    <td width="15%"><input value="<?=$model->name?>" class="form-control" readonly></td>
+    <td width="15%"><div align="right">นามสกุล:</div></td>
+    <td width="15%"><input value="<?=$model->surname?>"  class="form-control" readonly></td>
+    <td width="15%"><div align="right">โทรศัพท์:</div></td>
+    <td width="15%"><input value="<?=$model->tel?>"  class="form-control" readonly></td>
+  </tr>
+  <tr>
+    <td><div align="right">จังหวัด:</div></td>
+    <td width="15%"><input value="<?=$model->provinces?>"  class="form-control" readonly></td>
+    <td><div align="right">เพศ:</div></td>
+    <td width="15%"><input value="<?=$model->gender?>"  class="form-control" readonly></td>
+    <td><div align="right">อายุ:</div></td>
+    <td width="15%"><input value="<?=$model->age?>"  class="form-control" readonly></td>
+  </tr>
+  <tr>
+    <td><div align="right">ชื่อแพทย์:</div></td>
+    <td width="15%"><input value="<?=$model->Doctor?>"  class="form-control" readonly></td>
+    <td><div align="right">รหัส:</div></td>
+    <td width="15%"><input value="<?=$model->disease?>"  class="form-control" readonly></td>
+    <td><div align="right">อีเมล:</div></td>
+    <td width="15%"><input value="<?=$model->email?>"  class="form-control" readonly></td>
+  </tr>
+</table></div></div></div>
               <!-- /.card-header -->
               <?php $ad8 = Ad8::find()->where(['register_id' => $model->register_id])->one();?>
               <div class="card-body">
@@ -63,8 +93,8 @@ function Ad8code($val)
 
                 <div class="callout callout-info">
                 <div class="row"> 
-                 <div class="col-3"><h2>Test the Limit</h2></div>
-                 <div class="col-9">ปฏิบัติถูกต้อง: <mark><?=$ttl->score?></mark> ข้อ</div>
+                 <div class="col-9"><h2>Test the Limit (เตรียมความพร้อม)</h2></div>
+                 <div class="col-3">ปฏิบัติถูกต้อง: <mark><?=$ttl->score?></mark> ข้อ</div>
                 </div>
                 <table width="100%" border="0" class="table">
                 <tr>
@@ -119,12 +149,12 @@ function Ad8code($val)
 
                 <div class="callout callout-warning">
                   <div class="row"> 
-                 <div class="col-3"><h2>ToolX</h2></div>
-                 <div class="col-9"></div>
+                 <div class="col-6"><h2>ToolX (ทดสอบ)</h2></div>
+                 <div class="col-6"></div>
                 </div>
                 <div class="row"> 
-                 <div class="col-3"><h2>1.Registeration(จำคำ 3 คำ)</h2></div>
-                 <div class="col-9">จำคำได้: <mark><?=$toolx->regsiter_score?></mark> ข้อ</div>
+                 <div class="col-6"><h2>1.Registeration(จำคำ 3 คำ)</h2></div>
+                 <div class="col-6">จำคำได้: <mark><?=$toolx->regsiter_score?></mark> ข้อ</div>
                 </div>
 
                   <p></p>
@@ -164,8 +194,8 @@ function Ad8code($val)
   </tr>
 </table>
 <div class="row"> 
-                 <div class="col-3"><h2>2.Orientation(วันนี้วันอะไร)</h2></div>
-                 <div class="col-9">ตอบคำถาม: <mark><?=$toolx->orientation_score=='1'?'ถูก':'ผิด'?></mark></div>
+                 <div class="col-6"><h2>2.Orientation(วันนี้วันอะไร)</h2></div>
+                 <div class="col-6">ตอบคำถาม: <mark><?=$toolx->orientation_score=='1'?'ถูก':'ผิด'?></mark></div>
                  <div class="col-3">วันที่ถูก: <mark><?=$toolx->datenow?></div>
                  <div class="col-3">คำตอบที่ Transcribe: <mark><?=$toolx->orientation?></div>
                  <div class="col-3">ตรวจคำตอบ: <audio controls>
@@ -184,15 +214,15 @@ function Ad8code($val)
                 <div class="row"> 
                  <div class="col-4">ชื่อผลไม้จากการ Transcibe:</div>
                  <div class="col-8"> <mark><?=$toolx->fruitfluency?></mark></div>
-                </div>
+                </div><br>
                 <div class="row"> 
                  <div class="col-4">ภายหลังการตัดคำ:</div>
                  <div class="col-8"> <mark><?=$toolx->fruitwordseg?></mark></div>
-                </div>
+                </div><br>
                 <div class="row"> 
                  <div class="col-4">ตรวจคำตอบ:</div>
                  <div class="col-8"></div>
-                </div>
+                </div><br>
                 <div class="row"> 
                  <div class="col-4">ไฟล์เสียง:</div>
                  <div class="col-8">
@@ -205,8 +235,8 @@ function Ad8code($val)
                  
                 </div>
                 <div class="row"> 
-                 <div class="col-4"><h2>4. Recall (นึกคำ 3 คำ)</h2></div>
-                 <div class="col-8">นึกคำได้: <mark><?=$toolx->wordregsiter_score?></mark></div>
+                 <div class="col-6"><h2>4. Recall (นึกคำ 3 คำ)</h2></div>
+                 <div class="col-6">นึกคำได้: <mark><?=$toolx->wordregsiter_score?></mark></div>
                  </div>
                  <p></p>
                   <table width="100%" border="0" class="table">

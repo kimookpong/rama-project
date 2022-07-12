@@ -100,7 +100,7 @@ class Helpers extends Component
         $client = new SpeechClient();
 
         $recognitionConfig = new RecognitionConfig();
-        $recognitionConfig->setEncoding(AudioEncoding::WEBM_OPUS);
+        $recognitionConfig->setEncoding(AudioEncoding::FLAC);
         $recognitionConfig->setSampleRateHertz(48000);
         $recognitionConfig->setLanguageCode('th-TH');
         $config = new StreamingRecognitionConfig();
@@ -123,7 +123,7 @@ class Helpers extends Component
         putenv('GOOGLE_APPLICATION_CREDENTIALS=rama-project-v2-ed6853bd2092.json');
 
         // change these variables if necessary
-        $encoding = AudioEncoding::WEBM_OPUS;
+        $encoding = AudioEncoding::FLAC;
         $sampleRateHertz = 48000;
         $languageCode = 'th-TH';
 
@@ -177,7 +177,7 @@ class Helpers extends Component
     public function Partii($audioFile)
     {
         $audio_file = $audioFile;
-        $data = array('wavfile' => new \CURLFile($audio_file, 'audio/mpeg', basename($audio_file)), 'outputlevel' => '--uttlevel', 'outputformat' => '--txt',);
+        $data = array('wavfile' => new \CURLFile($audio_file, mime_content_type($audio_file), basename($audio_file)), 'outputlevel' => '--uttlevel', 'outputformat' => '--txt',);
         $curl = curl_init();
 
         //  var_dump($data);

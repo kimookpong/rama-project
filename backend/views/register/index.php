@@ -37,8 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
 @$disease =  $_POST['disease']; 
 ?>
     <div class="row">
-      <div class="col-3">จังหวัด 
-      <select class="form-control" name="provinces">
+
+      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="form-group">
+                    <label for="exampleInputEmail1">จังหวัด</label>
+                    <select class="form-control " name="provinces">
       <option >เลือกจังหวัด</option >
       <?php  
       $sql = 'SELECT
@@ -55,9 +58,13 @@ $this->params['breadcrumbs'][] = $this->title;
       <option value="<?=$data->provinces_id?>" <?=$province_id==$data->provinces_id?'selected':''?>> <?=$data->name_th?></option>
       <?php  } ?> 
       </select>
+      </div>  
       </div>         
-      <div class="col-2">เดือน/ปี
-      <select class="form-control  select2" name="my">
+      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="form-group">
+                    <label for="exampleInputEmail1">เดือน/ปี</label>
+
+      <select class="form-control " name="my">
       <option >เลือกเดือน/ปี</option >
 
       <?php  
@@ -75,16 +82,21 @@ my
       <option value="<?=$data->month?>/<?=$data->year?>" <?=$my==$myss?'selected':''?>><?=$data->month?>/<?=$data->year?></option>
       <?php  }  ?> 
       
-      </select></div>         
-      <div class="col-2">รหัสสถานะ
+      </select></div>   </div>      
+      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="form-group">
+                    <label for="exampleInputEmail1">รหัสสถานะ</label>
+
       <select class="form-control" name="disease">
+      <option value="All" <?=$disease=='All'?'All':''?>>All</option>
         <option value="control" <?=$disease=='control'?'selected':''?>>Control</option>
         <option value="disease" <?=$disease=='disease'?'selected':''?>>Disease</option>
       </select>
-      </div>         
-      <div class="col-2"></div>    
-      <div class="col-3">
-      <button type="submit" class="btn btn-success btn-block">Search</button>
+      </div>        </div>   
+      <div class="col-md-3 text-center pt-3">
+      <button type="submit" class="btn  btn-outline-success "><i class="fa fa-search"></i> Search</button>
+      <button type="reset" class="btn  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
+
     </div>         
     <?php ActiveForm::end(); ?>
     </div>   </div>   </div>  
@@ -109,7 +121,7 @@ my
                   </thead>
                   <tbody>
                   <?php  
-      $sql = " SELECT * FROM register";
+      $sql = " SELECT * FROM register where flagdel = 0";
       @$Registers = Register::findBySql($sql)->all();  
         
       foreach ($Registers as $data) {?> 
@@ -124,7 +136,6 @@ my
                     <td><?=DateThai($data->datetest)?></td>
                     <td>
                     <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
-
                   </tr>
              <?php } ?>
                   </tbody>

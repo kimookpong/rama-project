@@ -14,7 +14,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language ?>" translate="no" class="h-100">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -29,17 +29,17 @@ AppAsset::register($this);
     <header>
         <?php
         NavBar::begin([
-            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="60" class="bi me-2">',
+            'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="60" class="bi me-4">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md fixed-top px-2 bg-braintest',
+                'class' => 'navbar navbar-expand-md fixed-top px-4 bg-braintest',
             ],
         ]);
         $menuItems = [
             ['label' => 'หน้าแรก', 'url' => ['/site/index']],
+			['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
             ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
             ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
-            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
         ];
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav ml-auto px-2'],
@@ -49,7 +49,7 @@ AppAsset::register($this);
         ?>
     </header>
     <main role="main" class="flex-shrink-0">
-        <div class="container">
+        <div class="container-fluid">
             <?= $content ?>
         </div>
     </main>

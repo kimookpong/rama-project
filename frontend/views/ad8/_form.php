@@ -8,11 +8,11 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="ad8-form">
+<div class="ad8-form font-24">
 
   <?php $form = ActiveForm::begin(); ?>
 
-  <p class="title3"> ผู้ทำแบบสอบถาม </p>
+  <p class="title3"><b> ผู้ทำแบบสอบถาม </b></p>
   <?= $form->field($model, 'register_id')->hiddenInput(['value' => Yii::$app->helpers->decodeUrl('reg_id')])->label(false) ?>
   <div class="radio">
     <label>
@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
 
   <div class="container fixed-bottom">
     <div class="row">
-      <div class="col py-4 mx-auto">
+      <div class="col py-5 mx-5">
         <button class=" w-100 btn btn-lg rounded-pill btn-brain" type="submit">เริ่มการทดสอบ</button>
       </div>
     </div>

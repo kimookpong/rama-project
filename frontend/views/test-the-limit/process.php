@@ -33,7 +33,5 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         });
     }
-    window.onload = function() {
-        goProcess();
-    };
+    window.onload = goProcess();
 </script>

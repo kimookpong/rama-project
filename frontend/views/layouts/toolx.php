@@ -15,7 +15,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language ?>" translate="no" class="h-100">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -28,7 +28,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column bg-toolx h-100">
     <?php $this->beginBody() ?>
     <header>
-        <nav id="w0" class="navbar navbar-expand-md fixed-top px-2 navbar">
+        <nav id="w0" class="navbar navbar-expand-md fixed-top px-4 navbar">
             <div class="container">
                 <a class="navbar-brand" href="<?= Url::toRoute(['site/index']) ?>"><img src="<?= Yii::getAlias('@web') ?>/images/Braintest-logo.svg" height="60" class="bi me-2"></a>
             </div>
@@ -49,4 +49,14 @@ AppAsset::register($this);
 </body>
 
 </html>
+<script type="text/javascript">
+        function noBack()
+         {
+             window.history.forward()
+         }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+        window.onunload = function() { void (0) }
+    </script>
 <?php $this->endPage();

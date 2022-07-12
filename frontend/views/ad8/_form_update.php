@@ -18,7 +18,7 @@ $q = Yii::$app->helpers->decodeUrl('q') ?>
 
 <div class="container fixed-bottom">
   <div class="row">
-    <div class="col mx-auto text-center">
+    <div class="col mx-4 text-center">
       <div class="row">
         <div class="col-4 px-1">
           <a class="btn btn-lg rounded-pill btn-block btn-ad8 font-inter-bold" id='1' onclick="myFunction(1)">ใช่</a>
@@ -33,7 +33,7 @@ $q = Yii::$app->helpers->decodeUrl('q') ?>
     </div>
   </div>
   <div class="row">
-    <div class="col py-2 mx-auto mb-3">
+    <div class="col py-0 mx-2 mb-4">
       <a class="btn btn-lg rounded-pill" onclick="history.back();"> <i class="fa fa-arrow-circle-left  text-left fa-xl p-1" aria-hidden="true"></i></a>
       </a>
     </div>

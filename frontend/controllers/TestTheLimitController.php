@@ -150,6 +150,7 @@ class TestTheLimitController extends Controller
         $model->qustion1 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath1);
         $model->qustion2 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath2);
         $model->qustion3 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath3);
+        $model->success = 1;
         if (!empty($model->qustion1)) {
             $model->score = $model->score + 1;
         }

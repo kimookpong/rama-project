@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto pt-4">
-            <div class="title2 font-inter mb-4 text-muted text-center">
+            <div class="title2 font-inter mb-4 text-muted text-center"><br><br><br><br>
                 <div class="counter mx-auto" id="countdown">
                     3
                 </div>

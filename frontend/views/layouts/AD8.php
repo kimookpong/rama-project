@@ -15,7 +15,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language ?>" translate="no" class="h-100">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -28,7 +28,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100 bg-ad8">
     <?php $this->beginBody() ?>
     <header>
-        <nav id="w1" class="navbar navbar-expand-md fixed-top bg-white px-2  navbar">
+        <nav id="w1" class="navbar navbar-expand-md fixed-top bg-white px-4  navbar">
             <div class="container">
                 <a class="navbar-brand"><img src="<?= Yii::getAlias('@web') ?>/images/Braintest-logo.svg" height="60" class="bi me-2"></a>
             </div>

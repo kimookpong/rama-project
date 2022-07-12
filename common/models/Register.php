@@ -1,7 +1,8 @@
 <?php
 
 namespace common\models;
-
+use common\models\Provinces;
+use common\models\Ad8;
 use Yii;
 
 /**
@@ -44,7 +45,7 @@ class Register extends \yii\db\ActiveRecord
     {
         return [
             [['case_id', 'age', 'provinces_id', 'month', 'year', 'docter_id', 'flagdel'], 'integer'],
-            [['provinces_id', 'datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
+            [['datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
             [['datetest', 'create_at', 'update_at'], 'safe'],
             [['casecode', 'source'], 'string', 'max' => 50],
             [['name', 'surname'], 'string', 'max' => 100],
@@ -57,21 +58,39 @@ class Register extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    
+    public function GetProvinces()
+    {
+        $Provinces = Provinces::find($this->provinces_id)->one();
+        return $Provinces->name_th;
+    } 
+    public function GetDoctor()
+    {
+        $Doctor = Doctor::find($this->docter_id)->one();
+        return $Doctor->fullname;
+    } 
     public function GetAd8()
     {
-        return 'success';
+        $AD8 = AD8::find()->where(['register_id'=>$this->register_id])->one();
+        return @$AD8->success==1?'success':'false';
     } 
     public function GetLlt()
     {
-        return 'success';
+        $llt = Testandlimit::find()->where(['register_id'=>$this->register_id])->one();
+        return @$llt->success==1?'success':'false';
     }   
     public function GetToolx()
     {
-        return 'success';
+        $toolx = Toolx::find()->where(['register_id'=>$this->register_id])->one();
+        return @$toolx->success==1?'success':'false';
     }   
     public function GetComplete()
     {
-        return 'success';
+        $AD8 = AD8::find()->where(['register_id'=>$this->register_id])->one();
+        $llt = Testandlimit::find()->where(['register_id'=>$this->register_id])->one();
+        $toolx = Toolx::find()->where(['register_id'=>$this->register_id])->one();
+        @$comple = $AD8->success+$llt->success+$toolx->success+0;
+        return $comple==3?'success':'false';
     }     
     public function attributeLabels()
     {

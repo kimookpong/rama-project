@@ -256,6 +256,7 @@ class ToolxController extends Controller
                     $model->regsiterwordseg = implode(',', $text_seperate['tokens']);
                 }
                 $model->regsiter_score = $count;
+                $model->success = 1;
                 $model->save(false);
 
                 //if ($count > 1) {
@@ -264,7 +265,8 @@ class ToolxController extends Controller
                 //    return $this->redirect(['false', 'id' => $id]);
                 //}
             } else {
-                return $this->redirect(['false', 'id' => $id]);
+			  return $this->redirect(['test-what-day', 'id' => $id]);
+               // return $this->redirect(['false', 'id' => $id]);
             }
         }
         return $this->render('test', [

@@ -14,7 +14,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language ?>" translate="no" class="h-100">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -32,7 +32,7 @@ AppAsset::register($this);
             'brandLabel' => '<img src="' . Yii::getAlias('@web') . '/images/Braintest-logo.svg" height="60" class="bi me-2">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md fixed-top bg-white px-2 ',
+                'class' => 'navbar navbar-expand-md fixed-top bg-white px-4 ',
             ],
         ]);
         $menuItems = [
@@ -49,7 +49,7 @@ AppAsset::register($this);
         ?>
     </header>
     <main role="main" class="flex-shrink-0">
-        <div class="container">
+        <div class="container-fluid">
             <?= $content ?>
         </div>
     </main>

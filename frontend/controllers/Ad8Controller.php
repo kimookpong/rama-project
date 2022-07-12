@@ -139,7 +139,7 @@ class Ad8Controller extends Controller
                 $model->score = $a;
                 $model->success = '1';
                 $model->save();
-                if ($model->score <= 2) {
+                if ($model->score <= 8) {
                     return $this->redirect(['success', 'ad8_id' => $model->ad8_id]);
                 } else {
                     return $this->redirect(['false', 'ad8_id' => $model->ad8_id]);
