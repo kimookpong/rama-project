@@ -11,10 +11,21 @@ use yii\widgets\ActiveForm;
 <div class="parameter-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-4">
+            <?= $form->field($model, 'x')->textInput() ?>
+        </div>
+        <div class="col-4">
+            <?= $form->field($model, 'y')->textInput() ?>
+        </div>
+        <div class="col-4">
+            <?= $form->field($model, 'z')->textInput() ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'x')->textInput() ?>
 
-    <?= $form->field($model, 'y')->textInput() ?>
+
+
 
     <?= $form->field($model, 'z')->textInput() ?>
 

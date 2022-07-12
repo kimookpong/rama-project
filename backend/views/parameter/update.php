@@ -15,14 +15,8 @@ $this->params['breadcrumbs'][] = 'Update';
         <h2>Parameters</h2>
     </div>
     <div class="card-body">
-        <div class="parameter-update">
-
-            <h1><?= Html::encode($this->title) ?></h1>
-
-            <?= $this->render('_form', [
-                'model' => $model,
-            ]) ?>
-
-        </div>
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
     </div>
 </div>
