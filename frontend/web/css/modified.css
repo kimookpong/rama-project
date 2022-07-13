@@ -474,11 +474,6 @@ border: 0;
 
 .boxContainer{
   display: flex;
-  justify-content: space-between;
-  height: 30px;
-  --boxSize: 4px;
-  --gutter: 4px;
-  width: calc((var(--boxSize) + var(--gutter)) * 5);
 }
 
 .box{

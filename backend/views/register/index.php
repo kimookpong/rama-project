@@ -37,6 +37,17 @@ function DateThai($strDate)
     <?php @$province_id =  $_POST['provinces'];
     @$my =  $_POST['my'];
     @$disease =  $_POST['disease'];
+
+    if(isset($province_id) && $province_id !='All'){
+      $qurey1 = "and provinces_id='$province_id'";
+    }
+    if(isset($my) && $my !='All'){
+      $expl = explode("/",$my);
+      $qurey2 = "and month='$expl[0]' and year='$expl[1]'";
+    }
+    if(isset($disease) && $disease !='All'){
+      $qurey3 = "and disease='$disease' ";
+    }
     ?>
     <div class="row">
 
@@ -44,7 +55,7 @@ function DateThai($strDate)
         <div class="form-group">
           <label for="exampleInputEmail1">จังหวัด</label>
           <select class="form-control " name="provinces">
-            <option>เลือกจังหวัด</option>
+            <option value="All">เลือกจังหวัด</option>
             <?php
             $sql = 'SELECT
       provinces.name_th,
@@ -68,7 +79,7 @@ function DateThai($strDate)
           <label for="exampleInputEmail1">เดือน/ปี</label>
 
           <select class="form-control " name="my">
-            <option>เลือกเดือน/ปี</option>
+            <option value="All">เลือกเดือน/ปี</option>
 
             <?php
             $sql = "
@@ -100,7 +111,7 @@ my
           </select>
         </div>
       </div>
-      <div class="col-md-3 text-center pt-3">
+      <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-3">
         <button type="submit" class="btn  btn-outline-success "><i class="fa fa-search"></i> Search</button>
         <button type="reset" class="btn  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
 
@@ -113,7 +124,8 @@ my
   <!-- /.card-header -->
   <div class="card-body">
     <?php if (isset($_POST[''])) ?>
-    <table id="example1" class="table table-bordered table-striped">
+    <div class="col-12">
+    <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
       <thead>
         <tr>
           <th>วันที่ทดสอบ</th>
@@ -130,7 +142,7 @@ my
       </thead>
       <tbody>
         <?php
-        $sql = " SELECT * FROM register where flagdel = 0";
+        @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3";
         @$Registers = Register::findBySql($sql)->all();
 
         foreach ($Registers as $data) { ?>
@@ -151,7 +163,7 @@ my
       </tbody>
 
     </table>
-  </div>
+  </div></div>
   <!-- /.card-body -->
 </div>
 <!-- /.card -->
