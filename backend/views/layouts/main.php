@@ -112,6 +112,13 @@ AppAsset::register($this);
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="<?= Url::toRoute('fruit/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'fruit' ? 'active' : '') ?>">
+                <i class="nav-icon fas fa-apple-alt"></i>
+                <p>Fruit List</p>
+              </a>
+            </li>
+
             <?php if (Yii::$app->user->identity->role == 10) { ?>
               <li class="user-panel"></li>
               <li class="nav-item">
@@ -122,7 +129,7 @@ AppAsset::register($this);
               </li>
               <li class="nav-item">
                 <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
-                  <i class="nav-icon far fa-user"></i>
+                  <i class="nav-icon fas fa-users"></i>
                   <p>User Management</p>
                 </a>
               </li>

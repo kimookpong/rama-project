@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use common\models\fruit;
+use common\models\Fruit;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -38,22 +38,10 @@ class FruitController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => fruit::find(),
-            /*
-            'pagination' => [
-                'pageSize' => 50
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'fruit_id' => SORT_DESC,
-                ]
-            ],
-            */
-        ]);
+        $model =  Fruit::find()->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ]);
     }
 

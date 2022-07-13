@@ -16,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-6">
                 <h2><?= $this->title ?></h2>
-
             </div>
             <div class="col-6">
                 <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success float-right']) ?>

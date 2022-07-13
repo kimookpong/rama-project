@@ -2,6 +2,7 @@
 
 namespace common\components;
 
+use common\models\Fruit;
 use common\models\Parameter;
 use yii;
 use yii\base\Component;
@@ -15,6 +16,15 @@ use \yii\web\UploadedFile;
 
 class Helpers extends Component
 {
+    public function checkFruit($word)
+    {
+        $modelCount = Fruit::find()->filterWhere(['like', 'keyword', $word])->count();
+        if ($modelCount > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function param($param)
     {
         $model = Parameter::findOne(1);

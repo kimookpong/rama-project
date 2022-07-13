@@ -181,7 +181,7 @@ class ToolxController extends Controller
             }
 
             foreach ($text_seperate['tokens'] as $word) {
-                if (1) {
+                if (Yii::$app->helpers->checkFruit($word)) {
                     $model->fruitfluency_score = $model->fruitfluency_score + 1;
                 }
             }
@@ -259,14 +259,14 @@ class ToolxController extends Controller
                 $model->success = 1;
                 $model->save(false);
 
-                //if ($count > 1) {
-                return $this->redirect(['test-what-day', 'id' => $id]);
-                //} else {
-                //    return $this->redirect(['false', 'id' => $id]);
-                //}
+                if ($count >= Yii::$app->helpers->param('y')) {
+                    return $this->redirect(['test-what-day', 'id' => $id]);
+                } else {
+                    return $this->redirect(['false', 'id' => $id]);
+                }
             } else {
-			  return $this->redirect(['test-what-day', 'id' => $id]);
-               // return $this->redirect(['false', 'id' => $id]);
+                //return $this->redirect(['test-what-day', 'id' => $id]);
+                return $this->redirect(['false', 'id' => $id]);
             }
         }
         return $this->render('test', [

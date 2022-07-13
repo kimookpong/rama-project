@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use common\models\user;
+use common\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $model =  user::find()->all();
+        $model =  User::find()->all();
 
         return $this->render('index', [
             'model' => $model,
@@ -79,7 +79,7 @@ class UserController extends Controller
     }
     public function actionCreate()
     {
-        $model = new user();
+        $model = new User();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
@@ -157,7 +157,7 @@ class UserController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = user::findOne(['id' => $id])) !== null) {
+        if (($model = User::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
