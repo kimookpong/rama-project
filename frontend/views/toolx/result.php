@@ -31,10 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
     };
 </script>
 
+
     <div class="container fixed-bottom">
         <div class="row">
-            <div class="col py-4 mx-auto">
-                <a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/index']); ?>">ออก <i class="fa fa-arrow-circle-right float-end py-1" aria-hidden="true"></i></a>
+        <div class="col pb-5 mx-4 text-center">
+                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block left-icon-holder" href="<?= Url::toRoute(['site/index']); ?>">ออก <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

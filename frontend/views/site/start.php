@@ -44,7 +44,7 @@
        <div class="container fixed-bottom p-0">
            <div class="row">
                <div class="col pb-5 mx-4 text-center">
-                   <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block" href="<?= Url::toRoute(['site/start2']); ?>">เริ่มการทดสอบ</a>
+                   <a class="btn btn-lg rounded-pill btn-brain font-inter-bold  btn-block " href="<?= Url::toRoute(['site/start2']); ?>">เริ่มการทดสอบ</a>
 
                </div>
            </div>

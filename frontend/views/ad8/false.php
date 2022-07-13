@@ -13,7 +13,7 @@ $this->title = 'คุณไม่ผ่านแบบคัดกรอง';
 	</div>
 	<div class="container fixed-bottom">
 		<div class="row">
-			<div class="col py-5 mx-4">
+		<div class="col pb-5 mx-4 text-center">
 				<a class=" w-100 btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['site/index', 'id' => $model->register_id]); ?>">ออก</a>
 			</div>
 		</div>

@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto pt-4">
-            <div class="title2 font-inter mb-4 text-muted text-center"><br><br><br><br>
+            <div class="title2 font-inter mb-4 text-muted text-center"><br><br><br>
                 <div class="counter mx-auto" id="countdown">
                     3
                 </div>
@@ -22,6 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/countdown.mp3';
+        audio.play();
+       
+</script>
 <script>
     var counter = 0;
     var timeDisplay = document.getElementById("countdown");

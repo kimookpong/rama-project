@@ -22,16 +22,11 @@ $this->title = 'แบบคัดกรองสมองด้านการ�
         <a class="btn btn-lg rounded-pill btn-brain" href="<?= Yii::getAlias('@web') ?>/site/about">เริ่มการทดสอบ</a>
         <br />
 -->
-    <div class="container fixed-bottom p-0">
+    <div class="container fixed-bottom">
         <div class="row">
             <div class="col pb-5 mx-4 text-center">
-                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block" href="<?= Url::toRoute(['site/start']); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right float-end py-2 mr-2"></i></a>
+                <a class="btn btn-lg rounded-pill btn-brain font-inter-bold btn-block left-icon-holder" href="<?= Url::toRoute(['site/start']); ?>">หน้าถัดไป <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <!--
-                <div class="col py-4 mx-auto text-center">
-                    <a class="btn btn-lg rounded-pill btn-brain" href="<?= Url::toRoute(['test-the-limit/index', 'id' => 1]); ?>">Test the limit</a>
-                </div>
--->
         </div>
     </div>
 </div>

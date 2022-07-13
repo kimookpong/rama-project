@@ -19,15 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="title2 font-inter-bold mb-4 px-2 text-muted text-center">ให้คุณตอบคำถามแต่ละข้อ หลังจากได้ยินเสียง<br>สัญญาณนี้</p>
             <p>
             <div class=" text-center my-4 " style="height: 43px;">
-                <div class="boxContainer mx-auto">
-                    <div class="box box1"></div>
-                    <div class="box box2"></div>
-                    <div class="box box3"></div>
-                    <div class="box box4"></div>
-                    <div class="box box5"></div>
-                    <div class="box box6"></div>
-                    <div class="box box7"></div>
-                </div>
+            <div class="text-center" >
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    <div class="boll"></div>
+    </div>
             </div>
             </p>
             <audio id="questionAudio" autoplay="">
@@ -43,6 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/beep.mp3';
         audio.play();
+        audio.onended = function() {
+            form_voice.submit();
+        }
     }
     window.onload = function() {
         document.getElementById("questionAudio").autoplay;
@@ -52,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col py-5 mx-4">
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'form_voice']]); ?>
-            <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</button>
+           <!-- <button type="submit" class="font-inter fw-bold w-100 btn btn-lg rounded-pill btn-brain">เริ่มการทดสอบ</button>-->
             <?php ActiveForm::end(); ?>
         </div>
     </div>

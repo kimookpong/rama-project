@@ -21,7 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-</div>
+</div>  <script type="text/javascript">
+        var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/countdown.mp3';
+        audio.play();
+       
+</script>
 <script>
     var counter = 0;
     var timeDisplay = document.getElementById("countdown");
