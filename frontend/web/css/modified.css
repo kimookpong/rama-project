@@ -587,3 +587,31 @@ border: 0;
   margin-top: -12px; /* Half of line height to keep left middle postion of container */
   right: 10px;
 }
+
+
+/*************************************************************************************/
+.countdowntime {
+  margin: auto;
+  width: 500px;
+}
+.path--background {
+  fill: rgb(34, 213, 201);
+  stroke: #fff;
+  stroke-width: 0px;
+}
+.pulse {
+  fill: rgb(34, 213, 201);
+}
+.path--foreground {
+  fill: #eee;
+  stroke: #eee;
+  stroke-width: 2px;
+}
+.label {
+  font: 90px "Noto Sans Thai";
+  font-weight: 900;
+  text-anchor: middle;
+  fill: rgb(34, 213, 201);
+}
+
+/*************************************************************************************/

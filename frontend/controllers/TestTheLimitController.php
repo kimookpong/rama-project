@@ -93,20 +93,34 @@ class TestTheLimitController extends Controller
             $file_audio = Yii::$app->helpers->uploadFile('file_audio', 'testthelimit');
 
             if ($question == 1) {
+                $model->score = 0;
                 $model->qustion1 =  $answer;
                 $model->voicepath1 = $file_audio;
+                $model->qustion1 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath1);
+                if (!empty($model->qustion1)) {
+                    $model->score = $model->score + 1;
+                }
                 $model->save();
                 return $this->redirect(['test', 'id' => $id, 'question' => $question + 1]);
             } else if ($question == 2) {
                 $model->qustion2 =  $answer;
                 $model->voicepath2 = $file_audio;
+                $model->qustion2 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath2);
+                if (!empty($model->qustion2)) {
+                    $model->score = $model->score + 1;
+                }
                 $model->save();
                 return $this->redirect(['test', 'id' => $id, 'question' => $question + 1]);
             } else {
                 $model->qustion3 =  $answer;
                 $model->voicepath3 = $file_audio;
+                $model->qustion3 = Yii::$app->helpers->googleAPI(Yii::$app->params['frontend'] . '/' . $model->voicepath3);
+                if (!empty($model->qustion3)) {
+                    $model->score = $model->score + 1;
+                }
+                $model->success = 1;
                 $model->save();
-                return $this->redirect(['inprocess', 'id' => $id]);
+                return $this->redirect(['result', 'id' => $id]);
             }
         }
         return $this->render('test', [

@@ -1,7 +1,7 @@
 var width = 400,
     height = 400,
     timePassed = 0,
-    timeLimit = 30;
+    timeLimit = 3;
 var fields = [{
   value: timeLimit,
   size: timeLimit,
@@ -24,7 +24,7 @@ var arc= d3.svg.arc()
     return ((d.value / d.size) * 2 * Math.PI);
   });
 
-var svg = d3.select(".container").append("svg")
+var svg = d3.select(".countdowntime").append("svg")
   .attr('width', width)
   .attr('height', height);
 

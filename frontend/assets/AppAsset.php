@@ -25,9 +25,11 @@ class AppAsset extends AssetBundle
     public $js = [
         //'https://code.jquery.com/jquery-3.6.0.slim.js',
         //'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js',
         'js/record.js',
         'js/text_to_speech.js',
         'js/modified.js',
+        'js/countdown.js',
         //'js/test.js',
     ];
     public $depends = [

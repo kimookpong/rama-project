@@ -15,18 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ad8-view">
     <?php $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id, 'q' => '1']); ?>
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 mx-auto pt-4">
-                <div class="title2 font-inter mb-4 text-muted text-center  align-middle"><br><br><br><br><br><br>
-                    <div class="counter mx-auto" id="countdown">
-                        3
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="text-center">
+    <div class="countdowntime"></div>
+</div>
     <script type="text/javascript">
         var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/countdown.mp3';
@@ -35,14 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
 </script>
     <script>
         var counter = 0;
-        var timeDisplay = document.getElementById("countdown");
-
         function countdownTime() {
             counter = counter + 1;
-            if (counter == 3) {
+            if (counter == 4) {
                 window.location = "<?= $url ?>";
             }
-            timeDisplay.innerHTML = 3 - counter;
         }
         setInterval(countdownTime, 1000);
 
