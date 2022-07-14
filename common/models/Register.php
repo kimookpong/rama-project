@@ -62,7 +62,7 @@ class Register extends \yii\db\ActiveRecord
 
     public function GetProvinces()
     {
-        $Provinces = Provinces::find($this->provinces_id)->one();
+        $Provinces = Provinces::find()->where(['provinces_id' => $this->provinces_id])->one();
         return $Provinces->name_th;
     }
     public function GetDoctor()
@@ -74,6 +74,19 @@ class Register extends \yii\db\ActiveRecord
     {
         $AD8 = AD8::find()->where(['register_id' => $this->register_id])->one();
         return @$AD8->success == 1 ? 'success' : 'false';
+    }
+    public function GetSex()
+    {
+        switch ($this->gender) {
+            case "M":
+                return "ชาย";
+              break;
+            case "F":
+                return "หญิง";
+              break;
+            default:
+              echo "ไม่ระบุ";
+          }
     }
     public function GetLlt()
     {

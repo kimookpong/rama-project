@@ -42,7 +42,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     <div class="row g-3">
         <div class="col-4 col-form-label">ชื่อ <font class="text-danger" size="-1">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'ชื่อ', 'required' => ''])->label(false) ?>
+        <div class="col-8"><?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'ชื่อ', 'required' => '','autocomplete'=>'false'])->label(false) ?>
             <div class="invalid-feedback">
                 กรุณากรอกชื่อให้ครบถ้วน
             </div>
@@ -51,7 +51,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     <div class="row g-3">
         <div class="col-4 col-form-label">นามสกุล <font class="text-danger" size="-1">*</font>
         </div>
-        <div class="col-8"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล', 'required' => 'required'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'placeholder' => 'สกุล', 'required' => 'required','autocomplete'=>'false'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">เพศ <font class="text-danger" ></font>
@@ -69,15 +69,15 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">อายุ</div>
-        <div class="col-8"><?= $form->field($model, 'age')->textInput(['maxlength' => true, 'placeholder' => 'อายุ'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'age')->textInput(['maxlength' => true, 'placeholder' => 'อายุ','autocomplete'=>'false'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">โทรศัพท์</div>
-        <div class="col-8"><?= $form->field($model, 'tel')->textInput(['maxlength' => true, 'placeholder' => 'XXX-XXX-XXXX'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'tel')->textInput(['maxlength' => true, 'placeholder' => 'XXX-XXX-XXXX','autocomplete'=>'false'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">อีเมล์</div>
-        <div class="col-8"><?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'อีเมล์'])->label(false) ?></div>
+        <div class="col-8"><?= $form->field($model, 'email')->textInput(['type'=>'email','maxlength' => true, 'placeholder' => 'อีเมล์','autocomplete'=>'false'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">จังหวัด <font class="text-danger" size="-1">*</font>

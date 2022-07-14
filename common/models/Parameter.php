@@ -33,7 +33,7 @@ class Parameter extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['x', 'y', 'z', 'test_the_limit', 'toolx_3word', 'toolx_whatday', 'toolx_fruit', 'toolx_recall', 'toolx_fruit_delay'], 'integer'],
+            [['x', 'y', 'z','a', 'b', 'c', 'test_the_limit', 'toolx_3word', 'toolx_whatday', 'toolx_fruit', 'toolx_recall', 'toolx_fruit_delay'], 'integer'],
         ];
     }
 
@@ -47,6 +47,9 @@ class Parameter extends \yii\db\ActiveRecord
             'x' => 'พารามิเตอร์ X',
             'y' => 'พารามิเตอร์ Y',
             'z' => 'พารามิเตอร์ Z',
+            'a' => 'พารามิเตอร์ A',
+            'b' => 'พารามิเตอร์ B',
+            'c' => 'พารามิเตอร์ C',
             'test_the_limit' => 'ชุดเตรียมความพร้อม',
             'toolx_3word' => 'จำคำ 3 คำ',
             'toolx_whatday' => 'วันนี้วันอะไร',

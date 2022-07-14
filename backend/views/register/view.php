@@ -51,7 +51,7 @@ Yii::$app->response->redirect(Url::to(['index'], true));
     <td><div align="right">จังหวัด:</div></td>
     <td width="15%"><input value="<?=$model->provinces?>"  class="form-control" readonly></td>
     <td><div align="right">เพศ:</div></td>
-    <td width="15%"><input value="<?=$model->gender?>"  class="form-control" readonly></td>
+    <td width="15%"><input value="<?=$model->sex?>"  class="form-control" readonly></td>
     <td><div align="right">อายุ:</div></td>
     <td width="15%"><input value="<?=$model->age?>"  class="form-control" readonly></td>
   </tr>
@@ -69,7 +69,7 @@ Yii::$app->response->redirect(Url::to(['index'], true));
                 <div class="col-12">
                   <h4>ประวัติการทำแบบทดสอบ</h4>
                     <table class="table table-striped table-bordered">
-                      <tr class="bg-info">
+                      <tr class="bg-info text-center">
                         <th>#</th>
                         <th>ชื่อ</th>
                         <th>อายุ</th>
@@ -83,13 +83,13 @@ Yii::$app->response->redirect(Url::to(['index'], true));
                       <tr>
                         <th>1</th>
                         <th><?=$model->name?></th>
-                        <th><?=$model->age?></th>
-                        <th><?=DateThai($model->datetest)?></th>
-                        <th><?=$model->ad8?></th>
-                        <th><?=$model->llt?></th>
-                        <th><?=$model->toolx?></th>
-                        <th><?=$model->complete?></th>
-                        <th>
+                        <th class="text-center"><?=$model->age?></th>
+                        <th class="text-center"><?=DateThai($model->datetest)?></th>
+                        <th class="text-center"><?=$model->ad8?></th>
+                        <th class="text-center"><?=$model->llt?></th>
+                        <th class="text-center"> <?=$model->toolx?></th>
+                        <th class="text-center"><?=$model->complete?></th>
+                        <th class="text-center">
                         <?php if($model->complete=='false'){?>
                           <a class="btn btn-sm btn-danger" href="index.php?r=register/view&register_id=<?=$model->register_id?>&del=1">ลบ</a>
                           <?php } else { ?>

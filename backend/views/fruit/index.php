@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h2><?= $this->title ?></h2>
             </div>
             <div class="col-6">
-                <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success float-right']) ?>
+                <?= Html::a('Create Fruits', ['create'], ['class' => 'btn btn-success float-right']) ?>
             </div>
         </div>
     </div>
@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr>
                     <th>fruit</th>
                     <th>#</th>
-
                 </tr>
             </thead>
             <tbody>

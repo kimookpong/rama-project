@@ -28,6 +28,15 @@ use yii\widgets\ActiveForm;
                         <div class="col-4">
                             <?= $form->field($model, 'z')->textInput() ?>
                         </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'a')->textInput() ?>
+                        </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'b')->textInput() ?>
+                        </div>
+                        <div class="col-4">
+                            <?= $form->field($model, 'c')->textInput() ?>
+                        </div>
                     </div>
                 </div>
             </div>
