@@ -14,16 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ad8-view">
     <?php $url = Url::toRoute(['update', 'ad8_id' => $model->ad8_id, 'q' => '1']); ?>
-
-<div class="text-center">
+<br><br><br><br><br><br><br>
+<div class=" text-center">
     <div class="countdowntime"></div>
 </div>
-    <script type="text/javascript">
-        var audio = new Audio();
-        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/countdown.mp3';
-        audio.play();
-       
-</script>
+  
     <script>
         var counter = 0;
         function countdownTime() {

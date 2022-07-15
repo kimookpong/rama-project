@@ -33,6 +33,11 @@ if ($model->score >= $x) {
          var audio = new Audio();
         audio.src = '<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/success.mp3';
         audio.play();
+        audio.onended = function() {
+            var audio2 = new Audio();
+            audio2.src = '<?= Yii::getAlias('@web') ?>/sounds/test-the-limit/next.mp3';
+            audio2.play();
+        }
     </script>
 <?php } else { ?>
 

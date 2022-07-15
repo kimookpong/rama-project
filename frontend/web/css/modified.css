@@ -592,26 +592,26 @@ border: 0;
 /*************************************************************************************/
 .countdowntime {
   margin: auto;
-  width: 500px;
+  width: 88px;
 }
 .path--background {
-  fill: rgb(34, 213, 201);
+  fill: #81A5EC;
   stroke: #fff;
-  stroke-width: 0px;
+  stroke-width: -10px;
 }
 .pulse {
-  fill: rgb(34, 213, 201);
+  fill: #81A5EC;
 }
 .path--foreground {
   fill: #eee;
   stroke: #eee;
-  stroke-width: 2px;
+  stroke-width: -10px;
 }
 .label {
-  font: 90px "Noto Sans Thai";
-  font-weight: 900;
+  font: 70px "Noto Sans Thai";
+  font-weight: 700;
   text-anchor: middle;
-  fill: rgb(34, 213, 201);
+  fill: #2969e5;
 }
 
 /*************************************************************************************/

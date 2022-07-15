@@ -21,15 +21,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3 class="title1 font-inter-bold">สิ้นสุดการคัดกรองสมองเรื่องการรู้คิด</h3>
         </div>
     </div>
-    <audio id="questionAudio" autoplay="">
-            <source src="<?= Yii::getAlias('@web') ?>/sounds/toolx/end.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-        <script type="text/javascript">
-    window.onload = function() {
-        document.getElementById("questionAudio").autoplay;
-    };
-</script>
+
+<script type="text/javascript">
+         var audio = new Audio();
+        audio.src = '<?= Yii::getAlias('@web') ?>/sounds/toolx/end.mp3';
+        audio.play();
+        audio.onended = function() {
+            var audio2 = new Audio();
+            audio2.src = '<?= Yii::getAlias('@web') ?>/sounds/toolx/tk.mp3';
+            audio2.play();
+        }
+    </script>
 
 
     <div class="container fixed-bottom">
