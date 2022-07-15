@@ -62,7 +62,7 @@ class Toolx extends \yii\db\ActiveRecord
     {
         return [
             [['register_id', 'create_at', 'update_at'], 'required'],
-            [['register_id', 'user_b_record_friut_score', 'user_id_a', 'user_id_b', 'regsiter_score', 'fruitfluency_score', 'wordregsiter_score', 'orientation_score', 'flagdel', 'success'], 'integer'],
+            [['register_id', 'user_b_record_friut_score', 'user_id', 'user_id_b', 'regsiter_score', 'fruitfluency_score', 'wordregsiter_score', 'orientation_score', 'flagdel', 'success'], 'integer'],
             [['fruitfluency', 'fruitwordseg', 'user_b_record_friut'], 'string'],
             [['create_at', 'update_at'], 'safe'],
             [['regsiter1', 'regsiter2', 'regsiter3', 'voiceregsiter', 'voiceorientationpath', 'voicefruitluency', 'voicerecall', 'user_a_record_regsiter_1', 'user_a_record_regsiter_2', 'user_a_record_regsiter_3', 'user_b_record_regsiter_1', 'user_b_record_regsiter_2', 'user_b_record_regsiter_3', 'user_b_record_orientation', 'user_b_record_recall1', 'user_b_record_recall2', 'user_b_record_recall3'], 'string', 'max' => 100],
