@@ -8,8 +8,8 @@ use common\models\Role;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
-
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
