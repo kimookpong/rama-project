@@ -18,12 +18,24 @@ class Helpers extends Component
 {
     public function checkFruit($word)
     {
-        $modelCount = Fruit::find()->filterWhere(['like', 'keyword', $word])->count();
+   
+       
+
+ /*$modelCount = Fruit::find()->filterWhere(['like', 'keyword', $word])->count();
+
         if ($modelCount > 0) {
             return true;
         } else {
             return false;
         }
+        */
+//ปรับเป็น เช็คให้ตรงตามผลไม้เพื่อความถูกต้อง  Manit
+        $wordfruit ='คำว่า';
+        $Fruitword = Fruit::find()->All();
+         foreach ($Fruitword as $data) { $wordfruit .=  ','; $wordfruit .=  $data->keyword;
+        }
+         $arrayfruit= explode(",",$wordfruit);
+         return in_array($word,$arrayfruit);
     }
     public function param($param)
     {

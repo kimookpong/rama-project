@@ -174,7 +174,6 @@ AppAsset::register($this);
     $(function() {
       $('.select2').select2();
       $("#example1").DataTable({
-        "responsive": true,
         order: [
           [0, 'desc']
         ],

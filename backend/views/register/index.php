@@ -124,7 +124,7 @@ my
   <!-- /.card-header -->
   <div class="card-body">
     <?php if (isset($_POST[''])) ?>
-    <div class="col-12">
+    <div class="table-responsive col-12">
     <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
       <thead>
         <tr>
@@ -142,7 +142,7 @@ my
       </thead>
       <tbody>
         <?php
-        @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3";
+        @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 order by register_id desc";
         @$Registers = Register::findBySql($sql)->all();
 
         foreach ($Registers as $data) { ?>

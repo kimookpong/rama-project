@@ -179,8 +179,8 @@ class ToolxController extends Controller
             if ($text_seperate) {
                 $model->fruitwordseg = implode(',', $text_seperate['tokens']);
             }
-
-            foreach ($text_seperate['tokens'] as $word) {
+            $unique = array_unique($text_seperate['tokens']); //เพิ่มให้มันตัดผลไม้ที่ซ้ำออกก่อนนับคะแนน Manit
+            foreach ($unique as $word) {
                 if (Yii::$app->helpers->checkFruit($word)) {
                     $model->fruitfluency_score = $model->fruitfluency_score + 1;
                 }
