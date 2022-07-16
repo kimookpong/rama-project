@@ -4,6 +4,7 @@
 /** @var string $content */
 
 use backend\assets\AppAsset;
+use common\models\Role;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
@@ -16,7 +17,7 @@ AppAsset::register($this);
 
 <head>
   <meta charset="<?= Yii::$app->charset ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no,viewport-fit=cover">
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <link href="<?= Yii::getAlias('@web') ?>/img/logo.png" rel="shortcut icon">
@@ -30,7 +31,7 @@ AppAsset::register($this);
 </head>
 
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" style="min-width:480px;">
   <?php $this->beginBody() ?>
   <div class="wrapper">
 
@@ -60,7 +61,7 @@ AppAsset::register($this);
               <img src="<?= Yii::$app->params['backend'] ?>AdminLTE/dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
 
               <p>
-                <?= Yii::$app->user->identity->fullname ?><small>ผู้ดูแลระบบ</small>
+                <?= Yii::$app->user->identity->fullname ?><small><?= Role::findOne(Yii::$app->user->identity->role)->role  ?></small>
               </p>
             </li>
             <!-- Menu Footer-->
@@ -83,7 +84,7 @@ AppAsset::register($this);
       <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">ModX</span>
+        <span class="brand-text font-weight-light">Brain.Test</span>
       </a>
 
       <!-- Sidebar -->
@@ -174,10 +175,10 @@ AppAsset::register($this);
     $(function() {
       $('.select2').select2();
       $("#example1").DataTable({
+        rowReorder: true,
         order: [
           [0, 'desc']
         ],
-        dom: '<"top"if>rt<"bottom"lp><"clear">',
         "language": {
           "decimal": "",
           "emptyTable": "ไม่มีรายการข้อมูล",

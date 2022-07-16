@@ -38,14 +38,14 @@ function DateThai($strDate)
     @$my =  $_POST['my'];
     @$disease =  $_POST['disease'];
 
-    if(isset($province_id) && $province_id !='All'){
+    if (isset($province_id) && $province_id != 'All') {
       $qurey1 = "and provinces_id='$province_id'";
     }
-    if(isset($my) && $my !='All'){
-      $expl = explode("/",$my);
+    if (isset($my) && $my != 'All') {
+      $expl = explode("/", $my);
       $qurey2 = "and month='$expl[0]' and year='$expl[1]'";
     }
-    if(isset($disease) && $disease !='All'){
+    if (isset($disease) && $disease != 'All') {
       $qurey3 = "and disease='$disease' ";
     }
     ?>
@@ -147,23 +147,41 @@ my
 
         foreach ($Registers as $data) { ?>
           <tr>
-            <td><?= DateThai($data->datetest) ?></td>
-            <td><?= $data->name ?></td>
-            <td><?= $data->surname ?></td>
-            <td><?= $data->disease ?></td>
-            <td><?= $data->age ?></td>
-            <td><?= $p[$data->provinces_id] ?></td>
-            <td><?= $data->tel ?></td>
-            <td><?= $data->email ?></td>
+            <th>วันที่ทดสอบ</th>
+            <th>ชื่อ-สกุล</th>
+            <th>รหัส</th>
+            <th>อายุ</th>
+            <th>จังหวัด</th>
+            <th>โทรศัพท์</th>
+            <th>อีเมล</th>
+            <th>#</th>
 
-            <td>
-              <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
           </tr>
-        <?php } ?>
-      </tbody>
+        </thead>
+        <tbody>
+          <?php
+          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3";
+          @$Registers = Register::findBySql($sql)->all();
 
-    </table>
-  </div></div>
+          foreach ($Registers as $data) { ?>
+            <tr>
+              <td><?= DateThai($data->datetest) ?></td>
+              <td><?= $data->name ?> <?= $data->surname ?></td>
+              <td><?= $data->disease ?></td>
+              <td><?= $data->age ?></td>
+              <td><?= $p[$data->provinces_id] ?></td>
+              <td><?= $data->tel ?></td>
+              <td><?= $data->email ?></td>
+
+              <td>
+                <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
+            </tr>
+          <?php } ?>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
   <!-- /.card-body -->
 </div>
 <!-- /.card -->
