@@ -41,27 +41,27 @@ Yii::$app->response->redirect(Url::to(['index'], true));
               <table width="100%" class='table'>
   <tr>
     <td width="15%"><div align="right">ชื่อ:</div></td>
-    <td width="15%"><input value="<?=$model->name?>" class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->name?></mark></td>
     <td width="15%"><div align="right">นามสกุล:</div></td>
-    <td width="15%"><input value="<?=$model->surname?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->surname?></mark></td>
     <td width="15%"><div align="right">โทรศัพท์:</div></td>
-    <td width="15%"><input value="<?=$model->tel?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->tel?></mark></td>
   </tr>
   <tr>
     <td><div align="right">จังหวัด:</div></td>
-    <td width="15%"><input value="<?=$model->provinces?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->provinces?></mark></td>
     <td><div align="right">เพศ:</div></td>
-    <td width="15%"><input value="<?=$model->sex?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->sex?></mark></td>
     <td><div align="right">อายุ:</div></td>
-    <td width="15%"><input value="<?=$model->age?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->age?></mark></td>
   </tr>
   <tr>
     <td><div align="right">ชื่อแพทย์:</div></td>
-    <td width="15%"><input value="<?=$model->Doctor?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->Doctor?></mark></td>
     <td><div align="right">รหัส:</div></td>
-    <td width="15%"><input value="<?=$model->disease?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->disease?></mark></td>
     <td><div align="right">อีเมล:</div></td>
-    <td width="15%"><input value="<?=$model->email?>"  class="form-control" readonly></td>
+    <td width="15%"><mark><?=$model->email?></mark></td>
   </tr>
 </table>
               </div>

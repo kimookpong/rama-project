@@ -35,7 +35,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         'options' => [
             //'class' => 'needs-validation',
             //'novalidate' => true
-        ]
+        ],
     ]); ?>
 
 

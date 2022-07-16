@@ -3,6 +3,7 @@
 use common\models\Ad8;
 use common\models\Testandlimit;
 use common\models\Toolx;
+use common\models\Fruit;
 
 $this->title = 'Registers';
 $this->params['breadcrumbs'][] = $this->title;
@@ -11,6 +12,13 @@ function Ad8code($val)
   $text = ['','ใช่','ไม่ทราบ','ไม่ใช่'];
   return $text[$val];
 }
+$wordfruit ='คำว่า';
+$Fruitword = Fruit::find()->All();
+ foreach ($Fruitword as $data) { 
+$wordfruit .=  ',';
+$wordfruit .=  $data->keyword;
+}
+ $arrayfruit= explode(",",$wordfruit);
 ?>
 <div class="col-md-12">
             <div class="card card-default">
@@ -23,7 +31,7 @@ function Ad8code($val)
                <div class="card-body">
                 <div class="callout callout-info " style="border-left-color:#0000FF">
                 <div class="row"> 
-                 <div class="col-12"><h2>Register (แบบลงทะเบียน)</h2></div>
+                 <div class="col-12 table-responsive"><h2>Register (แบบลงทะเบียน)</h2></div>
               <table width="100%" class='table'>
   <tr>
     <td width="15%"><div align="right">ชื่อ:</div></td>
@@ -58,6 +66,7 @@ function Ad8code($val)
                  <div class="col-4"><h2>แบบคัดกรอง AD8</h2></div>
                  <div class="col-4">ผลการทำแบบคัดกรอง <?=$ad8->results?></div>
                  <div class="col-4">ตอบแบบคัดกรอง <mark><?=$ad8->respondents?></mark></input></div>
+                 <div class="table-responsive">
                  <table width="100%" class="table">
   <tr>
     <td width="15%">ข้อที่ 1 การตัดสินใจ</td>
@@ -81,7 +90,7 @@ function Ad8code($val)
   </tr>
 </table>
 
-
+</div>
                
                
                 </div>
@@ -96,6 +105,7 @@ function Ad8code($val)
                  <div class="col-9"><h2>Test the Limit (เตรียมความพร้อม)</h2></div>
                  <div class="col-3">ปฏิบัติถูกต้อง: <mark><?=$ttl->score?></mark> ข้อ</div>
                 </div>
+                <div class="table-responsive">
                 <table width="100%" border="0" class="table">
                 <tr>
     <td width="15%"></td>
@@ -141,7 +151,7 @@ function Ad8code($val)
   </td>
 
   </tr>
-</table>
+</table> </div>
 
 
                 </div>
@@ -207,7 +217,7 @@ function Ad8code($val)
                 <div class="row"> 
                  <div class="col-4"><h2>3. Fruit Fluency (พูดชื่อผลไม้)</h2></div>
                  <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากระบบ): <mark><?=$toolx->fruitfluency_score?></mark>ชื่อ</div>
-                 <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากผู้ตรวจ):: <mark></mark>ชื่อ</div>
+                 <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากผู้ตรวจ):: <mark>0</mark>ชื่อ</div>
                 </div>
                 <div class="row"> 
                  <div class="col-4">ชื่อผลไม้จากการ Transcibe:</div>
@@ -215,7 +225,20 @@ function Ad8code($val)
                 </div><br>
                 <div class="row"> 
                  <div class="col-4">ภายหลังการตัดคำ:</div>
-                 <div class="col-8"> <mark><?=$toolx->fruitwordseg?></mark></div>
+                 <div class="col-8">
+                 
+                 <?php $checkfruit = [];
+                 $fruitwordseg = explode(",",$toolx->fruitwordseg);?>
+                <?php foreach ($fruitwordseg as $value) { ?>
+                  
+                  <?php if(!in_array($value,$checkfruit)){ ?>
+                  <span class="badge badge-pill badge-<?=in_array($value, $arrayfruit)?'success':'secondary'?>"><?=$value?></span>
+                  <?php $checkfruit[] = $value;?>
+                  <?php } else {?>
+                  <span class="badge badge-pill badge-warning"><?=$value?></span>
+                    <?php } ?>
+                  <?php } ?>
+               </div>
                 </div><br>
                 <div class="row"> 
                  <div class="col-4">ตรวจคำตอบ:</div>

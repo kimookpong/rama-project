@@ -8,8 +8,8 @@ use common\models\Role;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
-
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -175,7 +175,6 @@ AppAsset::register($this);
     $(function() {
       $('.select2').select2();
       $("#example1").DataTable({
-        "responsive": true,
         rowReorder: true,
         order: [
           [0, 'desc']

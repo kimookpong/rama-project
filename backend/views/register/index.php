@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -123,22 +122,22 @@ my
 <div class="card">
   <!-- /.card-header -->
   <div class="card-body">
-    <?php if (isset($_POST[''])) ?>
-    <div class="col-12">
-      <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
-        <thead>
-          <tr>
-            <th>วันที่ทดสอบ</th>
-            <th>ชื่อ-สกุล</th>
-            <th>รหัส</th>
-            <th>อายุ</th>
-            <th>จังหวัด</th>
-            <th>โทรศัพท์</th>
-            <th>อีเมล</th>
-            <th>#</th>
-
-          </tr>
-        </thead>
+   
+    <div class="table-responsive col-12">
+    <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
+      <thead>
+        <tr>
+          <th>วันที่ทดสอบ</th>
+          <th>ชื่อ-สกุล</th>
+          <th>รหัส</th>
+          <th>อายุ</th>
+          <th>จังหวัด</th>
+          <th>โทรศัพท์</th>
+          <th>อีเมล</th>
+          <th>#</th>
+        </tr>
+      </thead>
+     
         <tbody>
           <?php
           @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3";
@@ -157,7 +156,7 @@ my
               <td>
                 <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
             </tr>
-          <?php } ?>
+            <?php } ?>
         </tbody>
 
       </table>
