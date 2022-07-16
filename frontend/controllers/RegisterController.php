@@ -80,7 +80,10 @@ class RegisterController extends Controller
         $model = new Register();
         $this->layout = 'reg';
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post()) && $model->validate()) {
+
+
+                $model->save();
                 return $this->redirect(['ad8/create', 'reg_id' => $model->register_id]);
             }
         } else {

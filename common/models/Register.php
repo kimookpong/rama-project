@@ -46,20 +46,30 @@ class Register extends \yii\db\ActiveRecord
     {
         return [
             [['case_id', 'age', 'provinces_id', 'month', 'year', 'docter_id', 'flagdel'], 'integer'],
-            [['datetest', 'month', 'year', 'create_at', 'update_at'], 'required'],
+            [['name', 'surname', 'provinces_id', 'docter_id', 'disease'], 'required'],
             [['datetest', 'create_at', 'update_at'], 'safe'],
             [['casecode', 'source'], 'string', 'max' => 50],
             [['name', 'surname'], 'string', 'max' => 100],
             [['disease', 'tel'], 'string', 'max' => 20],
             [['gender'], 'string', 'max' => 3],
             [['email'], 'string', 'max' => 80],
+            //[['name', 'surname'], 'uniqueTogether'],
+            //['name', 'unique', 'targetAttribute' => 'surname']
+            [['name', 'surname'], 'unique', 'targetAttribute' => ['name', 'surname'], 'message' => 'ชื่อและนามสกุลนี้ถูกใช้แล้ว'],
+            ['email', 'email'],
+
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-
+    public function my_request()
+    {
+        //if (!isset($this->name) || !isset($this->surname) || $this->name == '' || $this->surname == '') {
+        $this->addError('name', 'Please provide first name and last name'); //add to atribute where you want to display error
+        //}
+    }
     public function GetProvinces()
     {
         $Provinces = Provinces::find()->where(['provinces_id' => $this->provinces_id])->one();
@@ -80,13 +90,13 @@ class Register extends \yii\db\ActiveRecord
         switch ($this->gender) {
             case "M":
                 return "ชาย";
-              break;
+                break;
             case "F":
                 return "หญิง";
-              break;
+                break;
             default:
-              echo "ไม่ระบุ";
-          }
+                echo "ไม่ระบุ";
+        }
     }
     public function GetLlt()
     {
@@ -112,18 +122,18 @@ class Register extends \yii\db\ActiveRecord
             'register_id' => 'Register ID',
             'case_id' => 'Case ID',
             'casecode' => 'Casecode',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'disease' => 'Disease',
+            'name' => 'ชื่อ',
+            'surname' => 'นามสกุล',
+            'disease' => 'รหัสลักษณะ',
             'age' => 'Age',
             'gender' => 'Gender',
-            'provinces_id' => 'Provinces ID',
-            'email' => 'Email',
+            'provinces_id' => 'จังหวัด',
+            'email' => 'อิเมล',
             'tel' => 'Tel',
             'datetest' => 'Datetest',
             'month' => 'Month',
             'year' => 'Year',
-            'docter_id' => 'User ID',
+            'docter_id' => 'แพทย์',
             'source' => 'Source',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
