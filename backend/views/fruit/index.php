@@ -38,8 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tr>
                         <td><?= $data->fruit ?></td>
                         <td>
-                            <?= Html::a('<i class="fas fa-pencil-alt"></i> แก้ไข', ['update', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-info btn-sm']) ?>
-                            <?= Html::a('<i class="fas fa-trash"></i> ลบ', ['delete', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                            <div class="btn-group btn-group-sm">
+                                <?= Html::a('<i class="fas fa-pencil-alt"></i>', ['update', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-info btn-sm']) ?>
+                                <?= Html::a('<i class="fas fa-trash"></i>', ['delete', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                            </div>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

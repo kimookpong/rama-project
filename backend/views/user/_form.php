@@ -1,7 +1,9 @@
 <?php
 
+use common\models\Role;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\user */
@@ -29,7 +31,7 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
         <div class="col-6">
-            <?= $form->field($model, 'role')->dropDownList([10 => 'แอดมิน', 1 => 'ทั่วไป']) ?>
+            <?= $form->field($model, 'role')->dropDownList(ArrayHelper::map(Role::find()->all(), 'id', 'role')) ?>
         </div>
         <div class="col-6">
             <?= $form->field($model, 'status')->dropDownList([10 => 'ใช้งาน', 9 => 'ไม่ใช้งาน']) ?>
