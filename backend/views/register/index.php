@@ -176,7 +176,6 @@ my
               <td>
                 <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
             </tr>
-          <?php } ?>
         </tbody>
 
       </table>
