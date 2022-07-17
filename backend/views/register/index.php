@@ -140,7 +140,7 @@ my
      
         <tbody>
           <?php
-          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3";
+          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 order by register_id desc";
           @$Registers = Register::findBySql($sql)->all();
 
           foreach ($Registers as $data) { ?>
