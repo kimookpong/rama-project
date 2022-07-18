@@ -159,8 +159,7 @@ AppAsset::register($this);
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021</strong>
-    All rights reserved.
+    <strong>&copy; 2022 Faculty of Medicine Ramathibadi Hospital, All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
     </div>
   </footer>

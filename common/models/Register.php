@@ -79,13 +79,13 @@ class Register extends \yii\db\ActiveRecord
     }
     public function GetDoctor()
     {
-        $Doctor = Doctor::find($this->docter_id)->one();
+        $Doctor = Doctor::find()->where(['doctor_id' => $this->docter_id])->one();
         return $Doctor->fullname;
     }
     public function GetAd8()
     {
         $AD8 = AD8::find()->where(['register_id' => $this->register_id])->one();
-        return @$AD8->success == 1 ? 'success' : 'false';
+        return @$AD8->success == 1 ? 'ทดสอบ' : 'ไม่ทดสอบ';
     }
     public function GetSex()
     {
@@ -103,12 +103,12 @@ class Register extends \yii\db\ActiveRecord
     public function GetLlt()
     {
         $llt = Testandlimit::find()->where(['register_id' => $this->register_id])->one();
-        return @$llt->success == 1 ? 'success' : 'false';
+        return @$llt->success == 1 ? 'ทดสอบ' : 'ไม่ทดสอบ';
     }
     public function GetToolx()
     {
         $toolx = Toolx::find()->where(['register_id' => $this->register_id])->one();
-        return @$toolx->success == 1 ? 'success' : 'false';
+        return @$toolx->success == 1 ? 'ทดสอบ' : 'ไม่ทดสอบ';
     }
     public function GetComplete()
     {
@@ -116,7 +116,7 @@ class Register extends \yii\db\ActiveRecord
         $llt = Testandlimit::find()->where(['register_id' => $this->register_id])->one();
         $toolx = Toolx::find()->where(['register_id' => $this->register_id])->one();
         @$comple = $AD8->success + $llt->success + $toolx->success + 0;
-        return $comple == 3 ? 'success' : 'false';
+        return $comple == 3 ? 'ทดสอบ' : 'ไม่ทดสอบ';
     }
     public function attributeLabels()
     {
