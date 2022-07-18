@@ -38,9 +38,9 @@ AppAsset::register($this);
         ]);
         $menuItems = [
             ['label' => 'หน้าแรก', 'url' => ['/site/index']],
+            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
             ['label' => 'เกี่ยวกับโครงการ', 'url' => ['/site/page1']],
             ['label' => 'ข้อจำกัดความรับผิดชอบ', 'url' => ['/site/page2']],
-            ['label' => 'เกี่ยวกับเครื่องมือทดสอบ', 'url' => ['/site/page3']],
         ];
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav ml-auto px-2'],

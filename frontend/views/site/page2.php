@@ -28,7 +28,7 @@ $this->title = 'ข้อจำกัดความรับผิดชอบ'
                 <a class="btn btn-circle" href="<?= Url::toRoute(['site/index']); ?>"> <i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
         </div>
-    </div>
+        </div>
 
         </a>
     </div>

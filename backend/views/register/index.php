@@ -152,7 +152,6 @@ my
               <td><?= $p[$data->provinces_id] ?></td>
               <td><?= $data->tel ?></td>
               <td><?= $data->email ?></td>
-
               <td>
                 <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
             </tr>
