@@ -33,6 +33,7 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
 
     <?php $form = ActiveForm::begin([
         'options' => [
+            'autocomplete' => "off",
             //'class' => 'needs-validation',
             //'novalidate' => true
         ],
@@ -77,25 +78,25 @@ $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');
         </div>
         <div class="col-8">
             <?= $form->field($model, 'provinces_id')->dropDownList($listData, ['prompt' => [
-                             'text' => 'เลือกจังหวัด',
-                             'options'=> ['disabled' => true, 'selected' => true]
-                        ], 'class' => 'form-control select2'])->label(false) ?></div>
+                'text' => 'เลือกจังหวัด',
+                'options' => ['disabled' => true, 'selected' => true]
+            ], 'class' => 'form-control select2'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">แพทย์ <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"> <?= $form->field($model, 'docter_id')->dropDownList($listDataDocter, ['prompt' => [
-                             'text' => 'เลือกแพทย์ที่ส่งตรวจ',
-                             'options'=> ['disabled' => true, 'selected' => true]
-                        ], 'class' => 'form-control select2'])->label(false) ?></div>
+                                'text' => 'เลือกแพทย์ที่ส่งตรวจ',
+                                'options' => ['disabled' => true, 'selected' => true]
+                            ], 'class' => 'form-control select2'])->label(false) ?></div>
     </div>
     <div class="row g-3">
         <div class="col-4 col-form-label">รหัสสถานะ <font class="text-danger" size="-1">*</font>
         </div>
         <div class="col-8"><?= $form->field($model, 'disease')->dropDownList(['control' => 'Control', 'disease' => 'Disease'], ['prompt' => [
-                             'text' => 'เลือกรหัสสถานะ',
-                             'options'=> ['disabled' => true, 'selected' => true]
-                        ]])->label(false) ?></div>
+                                'text' => 'เลือกรหัสสถานะ',
+                                'options' => ['disabled' => true, 'selected' => true]
+                            ]])->label(false) ?></div>
     </div>
 
 
