@@ -26,7 +26,7 @@ $this->title = 'Login';
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'autocomplete' => 'off']) ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <div class="row">
