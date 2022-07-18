@@ -53,6 +53,8 @@ class Register extends \yii\db\ActiveRecord
             [['disease', 'tel'], 'string', 'max' => 20],
             [['gender'], 'string', 'max' => 3],
             [['email'], 'string', 'max' => 80],
+            [['age'], 'number', 'max' => 120],
+
             //[['name', 'surname'], 'uniqueTogether'],
             //['name', 'unique', 'targetAttribute' => 'surname']
             [['name', 'surname'], 'unique', 'targetAttribute' => ['name', 'surname'], 'message' => 'ชื่อและนามสกุลนี้ถูกใช้แล้ว'],
@@ -125,7 +127,7 @@ class Register extends \yii\db\ActiveRecord
             'name' => 'ชื่อ',
             'surname' => 'นามสกุล',
             'disease' => 'รหัสลักษณะ',
-            'age' => 'Age',
+            'age' => 'อายุ',
             'gender' => 'Gender',
             'provinces_id' => 'จังหวัด',
             'email' => 'อิเมล',

@@ -19,6 +19,9 @@ class AppAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
         'https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500;700&display=swap',
         'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0',
+
+        'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css',
+
         'css/site.css',
         'css/modified.css'
     ];
@@ -26,6 +29,9 @@ class AppAsset extends AssetBundle
         //'https://code.jquery.com/jquery-3.6.0.slim.js',
         //'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js',
+
+        'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js',
+
         'js/record.js',
         'js/text_to_speech.js',
         'js/modified.js',

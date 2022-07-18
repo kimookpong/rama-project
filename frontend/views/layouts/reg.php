@@ -61,6 +61,21 @@ AppAsset::register($this);
     </footer>
 
     <?php $this->endBody() ?>
+    <!--
+    <script>
+        const phoneInputField = document.querySelector("#register-tel");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            initialCountry: "auto",
+            geoIpLookup: function(success, failure) {
+                $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "us";
+                    success(countryCode);
+                });
+            },
+        });
+    </script>
+    -->
 </body>
 
 </html>
