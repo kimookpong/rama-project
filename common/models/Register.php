@@ -116,7 +116,7 @@ class Register extends \yii\db\ActiveRecord
         $llt = Testandlimit::find()->where(['register_id' => $this->register_id])->one();
         $toolx = Toolx::find()->where(['register_id' => $this->register_id])->one();
         @$comple = $AD8->success + $llt->success + $toolx->success + 0;
-        return $comple == 3 ? 'ทดสอบ' : 'ไม่ทดสอบ';
+        return $comple == 3 ? 'ทดสอบครบ' : 'ทดสอบไม่ครบ';
     }
     public function attributeLabels()
     {

@@ -90,7 +90,7 @@ Yii::$app->response->redirect(Url::to(['index'], true));
                         <th class="text-center"> <?=$model->toolx?></th>
                         <th class="text-center"><?=$model->complete?></th>
                         <th class="text-center">
-                        <?php if($model->complete=='false'){?>
+                        <?php if($model->complete=='ทดสอบไม่ครบ'){?>
                           <a class="btn btn-sm btn-danger" href="index.php?r=register/view&register_id=<?=$model->register_id?>&del=1">ลบ</a>
                           <?php } else { ?>
                           <a class="btn btn-sm btn-primary" href="index.php?r=register/fullpaper&register_id=<?=$model->register_id?>">ToolX Results</a></th>
