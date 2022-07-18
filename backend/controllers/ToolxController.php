@@ -112,6 +112,31 @@ class ToolxController extends Controller
         ]);
     }
 
+ public function actionShodowingb($toolx_id)
+    {
+        $model = $this->findModel($toolx_id);
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'toolx_id' => $model->toolx_id]);
+        }
+
+        return $this->render('shodowingb', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionEntering($toolx_id)
+    {
+        $model = $this->findModel($toolx_id);
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'toolx_id' => $model->toolx_id]);
+        }
+
+        return $this->render('entering', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Deletes an existing toolx model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

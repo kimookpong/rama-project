@@ -87,7 +87,7 @@ Yii::$app->response->redirect(Url::to(['index'], true));
                         <th class="text-center"><?=DateThai($model->datetest)?></th>
                         <th class="text-center"><?=$model->ad8?></th>
                         <th class="text-center"><?=$model->llt?></th>
-                        <th class="text-center"> <?=$model->toolx?></th>
+                        <th class="text-center"><?=$model->toolx?> <a class="btn btn-sm btn-info" href="index.php?r=toolx/entering&&toolx_id=10">Data Entering</a> </th>
                         <th class="text-center"><?=$model->complete?></th>
                         <th class="text-center">
                         <?php if($model->complete=='ทดสอบไม่ครบ'){?>
