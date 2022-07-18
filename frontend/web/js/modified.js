@@ -1,22 +1,21 @@
-
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
-  'use strict'
+    'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
+            form.classList.add('was-validated')
+        }, false)
+    })
 })()
 
 
@@ -26,7 +25,16 @@ function TestVolume() {
     audio.play();
 }
 
-function googleSpeech(audioUrl,returnID) {
+function TestMic() {
+    var audio = new Audio();
+    audio.src = '../sounds/test_mic.mp3';
+    audio.play();
+    audio.onended = function() {
+        testMicrophone(5, 'testMicro');
+    }
+}
+
+function googleSpeech(audioUrl, returnID) {
     document.getElementById(returnID).innerHTML = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>';
     $.ajax({
         url: "json-google-speech?url=" + audioUrl,
@@ -39,8 +47,8 @@ function googleSpeech(audioUrl,returnID) {
 }
 
 var counter = 0;
-const startAction = async (timeRecord) => {
-    handleAction(timeRecord,'file_audio','speech_text','form_voice');
+const startAction = async(timeRecord) => {
+    handleAction(timeRecord, 'file_audio', 'speech_text', 'form_voice');
     //StartTextToSpeech('speech_text','speech_text_final');
 
     // counter time
@@ -53,8 +61,3 @@ const startAction = async (timeRecord) => {
     setInterval(refreshTime, 1000);
     */
 };
-
-
-
-
-

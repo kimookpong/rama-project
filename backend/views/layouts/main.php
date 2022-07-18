@@ -18,7 +18,7 @@ AppAsset::register($this);
 
 <head>
   <meta charset="<?= Yii::$app->charset ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no,viewport-fit=cover">
+  <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no,viewport-fit=cover">
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <link href="<?= Yii::getAlias('@web') ?>/img/logo.png" rel="shortcut icon">
@@ -28,7 +28,19 @@ AppAsset::register($this);
       font-family: 'Sarabun', serif;
       font-size: 18px;
     }
+
+    .card-body {
+      padding: 5px;
+    }
   </style>
+  <script>
+    window.onload = function() {
+      if (screen.width < 480) {
+        var mvp = document.getElementById('vp');
+        mvp.setAttribute('content', 'user-scalable=no,width=480');
+      }
+    }
+  </script>
 </head>
 
 
@@ -156,7 +168,7 @@ AppAsset::register($this);
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <div class="content-header">
+      <div class="content-header p-0">
         <?= Alert::widget() ?>
         <div class="container-fluid">
           <?= $content ?>
