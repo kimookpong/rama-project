@@ -154,7 +154,7 @@ class ToolxController extends Controller
                 $model->wordregsiter_score = $count;
                 $model->save(false);
             }
-            return $this->redirect(['result', 'id' => $id]);
+         return $this->redirect(['result', 'id' => $id]); 
         }
 
         return $this->render('test_recall', [
