@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <thead>
                 <tr>
                     <th>fruit</th>
-                    <th>#</th>
+                    <th width="60px">#</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 foreach ($model as $data) { ?>
                     <tr>
                         <td><?= $data->fruit ?></td>
-                        <td>
+                        <td class="text-center">
                             <div class="btn-group btn-group-sm">
                                 <?= Html::a('<i class="fas fa-pencil-alt"></i>', ['update', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-info btn-sm']) ?>
                                 <?= Html::a('<i class="fas fa-trash"></i>', ['delete', 'fruit_id' => $data->fruit_id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>

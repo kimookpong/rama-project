@@ -24,14 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <div class="card-body">
+
         <table id="example1" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
                     <th>Username</th>
-                    <th>ชื่อ</th>
                     <th>สิทธิ์การเข้าใช้งาน</th>
                     <th>สถานะ</th>
-                    <th>#</th>
+                    <th width="60px">#</th>
 
                 </tr>
             </thead>
@@ -40,14 +40,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 foreach ($model as $data) { ?>
                     <tr>
-                        <td><?= $data->username ?></td>
-                        <td><?= $data->fullname ?></td>
+                        <td>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    <?= $data->username ?>
+                                </div>
+                                <span class="product-description text-muted">
+                                    <?= $data->fullname ?>
+                                </span>
+                            </div>
+                        </td>
                         <td><?= Role::findOne($data->role)->role ?></td>
                         <td><?= ($data->status == 10) ? '<span class="badge badge-success">ใช้งาน</span>' : '<span class="badge badge-danger">ไม่ใช้งาน</span>' ?></td>
-                        <td>
+                        <td class="text-center">
                             <div class="btn-group btn-group-sm">
-                                <?= Html::a('<i class="fas fa-pencil-alt"></i> แก้ไข', ['update', 'id' => $data->id], ['class' => 'btn btn-info btn-sm']) ?>
-                                <?= Html::a('<i class="fas fa-trash"></i> ลบ', ['delete', 'id' => $data->id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                                <?= Html::a('<i class="fas fa-pencil-alt"></i>', ['update', 'id' => $data->id], ['class' => 'btn btn-info btn-sm']) ?>
+                                <?= Html::a('<i class="fas fa-trash"></i>', ['delete', 'id' => $data->id], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
                             </div>
                         </td>
                     </tr>

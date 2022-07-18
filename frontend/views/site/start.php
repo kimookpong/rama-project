@@ -27,7 +27,7 @@
                    </button>
                </div>
                <div class="text-muted pt-3 text-center fs-3">
-                   <button onclick="testMicrophone(5,'testMicro');" class="font-inter font-24  fw-bold btn rounded-pill btn-outline-brain px-4" style="min-width: 70%;">
+                   <button onclick="TestMic();" class="font-inter font-24  fw-bold btn rounded-pill btn-outline-brain px-4" style="min-width: 70%;">
                        <i class="material-symbols-outlined my-auto float-start" style="width:50px;font-size: larger;padding: 17px 0;">
                            mic
                        </i>
