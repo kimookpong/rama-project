@@ -8,6 +8,7 @@ use common\models\Role;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
+
 AppAsset::register($this);
 
 ?>
@@ -31,7 +32,7 @@ AppAsset::register($this);
 </head>
 
 
-<body class="hold-transition sidebar-mini layout-fixed" style="min-width:480px;">
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse" style="min-width:480px;">
   <?php $this->beginBody() ?>
   <div class="wrapper">
 
@@ -160,8 +161,8 @@ AppAsset::register($this);
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>&copy; 2022 Faculty of Medicine Ramathibadi Hospital, All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-    </div>
+      <div class="float-right d-none d-sm-inline-block">
+      </div>
   </footer>
 
 
