@@ -18,10 +18,10 @@ class Helpers extends Component
 {
     public function checkFruit($word)
     {
-   
-       
 
- /*$modelCount = Fruit::find()->filterWhere(['like', 'keyword', $word])->count();
+
+
+        /*$modelCount = Fruit::find()->filterWhere(['like', 'keyword', $word])->count();
 
         if ($modelCount > 0) {
             return true;
@@ -29,13 +29,15 @@ class Helpers extends Component
             return false;
         }
         */
-//ปรับเป็น เช็คให้ตรงตามผลไม้เพื่อความถูกต้อง  Manit
-        $wordfruit ='คำว่า';
+        //ปรับเป็น เช็คให้ตรงตามผลไม้เพื่อความถูกต้อง  Manit
+        $wordfruit = 'คำว่า';
         $Fruitword = Fruit::find()->All();
-         foreach ($Fruitword as $data) { $wordfruit .=  ','; $wordfruit .=  $data->keyword;
+        foreach ($Fruitword as $data) {
+            $wordfruit .=  ',';
+            $wordfruit .=  $data->keyword;
         }
-         $arrayfruit= explode(",",$wordfruit);
-         return in_array($word,$arrayfruit);
+        $arrayfruit = explode(",", $wordfruit);
+        return in_array($word, $arrayfruit);
     }
     public function param($param)
     {
