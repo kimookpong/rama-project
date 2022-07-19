@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Cases;
 use common\models\Register;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -82,7 +83,18 @@ class RegisterController extends Controller
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->validate()) {
 
+                $modelCase = new Cases();
+                $modelCase->name = $model->name;
+                $modelCase->surname = $model->surname;
+                $modelCase->provinces_id = $model->provinces_id;
+                $modelCase->email = $model->email;
+                $modelCase->tel = $model->tel;
+                $modelCase->create_at = date('Y-m-d H:i:s');
+                $modelCase->update_at = date('Y-m-d H:i:s');
+                $modelCase->flagdel = 0;
+                $modelCase->save(false);
 
+                $model->case_id = $modelCase->caseid;
                 $model->save();
                 return $this->redirect(['ad8/create', 'reg_id' => $model->register_id]);
             }
