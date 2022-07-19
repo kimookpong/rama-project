@@ -35,7 +35,7 @@ class Testandlimit extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'testandlimit';
+        return 'testthelimit';
     }
 
     /**

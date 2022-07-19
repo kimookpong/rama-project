@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use common\models\testandlimit;
 /* @var $this yii\web\View */
 /* @var $model common\models\toolx */
 /* @var $form yii\widgets\ActiveForm */
@@ -21,19 +21,19 @@ use yii\widgets\ActiveForm;
               <div class="card-header p-0 pt-1 border-bottom-0">
                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Test the Limit</a>
+                    <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Test the limit</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Registeration(จำคำ 3 คำ)</a>
+                    <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Registeration</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Orientation(วันนี้วันอะไร)</a>
+                    <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Orientation</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-settings-tab" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="false">Fruit Fluency(พูดชื่อผลไม้)</a>
+                    <a class="nav-link" id="custom-tabs-three-settings-tab" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="false">Fruit Fluency</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-recall-tab" data-toggle="pill" href="#custom-tabs-three-recall" role="tab" aria-controls="custom-tabs-three-recall" aria-selected="false">Recall(นึกคำ 3 คำ)</a>
+                    <a class="nav-link" id="custom-tabs-three-recall-tab" data-toggle="pill" href="#custom-tabs-three-recall" role="tab" aria-controls="custom-tabs-three-recall" aria-selected="false">Recall</a>
                   </li>
 
                 </ul>
@@ -44,42 +44,188 @@ use yii\widgets\ActiveForm;
                  
                   <h3>Test the Limit (บันทึกเสียงที่ได้ยินจากผู้ทดสอบ)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
-<div class="row"><div class="col-6"></div>
+<div class="row"><div class="col-6">
+  
+</div>
 <div class="col-6">
     <div class="row g-3">
-        <div class="col-4 col-form-label">บันทึกคำจากระบบคำที่ 1</div>
-        <div class="col-6"> <?= $form->field($model, 'user_a_record_regsiter_1')->textInput(['maxlength' => true])->label(false) ?></div>
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 1</div>
+        <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_1">
+
+<input type="text" id="toolx-user_a_record_regsiter_1" class="form-control" name="Testandlimit[userrecord_qustion1]" maxlength="100">
+
+<div class="help-block"></div>
+</div></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">บันทึกคำจากระบบคำที่ 2</div>
-        <div class="col-6"> <?= $form->field($model, 'user_a_record_regsiter_2')->textInput(['maxlength' => true])->label(false) ?></div>
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 2</div>
+        <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_2">
+
+<input type="text" id="toolx-user_a_record_regsiter_2" class="form-control" name="Testandlimit[userrecord_qustion2]" maxlength="100">
+
+<div class="help-block"></div>
+</div></div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">บันทึกคำจากระบบคำที่ 3</div>
-        <div class="col-6"> <?= $form->field($model, 'user_a_record_regsiter_3')->textInput(['maxlength' => true])->label(false) ?></div>
-    </div>
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 3</div>
+        <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_3">
 
-    
+<input type="text" id="toolx-user_a_record_regsiter_3" class="form-control" name="Testandlimit[userrecord_qustion3]"  maxlength="100">
 
+<div class="help-block"></div>
+</div></div>
     </div>
-   </div> <div class="row g-3">
+    </div>
+   </div> 
+   
+   <div class="row g-3">
         <div class="col-3 col-form-label">คุณภาพเสียง</div>
-        <div class="col-1">  <?= $form->field($model, 'user_a_voice_quality1')->checkBox() ?></div>
-        <div class="col-2">  <?= $form->field($model, 'user_a_voice_quality2')->checkBox() ?></div>
-        <div class="col-3">  <?= $form->field($model, 'user_a_voice_quality3')->checkBox() ?></div>
+        <div class="col-1">  <div class="form-group field-toolx-user_a_voice_quality1">
+
+<input type="hidden" name="Testandlimit[voicequality1]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality1" name="Testandlimit[voicequality1]" value="1"> ดี</label>
+
+<div class="help-block"></div>
+</div></div>
+        <div class="col-2">  <div class="form-group field-toolx-user_a_voice_quality2">
+
+<input type="hidden" name="Testandlimit[voicequality2]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality2" name="Testandlimit[voicequality2]" value="1"> เสียงเบา</label>
+
+<div class="help-block"></div>
+</div></div>
+        <div class="col-3">  <div class="form-group field-toolx-user_a_voice_quality3">
+
+<input type="hidden" name="Testandlimit[voicequality3]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality3" name="Testandlimit[voicequality3]" value="1"> มีเสียงรบกวน</label>
+
+<div class="help-block"></div>
+</div></div>
     </div>
 
                   
                   </div>
                   <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
-                     Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
-                  </div>
+                  <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 1/4)</h3>
+บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
+<h5>Registeration(จำคำ 3 คำ)</h5>
+<div class="row">
+<div class="col-6">  <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceregsiter?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+</div>
+<div class="col-6">
+  
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 1</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_regsiter_1')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 2</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_regsiter_2')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 3</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_regsiter_3')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    </div>  </div>                  </div>
                   <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
-                     Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
-                  </div>
+
+                  <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 2/4)</h3>
+บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
+<h5>Orientation(วันนี้วันอะไร)</h5>
+<div class="row">
+<div class="col-6">  <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceorientationpath?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+</div>
+<div class="col-6">
+  
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำที่ได้ยิน </div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_orientation')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+   
+    </div>  </div> 
+
+                </div>
                   <div class="tab-pane fade" id="custom-tabs-three-settings" role="tabpanel" aria-labelledby="custom-tabs-three-settings-tab">
-                     Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                  </div>
+
+                  <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 3/4)</h3>
+บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
+<h5>Fruit Fluency (พูดชื่อผลไม้ ให้ได้มากที่สุดในเวลา 1 นาที)</h5>
+<div class="row">
+<div class="col-6">  <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voicefruitluency?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+</div>
+<div class="col-6">
+  
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำที่ได้ยิน </div>
+        <div class="col-12"> <?= $form->field($model, 'user_b_record_friut')->textArea(['maxlength' => true])->label(false) ?></div>
+    </div>
+   
+    </div>  </div> 
+                 </div> 
+    <div class="tab-pane fade" id="custom-tabs-three-recall" role="tabpanel" aria-labelledby="custom-tabs-three-recall-tab">
+      
+    <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 4/4)</h3>
+บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
+<h5>Recall(จำคำ 3 คำ)</h5>
+<div class="row">
+<div class="col-6">  <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceregsiter?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+</div>
+<div class="col-6">
+  
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 1</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_recall1')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 2</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_recall2')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 3</div>
+        <div class="col-6"> <?= $form->field($model, 'user_b_record_recall3')->textInput(['maxlength' => true])->label(false) ?></div>
+    </div>
+    </div>  </div>     
+  
+  
+  
+  
+  
+  </div>
+
+
+
+                </div>
+
+                </div>
                 </div>
               </div>
               <!-- /.card -->
@@ -88,7 +234,7 @@ use yii\widgets\ActiveForm;
 
 
 
-    <div class="text-center">
+    <div class="text-center p-3">
         <?= Html::ResetButton('Cancel', ['class' => 'btn btn-danger']) ?>
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
