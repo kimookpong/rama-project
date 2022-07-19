@@ -262,11 +262,12 @@ class ToolxController extends Controller
                 if ($count >= Yii::$app->helpers->param('y')) {
                     return $this->redirect(['test-what-day', 'id' => $id]);
                 } else {
-                    return $this->redirect(['false', 'id' => $id]);
+                    //return $this->redirect(['false', 'id' => $id]);//ให้ผ่านทุกกรณี
+                    return $this->redirect(['test-what-day', 'id' => $id]);    
                 }
             } else {
-                //return $this->redirect(['test-what-day', 'id' => $id]);
-                return $this->redirect(['false', 'id' => $id]);
+                return $this->redirect(['test-what-day', 'id' => $id]);
+                //return $this->redirect(['false', 'id' => $id]);//ให้ผ่านทุกกรณี
             }
         }
         return $this->render('test', [
