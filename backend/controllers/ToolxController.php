@@ -141,7 +141,7 @@ class ToolxController extends Controller
         $model = $this->findModel($toolx_id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'toolx_id' => $model->toolx_id]);
+            return $this->redirect(['register/index', 'toolx_id' => $model->toolx_id]);
         }
 
         return $this->render('entering', [
