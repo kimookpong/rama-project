@@ -194,7 +194,6 @@ my
                     <?= @Html::a('DataEntering', ['toolx/shodowingb', 'toolx_id' => $toolx->toolx_id], ['class' => 'btn btn-primary btn-sm']) ?>
                   <?php } ?>
                 <?php } ?>
-
             </tr>
           <?php } ?>
         </tbody>

@@ -67,15 +67,17 @@ AppAsset::register($this);
                   Search & Summary
               </a>
             </li>
-
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
-        </li>
-
-
+            <?php if (Yii::$app->user->identity->role == 10) { ?>
+            <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-cog"></i> Setting</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="<?= Url::toRoute('parameter/index') ?>" class="dropdown-item"><i class="fas fa-cog"></i> Parameter </a></li>
+              <li><a href="<?= Url::toRoute('fruit/index') ?>" class="dropdown-item"><i class="fas fa-apple-alt"></i> Fruit List </a></li>
+              <li><a href="<?= Url::toRoute('user/index') ?>" class="dropdown-item"><i class="fas  fa-users"></i> User Manager </a></li>
+              <!-- End Level two -->
+            </ul>
+          </li>
+          <?php } ?>
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -126,12 +128,6 @@ AppAsset::register($this);
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-              <a href="<?= Url::toRoute('site/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'site' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
 
             <!--li class="nav-header">Shadowing-A</!--li-->
             <li class="nav-item">
