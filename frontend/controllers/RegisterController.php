@@ -89,6 +89,7 @@ class RegisterController extends Controller
                 $modelCase->provinces_id = $model->provinces_id;
                 $modelCase->email = $model->email;
                 $modelCase->tel = $model->tel;
+                $modelCase->gender = $model->gender;
                 $modelCase->create_at = date('Y-m-d H:i:s');
                 $modelCase->update_at = date('Y-m-d H:i:s');
                 $modelCase->flagdel = 0;

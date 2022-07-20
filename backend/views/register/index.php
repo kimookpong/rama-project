@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Cases;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -130,6 +131,9 @@ my
           <tr>
             <th>วันที่</th>
             <th>ชื่อ-สกุล</th>
+            <th>เบอร์โทร</th>
+            <th>อิเมล์</th>
+            <th>จังหวัด</th>
             <th width="80px">#</th>
           </tr>
         </thead>
@@ -137,27 +141,17 @@ my
         <tbody>
           <?php
           @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 order by register_id desc";
-          @$Registers = Register::findBySql($sql)->all();
+          @$Registers = Cases::find()->where(['flagdel' => 0])->all();
 
           foreach ($Registers as $data) { ?>
             <tr>
-              <td><?= DateThai($data->datetest) ?></td>
-              <td>
-                <div class="product-info">
-                  <div class="product-title">
-                    <?= $data->name ?> <?= $data->surname ?>
-                  </div>
-                  <span class="product-description text-muted">
-                    <?= $data->age ? $data->age : '-' ?> ปี, <?= $p[$data->provinces_id] ?><br />
-                    <i class="fas fa-mobile-alt"></i> <?= $data->tel ?><br />
-                    <i class="fas fa-envelope"></i> <?= $data->email ?>
-
-                  </span>
-                </div>
-
-              </td>
+              <td><?= DateThai($data->update_at) ?></td>
+              <td><?= $data->name ?> <?= $data->surname ?></td>
+              <td><?= $data->tel ?></td>
+              <td><?= $data->email ?></td>
+              <td><?= $data->provinces ?></td>
               <td class="text-center">
-                <?= Html::a('รายละเอียด', ['view', 'register_id' => $data->register_id], ['class' => 'btn btn-info btn-sm']) ?>
+                <?= Html::a('รายละเอียด', ['view', 'case_id' => $data->caseid], ['class' => 'btn btn-info btn-sm']) ?>
             </tr>
           <?php } ?>
         </tbody>

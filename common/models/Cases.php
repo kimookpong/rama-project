@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use common\models\Provinces;
 
 /**
  * This is the model class for table "case".
@@ -39,6 +40,7 @@ class Cases extends \yii\db\ActiveRecord
             [['name', 'surname'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 50],
             [['tel'], 'string', 'max' => 20],
+            [['gender'], 'string', 'max' => 2],
         ];
     }
 
@@ -54,9 +56,29 @@ class Cases extends \yii\db\ActiveRecord
             'provinces_id' => 'Provinces ID',
             'email' => 'Email',
             'tel' => 'Tel',
+            'gender' => 'Gender',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
             'flagdel' => 'Flagdel',
         ];
+    }
+
+    public function GetSex()
+    {
+        switch ($this->gender) {
+            case "M":
+                return "ชาย";
+                break;
+            case "F":
+                return "หญิง";
+                break;
+            default:
+                echo "ไม่ระบุ";
+        }
+    }
+    public function GetProvinces()
+    {
+        $Provinces = Provinces::find()->where(['provinces_id' => $this->provinces_id])->one();
+        return $Provinces->name_th;
     }
 }

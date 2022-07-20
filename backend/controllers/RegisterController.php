@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Cases;
 use common\models\Register;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -48,7 +49,7 @@ class RegisterController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => register::find(),
+            'query' => Cases::find(),
             /*
             'pagination' => [
                 'pageSize' => 50
@@ -72,10 +73,10 @@ class RegisterController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($register_id)
+    public function actionView($case_id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($register_id),
+            'model' => Cases::findOne($case_id),
         ]);
     }
 

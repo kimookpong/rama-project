@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Register;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
@@ -41,45 +42,23 @@ if (isset($_REQUEST['del'])) {
             <table width="100%" class='table'>
               <tr>
                 <td width="15%">
-                  <div align="right">ชื่อ:</div>
+                  <div align="right">ชื่อ - นามสกุล:</div>
                 </td>
-                <td width="15%"><mark><?= $model->name ?></mark></td>
-                <td width="15%">
-                  <div align="right">นามสกุล:</div>
-                </td>
-                <td width="15%"><mark><?= $model->surname ?></mark></td>
+                <td width="35%"><mark><?= $model->name ?> <?= $model->surname ?></mark></td>
                 <td width="15%">
                   <div align="right">โทรศัพท์:</div>
                 </td>
-                <td width="15%"><mark><?= $model->tel ?></mark></td>
+                <td width="35%"><mark><?= $model->tel ?></mark></td>
               </tr>
               <tr>
                 <td>
                   <div align="right">จังหวัด:</div>
                 </td>
-                <td width="15%"><mark><?= $model->provinces ?></mark></td>
+                <td width="15%"><mark><?= $model->provinces_id ?></mark></td>
                 <td>
                   <div align="right">เพศ:</div>
                 </td>
                 <td width="15%"><mark><?= $model->sex ?></mark></td>
-                <td>
-                  <div align="right">อายุ:</div>
-                </td>
-                <td width="15%"><mark><?= $model->age ?></mark></td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="right">ชื่อแพทย์:</div>
-                </td>
-                <td width="15%"><mark><?= $model->Doctor ?></mark></td>
-                <td>
-                  <div align="right">รหัส:</div>
-                </td>
-                <td width="15%"><mark><?= $model->disease ?></mark></td>
-                <td>
-                  <div align="right">อีเมล:</div>
-                </td>
-                <td width="15%"><mark><?= $model->email ?></mark></td>
               </tr>
             </table>
           </div>
@@ -98,25 +77,28 @@ if (isset($_REQUEST['del'])) {
                   <th>Complete</th>
                   <th>#</th>
                 </tr>
-                <tr>
-                  <th>1</th>
-                  <th><?= $model->name ?></th>
-                  <th class="text-center"><?= $model->age ?></th>
-                  <th class="text-center"><?= DateThai($model->datetest) ?></th>
-                  <th class="text-center"><?= $model->ad8 ?></th>
-                  <th class="text-center"><?= $model->llt ?></th>
-                  <th class="text-center"> <?= $model->toolx ?></th>
-                  <th class="text-center"><?= $model->complete ?></th>
-                  <th class="text-center">
-                    <?php if ($model->complete == 'ทดสอบไม่ครบ') { ?>
-                      <?= Html::a('ลบ', ['view', 'register_id' => $model->register_id, 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
-                    <?php } else { ?>
-                      <?= Html::a('ToolX Results', ['fullpaper', 'register_id' => $model->register_id], ['class' => 'btn btn-primary btn-sm']) ?>
-                  </th>
+                <?php
+                $modelReg = Register::find()->where(['case_id' => $model->caseid])->all();
+                foreach ($modelReg as $model) {
+                ?>
+                  <tr>
+                    <th>1</th>
+                    <th><?= $model->name ?></th>
+                    <th class="text-center"><?= $model->age ?></th>
+                    <th class="text-center"><?= DateThai($model->datetest) ?></th>
+                    <th class="text-center"><?= $model->ad8 ?></th>
+                    <th class="text-center"><?= $model->llt ?></th>
+                    <th class="text-center"> <?= $model->toolx ?></th>
+                    <th class="text-center"><?= $model->complete ?></th>
+                    <th class="text-center">
+                      <?php if ($model->complete == 'ทดสอบไม่ครบ') { ?>
+                        <?= Html::a('ลบ', ['view', 'register_id' => $model->register_id, 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                      <?php } else { ?>
+                        <?= Html::a('ToolX Results', ['fullpaper', 'register_id' => $model->register_id], ['class' => 'btn btn-primary btn-sm']) ?>
+                    </th>
+                  <?php } ?>
+                  </tr>
                 <?php } ?>
-
-                </tr>
-
               </table>
 
             </div>
