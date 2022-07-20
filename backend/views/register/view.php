@@ -43,31 +43,57 @@ if (isset($_REQUEST['del'])) {
       <div class="row">
         <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
           <div class="row">
-            <table width="100%" class='table'>
-              <tr>
-                <td width="15%">
-                  <div align="right">ชื่อ - นามสกุล:</div>
-                </td>
-                <td width="35%"><mark><?= $model->name ?> <?= $model->surname ?></mark></td>
-                <td width="15%">
-                  <div align="right">โทรศัพท์:</div>
-                </td>
-                <td width="35%"><mark><?= $model->tel ?></mark></td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="right">จังหวัด:</div>
-                </td>
-                <td width="15%"><mark><?= $model->provinces_id ?></mark></td>
-                <td>
-                  <div align="right">เพศ:</div>
-                </td>
-                <td width="15%"><mark><?= $model->sex ?></mark></td>
-              </tr>
-            </table>
+
+        <?php $modeldetail = Register::find()->where(['case_id' => $model->caseid])->one(); ?>
+          <table width="100%" class='table'>
+            <tr>
+              <td width="15%">
+                <div align="right">ชื่อ:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->name ?></mark></td>
+              <td width="15%">
+                <div align="right">นามสกุล:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->surname ?></mark></td>
+              <td width="15%">
+                <div align="right">โทรศัพท์:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->tel ?></mark></td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">จังหวัด:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->provinces ?></mark></td>
+              <td>
+                <div align="right">เพศ:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->sex ?></mark></td>
+              <td>
+                <div align="right">อายุ:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->age ?></mark></td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">ชื่อแพทย์:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->Doctor ?></mark></td>
+              <td>
+                <div align="right">รหัส:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->disease ?></mark></td>
+              <td>
+                <div align="right">อีเมล:</div>
+              </td>
+              <td width="15%"><mark><?= $modeldetail->email ?></mark></td>
+            </tr>
+          </table>
+
+
           </div>
 
-          //กรณี Staff เห็นแบบนี้
+          <?php if (Yii::$app->user->identity->role == 1) { ?>
           <div class="row">
             <div class="col-12">
               <h4>ประวัติการทำแบบทดสอบ</h4>
@@ -104,8 +130,8 @@ if (isset($_REQUEST['del'])) {
 
             </div>
           </div>
-
-          //กรณี Reseacher เห็นแบบนี้
+          <?php } ?>
+          <?php if (Yii::$app->user->identity->role == 4) { ?>
           <div class="row">
             <div class="col-12">
               <h4>ประวัติการทำแบบทดสอบ</h4>
@@ -148,6 +174,7 @@ if (isset($_REQUEST['del'])) {
                   </tr>
                 <?php } ?>
               </table>
+              <?php } ?>
 
             </div>
           </div>                 
