@@ -112,9 +112,19 @@ my
           </select>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-3">
-        <button type="submit" class="btn  btn-outline-success "><i class="fa fa-search"></i> Search</button>
-        <button type="reset" class="btn  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="exampleInputEmail1">&nbsp;</label>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-block  btn-outline-success "><i class="fa fa-search"></i> Search</button>
+            </div>
+            <div class="col">
+              <button type="reset" class="btn btn-block  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
+            </div>
+          </div>
+        </div>
+
 
       </div>
       <?php ActiveForm::end(); ?>
