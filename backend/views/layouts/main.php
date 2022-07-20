@@ -30,7 +30,7 @@ AppAsset::register($this);
     }
 
     .card-body {
-      padding: 5px;
+      /*padding: 5px;*/
     }
   </style>
   <script>
@@ -57,7 +57,7 @@ AppAsset::register($this);
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
 
       <ul class=" navbar-nav" style="flex-direction: row;">
-        <li class="nav-item">
+        <li class="nav-item pr-2">
           <a href="<?= Url::toRoute('site/index') ?>">
             <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" class="img-circle img-fluid" style="height: 40px;">
           </a>
@@ -159,9 +159,10 @@ AppAsset::register($this);
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0;">
       <!-- Content Header (Page header) -->
-      <div class="content-header p-0">
-        <?= Alert::widget() ?>
+      <div class="content-header">
+
         <div class="container-fluid">
+          <?= Alert::widget() ?>
           <?= $content ?>
           <!-- /.row (main row) -->
         </div>
