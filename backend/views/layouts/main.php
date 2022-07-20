@@ -44,7 +44,7 @@ AppAsset::register($this);
 </head>
 
 
-<body class="hold-transition sidebar-mini layout-fixed" style="min-width:480px;">
+<body class="hold-transition layout-fixed sidebar-collapse" style="min-width:480px;">
   <?php $this->beginBody() ?>
   <div class="wrapper">
 
@@ -56,20 +56,22 @@ AppAsset::register($this);
 
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
 
-      <ul class=" navbar-nav">
+      <ul class=" navbar-nav" style="flex-direction: row;">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          <a href="<?= Url::toRoute('site/index') ?>">
+            <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" class="img-circle img-fluid" style="height: 40px;">
+          </a>
         </li>
 
-           <li class="nav-item d-none d-sm-inline-block">
-              <a href="<?= Url::toRoute('register/index') ?>" class="nav-link">
-                <i class="fas fa-chart-bar"></i>
-                  Search & Summary
-              </a>
-            </li>
-            <?php if (Yii::$app->user->identity->role == 10) { ?>
-            <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-cog"></i> Setting</a>
+        <li class="nav-item  px-2 d-sm-inline-block">
+          <a href=" <?= Url::toRoute('register/index') ?>" class="nav-link px-0">
+            <i class="fas fa-chart-bar"></i>
+            Search & Summary
+          </a>
+        </li>
+        <?php if (Yii::$app->user->identity->role == 10) { ?>
+          <li class="nav-item  px-2 d-sm-inline-block dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle px-0"><i class="fas fa-cog"></i> Setting</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li><a href="<?= Url::toRoute('parameter/index') ?>" class="dropdown-item"><i class="fas fa-cog"></i> Parameter </a></li>
               <li><a href="<?= Url::toRoute('fruit/index') ?>" class="dropdown-item"><i class="fas fa-apple-alt"></i> Fruit List </a></li>
@@ -77,7 +79,7 @@ AppAsset::register($this);
               <!-- End Level two -->
             </ul>
           </li>
-          <?php } ?>
+        <?php } ?>
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -110,26 +112,15 @@ AppAsset::register($this);
       </ul>
     </nav>
 
-    <!-- Main Sidebar Container -->
+    <!-- Main Sidebar Container --
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-      <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Brain.Test</span>
       </a>
-
-      <!-- Sidebar -->
       <div class="sidebar">
-
-
-        <!-- SidebarSearch Form -->
-
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-            <!--li class="nav-header">Shadowing-A</!--li-->
             <li class="nav-item">
               <a href="<?= Url::toRoute('register/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'register' ? 'active' : '') ?>">
                 <i class="nav-icon fas fa-chart-bar"></i>
@@ -138,9 +129,6 @@ AppAsset::register($this);
                 </p>
               </a>
             </li>
-
-     
-
             <?php if (Yii::$app->user->identity->role == 10) { ?>
               <li class="user-panel"></li>
               <li class="nav-item">
@@ -150,11 +138,11 @@ AppAsset::register($this);
                 </a>
               </li>
               <li class="nav-item">
-              <a href="<?= Url::toRoute('fruit/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'fruit' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-apple-alt"></i>
-                <p>Fruit List</p>
-              </a>
-            </li>
+                <a href="<?= Url::toRoute('fruit/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'fruit' ? 'active' : '') ?>">
+                  <i class="nav-icon fas fa-apple-alt"></i>
+                  <p>Fruit List</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
                   <i class="nav-icon fas fa-users"></i>
@@ -162,16 +150,14 @@ AppAsset::register($this);
                 </a>
               </li>
             <?php } ?>
-
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
       </div>
-      <!-- /.sidebar -->
     </aside>
+    <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
       <!-- Content Header (Page header) -->
       <div class="content-header p-0">
         <?= Alert::widget() ?>
