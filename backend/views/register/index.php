@@ -8,6 +8,9 @@ use yii\grid\GridView;
 use common\models\Provinces;
 use common\models\Register;
 use yii\bootstrap4\ActiveForm;
+use common\models\Toolx;
+use common\models\Doctor;
+
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -25,7 +28,7 @@ function DateThai($strDate)
   $strSeconds = date("s", strtotime($strDate));
   $strMonthCut = array("", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
   $strMonthThai = $strMonthCut[$strMonth];
-  return "$strDay $strMonthThai $strYear";
+  return "$strDay $strMonthThai $strYear  $strHour:$strMinute น.";
 }
 
 ?>
@@ -56,7 +59,7 @@ function DateThai($strDate)
         <div class="form-group">
           <label for="exampleInputEmail1">จังหวัด</label>
           <select class="form-control " name="provinces">
-            <option value="All">เลือกจังหวัด</option>
+            <option value="All">ทั้งหมด</option>
             <?php
             $sql = 'SELECT
       provinces.name_th,
@@ -80,7 +83,7 @@ function DateThai($strDate)
           <label for="exampleInputEmail1">เดือน/ปี</label>
 
           <select class="form-control " name="my">
-            <option value="All">เลือกเดือน/ปี</option>
+            <option value="All">ทั้งหมด</option>
 
             <?php
             $sql = "
@@ -106,15 +109,30 @@ my
           <label for="exampleInputEmail1">รหัสสถานะ</label>
 
           <select class="form-control" name="disease">
-            <option value="All" <?= $disease == 'All' ? 'All' : '' ?>>All</option>
+            <option value="All" <?= $disease == 'All' ? 'All' : '' ?>>ทั้งหมด</option>
             <option value="control" <?= $disease == 'control' ? 'selected' : '' ?>>Control</option>
             <option value="disease" <?= $disease == 'disease' ? 'selected' : '' ?>>Disease</option>
           </select>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-3">
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="exampleInputEmail1">แพทย์</label>
+
+          <select class="form-control " name="doctor">
+            <option value="All">ทั้งหมด</option>
+
+            <?php
+            @$Doctors = Doctor::find()->all();
+            foreach ($Doctors as $data) {?>
+              <option value="<?= $data->doctor_id ?>" <?= @$_POST['doctor']==$data->doctor_id ? 'selected' : '' ?>><?= $data->fullname ?></option>
+            <?php  }  ?>
+
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center pt-3">
         <button type="submit" class="btn  btn-outline-success "><i class="fa fa-search"></i> Search</button>
-        <button type="reset" class="btn  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
 
       </div>
       <?php ActiveForm::end(); ?>
@@ -129,10 +147,9 @@ my
       <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
         <thead>
           <tr>
-            <th>วันที่</th>
             <th>ชื่อ-สกุล</th>
-            <th>เบอร์โทร</th>
-            <th>อิเมล์</th>
+            <th>แพทย์</th>
+            <th>วันที่-เวลา</th>
             <th>จังหวัด</th>
             <th width="80px">#</th>
           </tr>
@@ -144,15 +161,28 @@ my
           //@$Registers = Cases::find()->where(['flagdel' => 0])->all();//ตรงนี้แสดงจาก Register ถูกแล้ว
           @$Registers = Register::findBySql($sql)->all();
     
-          foreach ($Registers as $data) { ?>
+          foreach ($Registers as $data) { 
+            @$toolx = Toolx::find()->where(['register_id' => $data->register_id])->one();
+            ?>
             <tr>
-              <td><?= DateThai($data->update_at) ?></td>
               <td><?= $data->name ?> <?= $data->surname ?></td>
-              <td><?= $data->tel ?></td>
-              <td><?= $data->email ?></td>
+              <td><?= $data->Doctor ?></td>
+              <td><?= DateThai($data->update_at) ?></td>
+
               <td><?= $data->provinces ?></td>
               <td class="text-center">
+              <?php if (Yii::$app->user->identity->role != 2 && Yii::$app->user->identity->role != 3) { ?>
                 <?= Html::a('รายละเอียด', ['view', 'case_id' => $data->case_id], ['class' => 'btn btn-info btn-sm']) ?>
+                <?php } ?>
+                <?php if(isset($toolx)){?>
+                  <?php if (Yii::$app->user->identity->role == 2) { ?>
+                <?= @Html::a('DataEntering', ['toolx/entering', 'toolx_id' => $toolx->toolx_id], ['class' => 'btn btn-primary btn-sm']) ?>
+                   <?php } ?>
+                   <?php if (Yii::$app->user->identity->role == 3) { ?>
+                <?= @Html::a('DataEntering', ['toolx/shodowingb', 'toolx_id' => $toolx->toolx_id], ['class' => 'btn btn-primary btn-sm']) ?>
+                   <?php } ?>
+                <?php }?>  
+
             </tr>
           <?php } ?>
         </tbody>

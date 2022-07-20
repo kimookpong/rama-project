@@ -154,9 +154,9 @@ $arrayfruit = explode(",", $wordfruit);
                 </tr>
                 <tr>
                   <td>ตรวจคำตอบ</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
+                  <td><?= $ttl->userrecord_qustion1 ?></td>
+                  <td><?= $ttl->userrecord_qustion2 ?></td>
+                  <td><?= $ttl->userrecord_qustion3 ?></td>
                 </tr>
                 <tr>
                   <td>ไฟล์เสียง</td>
@@ -196,10 +196,10 @@ $arrayfruit = explode(",", $wordfruit);
           <div class="col-6"></div>
         </div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <h2>1.Registeration(จำคำ 3 คำ)</h2>
           </div>
-          <div class="col-6">จำคำได้: <mark><?= $toolx->regsiter_score ?></mark> ข้อ</div>
+          <div class="col-4">จำคำได้: <mark><?= $toolx->regsiter_score ?></mark> ข้อ</div>
         </div>
 
         <p></p>
@@ -222,9 +222,9 @@ $arrayfruit = explode(",", $wordfruit);
           </tr>
           <tr>
             <td>ตรวจคำตอบ</td>
-            <td><?= (str_contains($toolx->regsiterwordseg, $toolx->regsiter1)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
-            <td><?= (str_contains($toolx->regsiterwordseg, $toolx->regsiter2)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
-            <td><?= (str_contains($toolx->regsiterwordseg, $toolx->regsiter3)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
+            <td width="14%"><mark> <?= $toolx->user_b_record_regsiter_1; ?></mark></td>
+            <td width="11%"><mark> <?= $toolx->user_b_record_regsiter_2; ?></mark></td>
+            <td width="10%"><mark> <?= $toolx->user_b_record_regsiter_3; ?></mark> </td>
           </tr>
           <tr>
             <td>ไฟล์เสียง</td>
@@ -237,10 +237,10 @@ $arrayfruit = explode(",", $wordfruit);
           </tr>
         </table>
         <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <h2>2.Orientation(วันนี้วันอะไร)</h2>
           </div>
-          <div class="col-6">ตอบคำถาม: <mark><?= $toolx->orientation_score == '1' ? 'ถูก' : 'ผิด' ?></mark></div>
+          <div class="col-4">ตอบคำถาม: <mark><?= $toolx->orientation_score == '1' ? 'ถูก' : 'ผิด' ?></mark></div>
         </div>
         <div class="row">
           <table width="100%" border="0" class="table">
@@ -254,7 +254,7 @@ $arrayfruit = explode(",", $wordfruit);
             </tr>
             <tr>
               <td>ตรวจคำตอบ</td>
-              <td><?= (stristr($toolx->orientation, $toolx->datenow)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
+              <td><mark> <?= $toolx->user_b_record_orientation; ?></mark></td>
             </tr>
             <tr>
               <td>ไฟล์เสียง</td>
@@ -270,11 +270,11 @@ $arrayfruit = explode(",", $wordfruit);
 
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-8">
             <h2>3. Fruit Fluency (พูดชื่อผลไม้)</h2>
           </div>
           <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากระบบ): <mark><?= $toolx->fruitfluency_score ?></mark>ชื่อ</div>
-          <div class="col-4">ชื่อผลไม้ถูก (ใช้ผลจากผู้ตรวจ):: <mark>0</mark>ชื่อ</div>
+
         </div>
         <div class="row">
           <table width="100%" border="0" class="table">
@@ -301,7 +301,7 @@ $arrayfruit = explode(",", $wordfruit);
             </tr>
             <tr>
               <td>ตรวจคำตอบ</td>
-              <td></td>
+              <td width="75%"><mark><?= $toolx->user_b_record_friut ?></mark></td>
             </tr>
             <tr>
               <td>ไฟล์เสียง</td>
@@ -340,9 +340,9 @@ $arrayfruit = explode(",", $wordfruit);
           </tr>
           <tr>
             <td>ตรวจคำตอบ</td>
-            <td><?= (str_contains($toolx->recallwordseg, $toolx->regsiter1)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
-            <td><?= (str_contains($toolx->recallwordseg, $toolx->regsiter2)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
-            <td><?= (str_contains($toolx->recallwordseg, $toolx->regsiter3)) ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-times-circle text-danger"></i>' ?></td>
+            <td width="14%"><mark> <?= $toolx->user_b_record_recall1; ?></mark></td>
+            <td width="11%"><mark> <?= $toolx->user_b_record_recall2; ?></mark></td>
+            <td width="10%"><mark> <?= $toolx->user_b_record_recall3; ?></mark> </td>
           </tr>
           <tr>
             <td>ไฟล์เสียง</td>

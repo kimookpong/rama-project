@@ -2,7 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use common\models\testandlimit;
+use common\models\Ad8;
+use common\models\Testandlimit;
+use common\models\Toolx;
+use common\models\Fruit;
 /* @var $this yii\web\View */
 /* @var $model common\models\toolx */
 /* @var $form yii\widgets\ActiveForm */
@@ -16,7 +19,7 @@ use common\models\testandlimit;
     <?= $form->field($model, 'user_id')->HiddenInput(['value' => Yii::$app->user->identity->id])->label(false); ?>
 
 
-    <div class="col-12 col-sm-12">
+    <div class="col-12 col-sm-12 p-3">
             <div class="card card-primary card-outline card-tabs">
               <div class="card-header p-0 pt-1 border-bottom-0">
                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
@@ -38,21 +41,51 @@ use common\models\testandlimit;
 
                 </ul>
               </div>
-              <div class="card-body">
+              <div class="card-body  p-4">
                 <div class="tab-content" id="custom-tabs-three-tabContent">
                   <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
                  
                   <h3>Test the Limit (บันทึกเสียงที่ได้ยินจากผู้ทดสอบ)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
 <div class="row"><div class="col-6">
-  
+  <?php $modelttl =  Testandlimit::find()->where(['register_id' => $model->register_id])->one();?>
+  <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath1?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath2?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-4 col-form-label">ฟังเสียง</div>
+        <div class="col-8">
+        <audio width="100%" controls>
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath3?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+      </div>
+    </div>
+
+
 </div>
 <div class="col-6">
     <div class="row g-3">
         <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 1</div>
         <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_1">
 
-<input type="text" id="toolx-user_a_record_regsiter_1" class="form-control" name="Testandlimit[userrecord_qustion1]" maxlength="100">
+<input type="text" id="toolx-user_a_record_regsiter_1" class="form-control" name="userrecord_qustion1" maxlength="100" value="<?=$modelttl->userrecord_qustion1?>">
 
 <div class="help-block"></div>
 </div></div>
@@ -61,7 +94,7 @@ use common\models\testandlimit;
         <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 2</div>
         <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_2">
 
-<input type="text" id="toolx-user_a_record_regsiter_2" class="form-control" name="Testandlimit[userrecord_qustion2]" maxlength="100">
+<input type="text" id="toolx-user_a_record_regsiter_2" class="form-control" name="userrecord_qustion2" maxlength="100" value="<?=$modelttl->userrecord_qustion2?>">
 
 <div class="help-block"></div>
 </div></div>
@@ -69,8 +102,7 @@ use common\models\testandlimit;
     <div class="row g-3">
         <div class="col-6 col-form-label">บันทึกคำจากระบบคำที่ 3</div>
         <div class="col-6"> <div class="form-group field-toolx-user_a_record_regsiter_3">
-
-<input type="text" id="toolx-user_a_record_regsiter_3" class="form-control" name="Testandlimit[userrecord_qustion3]"  maxlength="100">
+<input type="text" id="toolx-user_a_record_regsiter_3" class="form-control" name="userrecord_qustion3"  maxlength="100" value="<?=$modelttl->userrecord_qustion3?>">
 
 <div class="help-block"></div>
 </div></div>
@@ -82,20 +114,20 @@ use common\models\testandlimit;
         <div class="col-3 col-form-label">คุณภาพเสียง</div>
         <div class="col-1">  <div class="form-group field-toolx-user_a_voice_quality1">
 
-<input type="hidden" name="Testandlimit[voicequality1]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality1" name="Testandlimit[voicequality1]" value="1"> ดี</label>
+<input type="hidden" name="voicequality1" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality1" name="voicequality1" value="1"> ดี</label>
 
 <div class="help-block"></div>
 </div></div>
         <div class="col-2">  <div class="form-group field-toolx-user_a_voice_quality2">
 
-<input type="hidden" name="Testandlimit[voicequality2]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality2" name="Testandlimit[voicequality2]" value="1"> เสียงเบา</label>
+<input type="hidden" name="voicequality2" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality2" name="voicequality2" value="1"> เสียงเบา</label>
 
 <div class="help-block"></div>
 </div></div>
         <div class="col-3">  <div class="form-group field-toolx-user_a_voice_quality3">
 
-<input type="hidden" name="Testandlimit[voicequality3]" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality3" name="Testandlimit[voicequality3]" value="1"> มีเสียงรบกวน</label>
-
+<input type="hidden" name="voicequality3" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality3" name="voicequality3" value="1"> มีเสียงรบกวน</label>
+<input type="hidden" name="user_id" value="<?=Yii::$app->user->identity->id?>">
 <div class="help-block"></div>
 </div></div>
     </div>
@@ -107,7 +139,8 @@ use common\models\testandlimit;
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
 <h5>Registeration(จำคำ 3 คำ)</h5>
 <div class="row">
-<div class="col-6">  <div class="row g-3">
+<div class="col-6"> 
+   <div class="row g-3">
         <div class="col-4 col-form-label">ฟังเสียง</div>
         <div class="col-8">
         <audio width="100%" controls>
