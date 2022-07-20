@@ -41,6 +41,7 @@ function DateThai($strDate)
     <?php @$province_id =  $_POST['provinces'];
     @$my =  $_POST['my'];
     @$disease =  $_POST['disease'];
+    @$doctor =  $_POST['doctor'];
 
     if (isset($province_id) && $province_id != 'All') {
       $qurey1 = "and provinces_id='$province_id'";
@@ -51,6 +52,9 @@ function DateThai($strDate)
     }
     if (isset($disease) && $disease != 'All') {
       $qurey3 = "and disease='$disease' ";
+    }
+    if (isset($doctor) && $doctor != 'All') {
+      $qurey4 = "and docter_id='$doctor' ";
     }
     ?>
     <div class="row">
@@ -117,13 +121,26 @@ my
       </div>
       <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="form-group">
+          <label for="exampleInputEmail1">แพทย์</label>
+
+          <select class="form-control " name="doctor">
+            <option value="All">ทั้งหมด</option>
+
+            <?php
+            @$Doctors = Doctor::find()->all();
+            foreach ($Doctors as $data) {?>
+              <option value="<?= $data->doctor_id ?>" <?= @$_POST['doctor']==$data->doctor_id ? 'selected' : '' ?>><?= $data->fullname ?></option>
+            <?php  }  ?>
+
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center pt-3">
+                <div class="form-group">
           <label for="exampleInputEmail1">&nbsp;</label>
           <div class="row">
             <div class="col">
-              <button type="submit" class="btn btn-block  btn-outline-success "><i class="fa fa-search"></i> Search</button>
-            </div>
-            <div class="col">
-              <button type="reset" class="btn btn-block  btn-outline-danger "><i class="fa fa-undo"></i> Reset</button>
+              <button type="submit" class="btn   btn-outline-success "><i class="fa fa-search"></i> Search</button>
             </div>
           </div>
         </div>
@@ -152,7 +169,7 @@ my
 
         <tbody>
           <?php
-          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 order by register_id desc";
+          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 $qurey4 order by register_id desc";
           //@$Registers = Cases::find()->where(['flagdel' => 0])->all();//ตรงนี้แสดงจาก Register ถูกแล้ว
           @$Registers = Register::findBySql($sql)->all();
 

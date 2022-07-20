@@ -54,21 +54,28 @@ AppAsset::register($this);
     </div>
 
 
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
 
       <ul class=" navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
+
+           <li class="nav-item d-none d-sm-inline-block">
+              <a href="<?= Url::toRoute('register/index') ?>" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                  Search & Summary
+              </a>
+            </li>
+
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
-        </li>
+
+
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -103,6 +110,7 @@ AppAsset::register($this);
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
       <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -135,12 +143,7 @@ AppAsset::register($this);
               </a>
             </li>
 
-            <li class="nav-item">
-              <a href="<?= Url::toRoute('fruit/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'fruit' ? 'active' : '') ?>">
-                <i class="nav-icon fas fa-apple-alt"></i>
-                <p>Fruit List</p>
-              </a>
-            </li>
+     
 
             <?php if (Yii::$app->user->identity->role == 10) { ?>
               <li class="user-panel"></li>
@@ -150,6 +153,12 @@ AppAsset::register($this);
                   <p>Setting</p>
                 </a>
               </li>
+              <li class="nav-item">
+              <a href="<?= Url::toRoute('fruit/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'fruit' ? 'active' : '') ?>">
+                <i class="nav-icon fas fa-apple-alt"></i>
+                <p>Fruit List</p>
+              </a>
+            </li>
               <li class="nav-item">
                 <a href="<?= Url::toRoute('user/index') ?>" class="nav-link <?= (Yii::$app->controller->id == 'user' ? 'active' : '') ?>">
                   <i class="nav-icon fas fa-users"></i>
