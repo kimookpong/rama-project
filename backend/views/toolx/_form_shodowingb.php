@@ -50,8 +50,8 @@ use common\models\Fruit;
 <div class="row"><div class="col-6">
   <?php $modelttl =  Testandlimit::find()->where(['register_id' => $model->register_id])->one();?>
   <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath1?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -59,8 +59,8 @@ use common\models\Fruit;
       </div>
     </div>
     <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath2?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -69,8 +69,8 @@ use common\models\Fruit;
     </div>
 
     <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$modelttl->voicepath3?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -141,8 +141,8 @@ use common\models\Fruit;
 <div class="row">
 <div class="col-6"> 
    <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceregsiter?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -172,8 +172,8 @@ use common\models\Fruit;
 <h5>Orientation(วันนี้วันอะไร)</h5>
 <div class="row">
 <div class="col-6">  <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceorientationpath?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -198,8 +198,8 @@ use common\models\Fruit;
 <h5>Fruit Fluency (พูดชื่อผลไม้ ให้ได้มากที่สุดในเวลา 1 นาที)</h5>
 <div class="row">
 <div class="col-6">  <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voicefruitluency?>" type="audio/mpeg">
                   Your browser does not support the audio element.
@@ -223,8 +223,8 @@ use common\models\Fruit;
 <h5>Recall(จำคำ 3 คำ)</h5>
 <div class="row">
 <div class="col-6">  <div class="row g-3">
-        <div class="col-4 col-form-label">ฟังเสียง</div>
-        <div class="col-8">
+        <div class="col-3 col-form-label">ฟังเสียง</div>
+        <div class="col-9">
         <audio width="100%" controls>
                   <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceregsiter?>" type="audio/mpeg">
                   Your browser does not support the audio element.

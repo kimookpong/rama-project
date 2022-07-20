@@ -8,13 +8,13 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="toolx-form">
+<div class="toolx-form ">
 
     <?php $form = ActiveForm::begin(); ?>
 
 
     <?= $form->field($model, 'user_id')->HiddenInput(['value' => Yii::$app->user->identity->id])->label(false); ?>
-<h3>บันทึกผล ToolX(เที่ยบกับเสียงที่ได้ยินจากระบบ)</h3>
+<h3>บันทึกผล ToolX(เทียบกับเสียงที่ได้ยินจากระบบ)</h3>
 บันทึกคำจากระบบที่ได้ยิน
 <h5>Registeration(จำคำ 3 คำ)</h5>
     <div class="row g-3">
@@ -40,7 +40,7 @@ use yii\widgets\ActiveForm;
 
 
     <div class="text-center">
-        <?= Html::ResetButton('Cancel', ['class' => 'btn btn-danger']) ?>
+        <?= Html::ResetButton('Reset', ['class' => 'btn btn-danger']) ?>
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
