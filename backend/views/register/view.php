@@ -4,6 +4,10 @@ use common\models\Register;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
+use common\models\Ad8;
+use common\models\Testandlimit;
+use common\models\Toolx;
+use common\models\Fruit;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\register */
@@ -27,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 if (isset($_REQUEST['del'])) {
   $model->flagdel = 1;
   $model->save(false);
-  Yii::$app->response->redirect(Url::to(['index'], true));
+  Yii::$app->response->redirect(Url::to(['register/view','case_id'=>$_REQUEST['case_id']], true));
 }
 ?>
 <div class="register-view">
@@ -62,6 +66,8 @@ if (isset($_REQUEST['del'])) {
               </tr>
             </table>
           </div>
+
+          //กรณี Staff เห็นแบบนี้
           <div class="row">
             <div class="col-12">
               <h4>ประวัติการทำแบบทดสอบ</h4>
@@ -79,30 +85,74 @@ if (isset($_REQUEST['del'])) {
                 </tr>
                 <?php
                 $modelReg = Register::find()->where(['case_id' => $model->caseid])->all();
-                foreach ($modelReg as $model) {
+                foreach ($modelReg as $datas) {
                 ?>
                   <tr>
                     <th>1</th>
-                    <th><?= $model->name ?></th>
-                    <th class="text-center"><?= $model->age ?></th>
-                    <th class="text-center"><?= DateThai($model->datetest) ?></th>
-                    <th class="text-center"><?= $model->ad8 ?></th>
-                    <th class="text-center"><?= $model->llt ?></th>
-                    <th class="text-center"> <?= $model->toolx ?></th>
-                    <th class="text-center"><?= $model->complete ?></th>
+                    <th><?= $datas->name ?></th>
+                    <th class="text-center"><?= $datas->age ?></th>
+                    <th class="text-center"><?= DateThai($datas->datetest) ?></th>
+                    <th class="text-center"><?= $datas->ad8 ?></th>
+                    <th class="text-center"><?= $datas->llt ?></th>
+                    <th class="text-center"> <?= $datas->toolx ?></th>
+                    <th class="text-center"><?= $datas->complete ?></th>
                     <th class="text-center">
-                      <?php if ($model->complete == 'ทดสอบไม่ครบ') { ?>
-                        <?= Html::a('ลบ', ['view', 'register_id' => $model->register_id, 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
-                      <?php } else { ?>
-                        <?= Html::a('ToolX Results', ['fullpaper', 'register_id' => $model->register_id], ['class' => 'btn btn-primary btn-sm']) ?>
-                    </th>
-                  <?php } ?>
+                        <?= Html::a('ลบ', ['view', 'register_id' => $datas->register_id, 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
                   </tr>
                 <?php } ?>
               </table>
 
             </div>
           </div>
+
+          //กรณี Reseacher เห็นแบบนี้
+          <div class="row">
+            <div class="col-12">
+              <h4>ประวัติการทำแบบทดสอบ</h4>
+              <table class="table table-striped table-bordered">
+                <tr class="bg-info text-center">
+                  <th>#</th>
+                  <th>ชื่อ</th>
+                  <th>อายุ</th>
+                  <th>วันที่ทดสอบ</th>
+                  <th>รวม AD8</th>
+                  <th>รวม TTL</th>
+                  <th>TX#1</th>
+                  <th>TX#2</th>
+                  <th>รวมผลไม้</th>
+                  <th>TX#4</th>
+                  <th>รวมคะแนน</th>
+                  <th>#</th>
+                </tr>
+                <?php
+                $modelReg = Register::find()->where(['case_id' => $model->caseid])->all();
+                foreach ($modelReg as $datas) {
+                 @ $ad8 = Ad8::find()->where(['register_id' => $datas->register_id])->one();
+                @  $toolx = Toolx::find()->where(['register_id' => $datas->register_id])->one();
+                 @ $ttl = Testandlimit::find()->where(['register_id' => $datas->register_id])->one();
+                ?>
+                  <tr>
+                    <th>1</th>
+                    <th><?= $datas->name ?></th>
+                    <th class="text-center"><?= $datas->age ?></th>
+                    <th class="text-center"><?= DateThai($datas->datetest) ?></th>
+                    <th class="text-center"><?= $ad8->score ?></th>
+                    <th class="text-center"><?= $ttl->score ?></th>
+                    <th class="text-center"><?= $toolx->regsiter_score ?></th>
+                    <th class="text-center"><?= $toolx->orientation_score ?></th>
+                    <th class="text-center"><?= $toolx->fruitfluency_score ?></th>
+                    <th class="text-center"><?= $toolx->wordregsiter_score ?></th>
+                    <th class="text-center"> <?= $ad8->score+$ttl->score+$toolx->regsiter_score+$toolx->orientation_score+$toolx->fruitfluency_score+$toolx->wordregsiter_score ?></th>
+                    <th class="text-center">
+                    <?= Html::a('ToolX Results', ['fullpaper', 'register_id' => $datas->register_id], ['class' => 'btn btn-primary btn-sm']) ?>
+                  </tr>
+                <?php } ?>
+              </table>
+
+            </div>
+          </div>                 
+      
+                        
           <h5 class="mt-5 text-muted">อัพโหลดไฟล์ที่เกี่ยวข้องกับผู้ทดสอบ</h5>
           <!--  <ul class="list-unstyled">
                <li>

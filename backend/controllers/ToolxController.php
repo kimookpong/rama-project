@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use common\models\Testandlimit;
 /**
  * ToolxController implements the CRUD actions for toolx model.
  */
@@ -115,9 +115,20 @@ class ToolxController extends Controller
  public function actionShodowingb($toolx_id)
     {
         $model = $this->findModel($toolx_id);
+        if(isset($_POST['userrecord_qustion1'])){
+        $modelttl =  Testandlimit::find()->where(['register_id' => $model->register_id])->one();
+        $modelttl->userrecord_qustion1 = $_POST['userrecord_qustion1'];
+        $modelttl->userrecord_qustion2 = $_POST['userrecord_qustion2'];
+        $modelttl->userrecord_qustion3 = $_POST['userrecord_qustion3'];
+        $modelttl->voicequality1 = $_POST['voicequality1'];
+        $modelttl->voicequality2 = $_POST['voicequality2'];
+        $modelttl->voicequality3 = $_POST['voicequality3'];
+        $modelttl->user_id = $_POST['user_id'];
+        $modelttl->save(false);
+        }
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'toolx_id' => $model->toolx_id]);
+            return $this->redirect(['register/index', 'toolx_id' => $model->toolx_id]);
         }
 
         return $this->render('shodowingb', [
