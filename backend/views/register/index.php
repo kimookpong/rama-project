@@ -141,8 +141,9 @@ my
         <tbody>
           <?php
           @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 order by register_id desc";
-          @$Registers = Cases::find()->where(['flagdel' => 0])->all();
-
+          //@$Registers = Cases::find()->where(['flagdel' => 0])->all();//ตรงนี้แสดงจาก Register ถูกแล้ว
+          @$Registers = Register::findBySql($sql)->all();
+    
           foreach ($Registers as $data) { ?>
             <tr>
               <td><?= DateThai($data->update_at) ?></td>
@@ -151,7 +152,7 @@ my
               <td><?= $data->email ?></td>
               <td><?= $data->provinces ?></td>
               <td class="text-center">
-                <?= Html::a('รายละเอียด', ['view', 'case_id' => $data->caseid], ['class' => 'btn btn-info btn-sm']) ?>
+                <?= Html::a('รายละเอียด', ['view', 'case_id' => $data->case_id], ['class' => 'btn btn-info btn-sm']) ?>
             </tr>
           <?php } ?>
         </tbody>
