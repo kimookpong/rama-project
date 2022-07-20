@@ -115,6 +115,32 @@ class RegisterController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    public function actionNewRegister($case_id)
+    {
+        $model = new Register();
+        $modelLast = Register::find()->where(['case_id' => $case_id])->orderBy(['register_id' => SORT_DESC])->one();
+        $modelCase = Cases::findOne($case_id);
+        $model->name =  $modelCase->name;
+        $model->case_id = $case_id;
+        $model->surname =  $modelCase->surname;
+        $model->gender = $modelCase->gender;
+        $model->age =  $modelLast->age;
+        $model->tel =  $modelCase->tel;
+        $model->email =  $modelCase->email;
+        $model->provinces_id =  $modelCase->provinces_id;
+        $model->docter_id =  $modelLast->docter_id;
+        $model->disease = $modelLast->disease;
+        $model->source = 'uat';
+        $model->datetest = date('Y-m-d');
+        $model->month = date('m');
+        $model->year = date('Y');
+        $model->create_at = date('Y-m-d H:i:s');
+        $model->update_at = date('Y-m-d H:i:s');
+        $model->save(false);
+
+        return $this->redirect(['ad8/create', 'reg_id' => $model->register_id]);
+    }
     public function actionUpdate($register_id)
     {
         $model = $this->findModel($register_id);

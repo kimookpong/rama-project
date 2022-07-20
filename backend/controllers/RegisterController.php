@@ -3,11 +3,13 @@
 namespace backend\controllers;
 
 use common\models\Cases;
+use common\models\Files;
 use common\models\Register;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * RegisterController implements the CRUD actions for register model.
@@ -75,8 +77,21 @@ class RegisterController extends Controller
      */
     public function actionView($case_id)
     {
+        $modelFile = new Files();
+        $modelFile->case_id = $case_id;
+        $modelFile->user_id = Yii::$app->user->identity->id;
+        $modelFile->create_at = date('Y-m-d h:i:s');
+        $modelFile->flagdel = 0;
+        if ($this->request->isPost) {
+            if ($modelFile->load($this->request->post())) {
+                $modelFile->files_part = $modelFile->upload($modelFile, 'files_part');
+                $modelFile->save(false);
+                return $this->redirect(['view', 'case_id' => $case_id]);
+            }
+        }
         return $this->render('view', [
             'model' => Cases::findOne($case_id),
+            'modelFile' => $modelFile,
         ]);
     }
 
