@@ -193,6 +193,7 @@ AppAsset::register($this);
         order: [
           [0, 'desc']
         ],
+        "dom": '<"top"if<"clear">>rt<"bottom"lp<"clear">>',
         "language": {
           "decimal": "",
           "emptyTable": "ไม่มีรายการข้อมูล",

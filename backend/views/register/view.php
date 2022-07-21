@@ -31,8 +31,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Registers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 if (isset($_REQUEST['del'])) {
-  $model->flagdel = 1;
-  $model->save(false);
+  $modeldetail = Register::find()->where(['register_id' => $_GET['register_id']])->one();
+  $modeldetail->flagdel = 1;
+  $modeldetail->save(false);
   Yii::$app->response->redirect(Url::to(['register/view', 'case_id' => $_REQUEST['case_id']], true));
 }
 ?>
@@ -112,7 +113,7 @@ if (isset($_REQUEST['del'])) {
                     <th>#</th>
                   </tr>
                   <?php
-                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->orderBy(['create_at' => SORT_DESC])->all();
+                  $modelReg = Register::find()->where(['case_id' => $model->caseid,'flagdel'=>0])->orderBy(['create_at' => SORT_DESC])->all();
                   foreach ($modelReg as $index => $datas) {
                   ?>
                     <tr>
@@ -125,7 +126,7 @@ if (isset($_REQUEST['del'])) {
                       <th class="text-center"> <?= $datas->toolx ?></th>
                       <th class="text-center"><?= $datas->complete ?></th>
                       <th class="text-center">
-                        <?= Html::a('ลบ', ['view', 'register_id' => $datas->register_id, 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
+                        <?= Html::a('ลบ', ['view', 'register_id' => $datas->register_id, 'case_id' => $_GET['case_id'], 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
                     </tr>
                   <?php } ?>
                 </table>
@@ -153,7 +154,7 @@ if (isset($_REQUEST['del'])) {
                     <th>#</th>
                   </tr>
                   <?php
-                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->orderBy(['create_at' => SORT_DESC])->all();
+                  $modelReg = Register::find()->where(['case_id' => $model->caseid,'flagdel'=>0])->orderBy(['create_at' => SORT_DESC])->all();
                   $count = 0;
                   foreach ($modelReg as $index => $datas) {
                     @$ad8 = Ad8::find()->where(['register_id' => $datas->register_id])->one();
