@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use common\models\register;
+use common\models\Register;
 /* @var $this yii\web\View */
 /* @var $model common\models\toolx */
 

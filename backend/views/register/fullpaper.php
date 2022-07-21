@@ -354,7 +354,18 @@ $arrayfruit = explode(",", $wordfruit);
 
           </tr>
         </table>
+        
+
       </div>
+
+      <div class="mt-2 row">
+          <div class="col-4">
+            <a class="btn btn-block btn-secondary" href="/backend/web/index.php?r=register%2Findex">Back</a>          </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+            <a class="btn btn-block btn-secondary" href="/backend/web/index.php?r=register/comparison&register_id=<?=$_GET['register_id']?>">Comparison</a>          </div>
+          </div>
+       </div>   
 
     </div>
     <!-- /.card-body -->

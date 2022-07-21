@@ -226,7 +226,7 @@ use common\models\Fruit;
         <div class="col-3 col-form-label">ฟังเสียง</div>
         <div class="col-9">
         <audio width="100%" controls>
-                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voiceregsiter?>" type="audio/mpeg">
+                  <source src="<?= Yii::$app->params['frontend'] ?><?=$model->voicerecall?>" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
       </div>

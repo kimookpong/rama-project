@@ -72,7 +72,7 @@ function DateThai($strDate)
       provinces
       INNER JOIN register ON provinces.provinces_id = register.provinces_id
       GROUP BY
-      provinces.provinces_id
+      provinces.name_th
       ';
             $provinces = Provinces::findBySql($sql)->all();
             foreach ($provinces as $data) {

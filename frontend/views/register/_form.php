@@ -10,7 +10,7 @@ use common\models\Provinces;
 use common\models\Doctor;
 use yii\helpers\Url;
 
-$provinces = Provinces::find()->all();
+$provinces = Provinces::find()->orderBy(['name_th' => SORT_ASC])->all();
 $listData = ArrayHelper::map($provinces, 'provinces_id', 'name_th');
 $Docter = Doctor::find()->all();
 $listDataDocter = ArrayHelper::map($Docter, 'doctor_id', 'fullname');

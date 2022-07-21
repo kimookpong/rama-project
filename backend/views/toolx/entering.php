@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use common\models\register;
+use common\models\Register;
 /* @var $this yii\web\View */
 /* @var $model common\models\toolx */
 
@@ -28,7 +28,7 @@ function DateThai($strDate)
               <div class="card-header">
                 <h1>
                   <i class="fas fa-bullhorn"></i>
-                  Shodowing-A: Data Entering
+                  Shadowing-A: Data Entering
                 </h1>
               </div>
                <div class="card-body  p-4">
@@ -37,7 +37,7 @@ function DateThai($strDate)
                 <div class="col-md-4">    นามสกุล:<mark><?=$modelreg->surname?></mark></div>
                 <div class="col-md-4">    รหัส:<mark><?=$modelreg->disease?></mark></div>
                 </div>
-<div class="row"><div class="col-md-4">ผู้บันทึกข้อมูล <mark><?=Yii::$app->user->identity->fullname?></mark></div><div class="col-md-4">วันที่ทดสอบ <mark><?=DateThai($modelreg->datetest)?></mark></div> </div>
+<div class="row"><div class="col-md-8">ผู้บันทึกข้อมูล <mark><?=Yii::$app->user->identity->fullname?></mark></div><div class="col-md-4">วันที่ทดสอบ <mark><?=DateThai($modelreg->datetest)?></mark></div> </div>
 
 <hr>
     <?= $this->render('_form_entering', [
