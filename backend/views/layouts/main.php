@@ -62,13 +62,14 @@ AppAsset::register($this);
             <img src="<?= Yii::$app->params['backend'] ?>img/logo.png" class="img-circle img-fluid" style="height: 40px;">
           </a>
         </li>
-
+        <?php if (Yii::$app->user->identity->role != 10) { ?>
         <li class="nav-item  px-2 d-sm-inline-block">
           <a href=" <?= Url::toRoute('register/index') ?>" class="nav-link px-0">
             <i class="fas fa-chart-bar"></i>
             Search & Summary
           </a>
         </li>
+        <?php } ?>
         <?php if (Yii::$app->user->identity->role == 10) { ?>
           <li class="nav-item  px-2 d-sm-inline-block dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle px-0"><i class="fas fa-cog"></i> Setting</a>
