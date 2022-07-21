@@ -16,7 +16,6 @@ use common\models\Fruit;
     <?php $form = ActiveForm::begin(); ?>
 
 
-    <?= $form->field($model, 'user_id')->HiddenInput(['value' => Yii::$app->user->identity->id])->label(false); ?>
 
 
     <div class="col-12">
