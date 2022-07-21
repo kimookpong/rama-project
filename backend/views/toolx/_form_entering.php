@@ -39,10 +39,12 @@ use yii\widgets\ActiveForm;
     </div>
 
 
-    <div class="text-center">
-        <?= Html::ResetButton('Reset', ['class' => 'btn btn-danger']) ?>
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
+    <div class="row text-center py-3">
+      <div class="col-4">
+      <a class="btn btn-block btn-secondary" href="/backend/web/index.php?r=register%2Findex">Back</a>          </div>  <div class="col-4"></div> 
+      <div class="col-4">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-block']) ?>
+    </div></div>
 
     <?php ActiveForm::end(); ?>
 

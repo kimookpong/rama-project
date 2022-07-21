@@ -19,31 +19,31 @@ use common\models\Fruit;
     <?= $form->field($model, 'user_id')->HiddenInput(['value' => Yii::$app->user->identity->id])->label(false); ?>
 
 
-    <div class="col-12 col-sm-12 p-3">
+    <div class="col-12">
             <div class="card card-primary card-outline card-tabs">
               <div class="card-header p-0 pt-1 border-bottom-0">
                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Test the limit</a>
+                    <a class="nav-link <?=@$_GET['tab']=='1'?'active':''?> <?=isset($_GET['tab'])?'':'active'?>" id="custom-tabs-three-home-tab" onclick="change(1)" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Test the limit</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Registeration</a>
+                    <a class="nav-link <?=@$_GET['tab']=='2'?'active':''?>" id="custom-tabs-three-profile-tab" onclick="change(2)" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Registeration</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Orientation</a>
+                    <a class="nav-link <?=@$_GET['tab']=='3'?'active':''?>" id="custom-tabs-three-messages-tab" onclick="change(3)" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Orientation</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-settings-tab" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="false">Fruit Fluency</a>
+                    <a class="nav-link <?=@$_GET['tab']=='4'?'active':''?>" id="custom-tabs-three-settings-tab" onclick="change(4)" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="false">Fruit Fluency</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-three-recall-tab" data-toggle="pill" href="#custom-tabs-three-recall" role="tab" aria-controls="custom-tabs-three-recall" aria-selected="false">Recall</a>
+                    <a class="nav-link <?=@$_GET['tab']=='5'?'active':''?>" id="custom-tabs-three-recall-tab" onclick="change(5)" data-toggle="pill" href="#custom-tabs-three-recall" role="tab" aria-controls="custom-tabs-three-recall" aria-selected="false">Recall</a>
                   </li>
 
                 </ul>
               </div>
               <div class="card-body  p-4">
                 <div class="tab-content" id="custom-tabs-three-tabContent">
-                  <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                  <div class="tab-pane fade show <?=isset($_GET['tab'])?'':'active'?> <?=@$_GET['tab']=='1'?'active':''?>" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
                  
                   <h3>Test the Limit (บันทึกเสียงที่ได้ยินจากผู้ทดสอบ)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
@@ -134,7 +134,7 @@ use common\models\Fruit;
 
                   
                   </div>
-                  <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
+                  <div class="tab-pane <?=@$_GET['tab']=='2'?'show':'fade'?> <?=@$_GET['tab']=='2'?'active':''?>" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                   <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 1/4)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
 <h5>Registeration(จำคำ 3 คำ)</h5>
@@ -165,7 +165,7 @@ use common\models\Fruit;
         <div class="col-6"> <?= $form->field($model, 'user_b_record_regsiter_3')->textInput(['maxlength' => true])->label(false) ?></div>
     </div>
     </div>  </div>                  </div>
-                  <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
+                  <div class="tab-pane <?=@$_GET['tab']=='3'?'show':'fade'?> <?=@$_GET['tab']=='3'?'active':''?>" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
 
                   <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 2/4)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
@@ -191,7 +191,7 @@ use common\models\Fruit;
     </div>  </div> 
 
                 </div>
-                  <div class="tab-pane fade" id="custom-tabs-three-settings" role="tabpanel" aria-labelledby="custom-tabs-three-settings-tab">
+                  <div class="tab-pane <?=@$_GET['tab']=='4'?'show':'fade'?> <?=@$_GET['tab']=='4'?'active':''?>" id="custom-tabs-three-settings" role="tabpanel" aria-labelledby="custom-tabs-three-settings-tab">
 
                   <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 3/4)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
@@ -216,7 +216,7 @@ use common\models\Fruit;
    
     </div>  </div> 
                  </div> 
-    <div class="tab-pane fade" id="custom-tabs-three-recall" role="tabpanel" aria-labelledby="custom-tabs-three-recall-tab">
+    <div class="tab-pane <?=@$_GET['tab']=='5'?'show':'fade'?> <?=@$_GET['tab']=='5'?'active':''?>" id="custom-tabs-three-recall" role="tabpanel" aria-labelledby="custom-tabs-three-recall-tab">
       
     <h3>บันทึกผล ToolX (บันทึกเสียงที่ได้ยินข้อ 4/4)</h3>
 บันทึกคำที่ได้ยินจากผู้ทดสอบ หรือจากระบบที่บันทึกเอาไว้
@@ -254,7 +254,12 @@ use common\models\Fruit;
   
   </div>
 
-
+  <div class="row text-center py-3">
+      <div class="col-4">
+      <a class="btn btn-block btn-secondary" href="/backend/web/index.php?r=register%2Findex">Back</a>          </div>  <div class="col-4"></div> 
+      <div class="col-4">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-block']) ?>
+    </div></div>
 
                 </div>
 
@@ -262,15 +267,16 @@ use common\models\Fruit;
                 </div>
               </div>
               <!-- /.card -->
-            </div>
-          </div>
+              <input type="hidden" id="myInput" name="tab" value="<?=isset($_GET['tab'])?$_GET['tab']:'1'?>">
 
+              <script>
 
+function change(val) {
+  var x = document.getElementById("myInput").value= val;
+}
+</script>
 
-    <div class="text-center p-3">
-        <?= Html::ResetButton('Cancel', ['class' => 'btn btn-danger']) ?>
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
+   
 
     <?php ActiveForm::end(); ?>
 

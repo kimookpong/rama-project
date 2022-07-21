@@ -128,7 +128,7 @@ class ToolxController extends Controller
         }
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['shodowingb', 'toolx_id' => $model->toolx_id]);
+            return $this->redirect(['shodowingb', 'toolx_id' => $model->toolx_id ,'tab'=>$_POST['tab']]);
         }
 
         return $this->render('shodowingb', [

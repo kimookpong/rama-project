@@ -39,6 +39,7 @@ function DateThai($strDate)
                 </div>
 <div class="row"><div class="col-md-8">ผู้บันทึกข้อมูล <mark><?=Yii::$app->user->identity->fullname?></mark></div><div class="col-md-4">วันที่ทดสอบ <mark><?=DateThai($modelreg->datetest)?></mark></div> </div>
 
+
 <hr>
     <?= $this->render('_form_entering', [
         'model' => $model,
