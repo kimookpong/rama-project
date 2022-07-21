@@ -112,7 +112,7 @@ if (isset($_REQUEST['del'])) {
                     <th>#</th>
                   </tr>
                   <?php
-                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->all();
+                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->orderBy(['create_at' => SORT_DESC])->all();
                   foreach ($modelReg as $index => $datas) {
                   ?>
                     <tr>
@@ -153,15 +153,17 @@ if (isset($_REQUEST['del'])) {
                     <th>#</th>
                   </tr>
                   <?php
-                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->all();
+                  $modelReg = Register::find()->where(['case_id' => $model->caseid])->orderBy(['create_at' => SORT_DESC])->all();
+                  $count = 0;
                   foreach ($modelReg as $index => $datas) {
                     @$ad8 = Ad8::find()->where(['register_id' => $datas->register_id])->one();
                     @$toolx = Toolx::find()->where(['register_id' => $datas->register_id])->one();
                     @$ttl = Testandlimit::find()->where(['register_id' => $datas->register_id])->one();
                     if ($ad8 && $toolx && $ttl) {
+                      $count =  $count + 1;
                   ?>
                       <tr>
-                        <th><?= $index + 1 ?></th>
+                        <th><?= $count ?></th>
                         <th><?= $datas->name ?></th>
                         <th class="text-center"><?= $datas->age ?></th>
                         <th class="text-center"><?= DateThai($datas->datetest) ?></th>

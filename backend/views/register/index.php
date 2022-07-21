@@ -128,8 +128,8 @@ my
 
             <?php
             @$Doctors = Doctor::find()->all();
-            foreach ($Doctors as $data) {?>
-              <option value="<?= $data->doctor_id ?>" <?= @$_POST['doctor']==$data->doctor_id ? 'selected' : '' ?>><?= $data->fullname ?></option>
+            foreach ($Doctors as $data) { ?>
+              <option value="<?= $data->doctor_id ?>" <?= @$_POST['doctor'] == $data->doctor_id ? 'selected' : '' ?>><?= $data->fullname ?></option>
             <?php  }  ?>
 
           </select>
@@ -159,6 +159,7 @@ my
       <table id="example1" class="table table-bordered table-hover dataTable dtr-inline collapsed">
         <thead>
           <tr>
+            <th>ลำดับ</th>
             <th>ชื่อ-สกุล</th>
             <th>แพทย์</th>
             <th>วันที่-เวลา</th>
@@ -169,14 +170,15 @@ my
 
         <tbody>
           <?php
-          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 $qurey4 order by register_id desc";
+          @$sql = " SELECT * FROM register where flagdel = 0 $qurey1 $qurey2 $qurey3 $qurey4 order by register_id asc";
           //@$Registers = Cases::find()->where(['flagdel' => 0])->all();//ตรงนี้แสดงจาก Register ถูกแล้ว
           @$Registers = Register::findBySql($sql)->all();
 
-          foreach ($Registers as $data) {
+          foreach ($Registers as $index => $data) {
             @$toolx = Toolx::find()->where(['register_id' => $data->register_id])->one();
           ?>
             <tr>
+              <td><?= $index + 1 ?></td>
               <td><?= $data->name ?> <?= $data->surname ?></td>
               <td><?= $data->Doctor ?></td>
               <td><?= DateThai($data->update_at) ?></td>
