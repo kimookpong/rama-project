@@ -126,8 +126,10 @@ if (isset($_REQUEST['del'])) {
                       <th class="text-center"> <?= $datas->toolx ?></th>
                       <th class="text-center"><?= $datas->complete ?></th>
                       <th class="text-center">
+                        <?php if($datas->complete=='ทดสอบไม่ครบ'){?>
                         <?= Html::a('ลบ', ['view', 'register_id' => $datas->register_id, 'case_id' => $_GET['case_id'], 'del' => 1], ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?', 'data-method' => 'post']) ?>
-                    </tr>
+                        <?php } ?>
+                      </tr>
                   <?php } ?>
                 </table>
 

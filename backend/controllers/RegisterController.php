@@ -101,6 +101,12 @@ class RegisterController extends Controller
             'model' => $this->findModel($register_id),
         ]);
     }
+    public function actionComparison($register_id)
+    {
+        return $this->render('comparison', [
+            'model' => $this->findModel($register_id),
+        ]);
+    }
     /**
      * Creates a new register model.
      * If creation is successful, the browser will be redirected to the 'view' page.

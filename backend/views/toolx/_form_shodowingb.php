@@ -114,20 +114,21 @@ use common\models\Fruit;
         <div class="col-3 col-form-label">คุณภาพเสียง</div>
         <div class="col-1">  <div class="form-group field-toolx-user_a_voice_quality1">
 
-<input type="hidden" name="voicequality1" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality1" name="voicequality1" value="1"> ดี</label>
+<input type="hidden" name="voicequality1" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality1" name="voicequality1" value="1" <?=$modelttl->voicequality1=='1'?'checked':''?>> ดี</label>
 
 <div class="help-block"></div>
 </div></div>
         <div class="col-2">  <div class="form-group field-toolx-user_a_voice_quality2">
 
-<input type="hidden" name="voicequality2" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality2" name="voicequality2" value="1"> เสียงเบา</label>
+<input type="hidden" name="voicequality2" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality2" name="voicequality2" value="1" <?=$modelttl->voicequality2=='1'?'checked':''?>> เสียงเบา</label>
 
 <div class="help-block"></div>
 </div></div>
         <div class="col-3">  <div class="form-group field-toolx-user_a_voice_quality3">
 
-<input type="hidden" name="voicequality3" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality3" name="voicequality3" value="1"> มีเสียงรบกวน</label>
+<input type="hidden" name="voicequality3" value="0"><label><input type="checkbox" id="toolx-user_a_voice_quality3" name="voicequality3" value="1" <?=$modelttl->voicequality3=='1'?'checked':''?>> มีเสียงรบกวน</label>
 <input type="hidden" name="user_id" value="<?=Yii::$app->user->identity->id?>">
+<?= $form->field($model, 'user_id_b')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false) ?>
 <div class="help-block"></div>
 </div></div>
     </div>
