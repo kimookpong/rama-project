@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use common\models\toolx;
+use common\models\Toolx;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

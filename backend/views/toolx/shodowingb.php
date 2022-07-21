@@ -28,7 +28,7 @@ function DateThai($strDate)
               <div class="card-header">
                 <h1>
                   <i class="fas fa-bullhorn"></i>
-                  Shodowing-B: Test the Limit
+                  Shadowing-B: Test the Limit
                 </h1>
               </div>
                <div class="card-body">
