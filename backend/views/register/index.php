@@ -59,7 +59,7 @@ function DateThai($strDate)
     ?>
     <div class="row">
 
-      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="form-group">
           <label for="exampleInputEmail1">จังหวัด</label>
           <select class="form-control " name="provinces">
@@ -82,7 +82,7 @@ function DateThai($strDate)
           </select>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="col-lg-2 col-md-4 col-sm-6">
         <div class="form-group">
           <label for="exampleInputEmail1">เดือน/ปี</label>
 
@@ -108,7 +108,7 @@ my
           </select>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="col-lg-2 col-md-4 col-sm-6">
         <div class="form-group">
           <label for="exampleInputEmail1">รหัสสถานะ</label>
 
@@ -119,7 +119,7 @@ my
           </select>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="col-lg-2 col-md-4 col-sm-6">
         <div class="form-group">
           <label for="exampleInputEmail1">แพทย์</label>
 
@@ -135,7 +135,7 @@ my
           </select>
         </div>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center pt-3">
+      <div class="col-lg-2 col-md-4 col-sm-6 text-center pt-3">
                 <div class="form-group">
           <label for="exampleInputEmail1">&nbsp;</label>
           <div class="row">
