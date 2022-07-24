@@ -364,3 +364,22 @@ body {
     padding: 12px;
     background: #fff;
   }
+  .orose {
+    background-color:#C95E23 ;
+    color: #fff;
+  }
+  .text-orose-medium {
+    color: #F0AC8540;
+  }
+  .text-sky {
+    color: #2969e5
+  }
+  .text-yellow {
+    color: #D3B200
+  }
+  .text-sky-light {
+    color: #a3bcee
+  }
+  .mini-boid {
+    color: #1EA1A9
+  }

@@ -94,7 +94,10 @@ class RegisterController extends Controller
             'modelFile' => $modelFile,
         ]);
     }
-
+    public function actionCriteria()
+    {
+        return $this->render('criteria');
+    }
     public function actionFullpaper($register_id)
     {
         return $this->render('fullpaper', [
